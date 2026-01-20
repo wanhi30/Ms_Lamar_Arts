@@ -1,8 +1,7 @@
-/* Import Inter and a handwritten font for the logo */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Dancing+Script:wght@700&display=swap');
 
 :root {
-    --primary: #b91d25; /* The Deep Red from Logo */
+    --primary: #b91d25; /* Deep Red */
     --cyan: #00ADEF;
     --magenta: #EC008C;
     --yellow: #FFD100;
@@ -21,14 +20,9 @@ img { max-width: 100%; }
 
 /* --- PRELOADER --- */
 #preloader {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: #fff;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #fff; z-index: 9999;
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
     transition: opacity 0.5s ease;
 }
 #intro-video { width: 80%; max-width: 400px; }
@@ -49,12 +43,21 @@ header {
 .nav-container {
     display: flex; justify-content: space-between; align-items: center; padding: 15px 5%;
 }
-/* New Logo Typography */
-.logo-text {
-    font-family: 'Dancing Script', cursive; /* Handwritten style */
-    font-size: 2rem;
-    color: var(--dark);
+
+/* LOGO STYLING */
+.logo-link {
+    display: flex; align-items: center; gap: 12px;
 }
+.logo-icon {
+    height: 50px; width: auto; /* Adjusts logo size */
+}
+.logo-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--dark);
+    font-weight: 700;
+}
+
 .nav-links { display: flex; list-style: none; gap: 30px; }
 .nav-links a { font-weight: 600; transition: 0.3s; }
 .nav-links a:hover, .nav-links a.active { color: var(--primary); }
@@ -65,33 +68,22 @@ header {
 .cta-button:hover { background: var(--dark); }
 .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
 
-/* --- HERO SECTION (Restored Layout) --- */
+/* --- HERO SECTION --- */
 .hero {
-    padding: 80px 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 50px;
-    align-items: center;
-    background-color: var(--light);
+    padding: 80px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; background-color: var(--light);
 }
 .hero-text h1 {
     font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800;
 }
-.hero-text p {
-    font-size: 1.1rem; color: #666; margin-bottom: 30px;
-}
+.hero-text p { font-size: 1.1rem; color: #666; margin-bottom: 30px; }
 .since-badge {
     display: inline-block; background: var(--primary); color: var(--white); padding: 5px 10px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; border-radius: 4px; transition: 0.3s;
 }
 .since-badge:hover { background: var(--dark); }
 
-/* Slideshow Container with RED border */
 .hero-image-container {
-    height: 450px;
-    border-radius: 8px;
-    overflow: hidden;
-    /* Changed from blue to RED shadow */
-    box-shadow: 20px 20px 0px var(--primary);
+    height: 450px; border-radius: 8px; overflow: hidden;
+    box-shadow: 20px 20px 0px var(--primary); /* Red Shadow */
     position: relative;
 }
 .slideshow { width: 100%; height: 100%; position: relative; }
@@ -128,7 +120,6 @@ footer { background: var(--dark); color: white; padding: 60px 5% 20px; margin-to
     .hero-image-container { height: 300px; box-shadow: 10px 10px 0px var(--primary); }
     .hero-buttons { justify-content: center; }
 }
-
 @media (max-width: 768px) {
     .nav-links {
         display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: white; padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
