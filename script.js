@@ -3,8 +3,10 @@ window.addEventListener('load', function() {
     const video = document.getElementById('intro-video');
     const preloader = document.getElementById('preloader');
 
-    // Play video, then close preloader
+    // Attempt to play video
     video.play().catch(() => { console.log("Autoplay blocked"); });
+
+    // When video ends, fade out preloader
     video.onended = function() { closePreloader(); };
 });
 
@@ -24,18 +26,21 @@ let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
 
 function showSlides() {
+    if (slides.length === 0) return; // Safety check
+    
     // Hide all slides
     slides.forEach(slide => slide.classList.remove('active'));
-    // Increment index, reset if at end
+    
+    // Increment index
     slideIndex++;
     if (slideIndex > slides.length) { slideIndex = 1 }
+    
     // Show current slide
     slides[slideIndex - 1].classList.add('active');
+    
     // Change slide every 4 seconds
     setTimeout(showSlides, 4000); 
 }
 
-// Start slideshow if slides exist
-if (slides.length > 0) {
-    showSlides();
-}
+// Start slideshow
+showSlides();
