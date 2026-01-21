@@ -48,9 +48,19 @@ header {
     height: 70px; width: auto; /* Adjusts logo size */
 }
 .logo-text {
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap');
-.logo-text { font-family: 'Playfair Display', italic bold serif; font-weight: 800; }
+    font-size: 1.8rem; /* Bigger Font Size */
+    font-weight: 800; /* Extra Bold */
+    color: var(--black);
+    letter-spacing: -0.5px; /* Tighter letters for a modern look */
+    line-height: 1;
+    white-space: nowrap; /* Prevents wrapping on small screens */
+}
 
+/* Mobile Responsiveness for Logo */
+@media (max-width: 768px) {
+    .logo-img { height: 50px; } /* Slightly smaller on phone but still prominent */
+    .logo-text { font-size: 1.4rem; }
+    .navbar { padding: 15px 20px; }
 }
 
 .nav-links { display: flex; list-style: none; gap: 30px; }
@@ -126,6 +136,7 @@ footer { background: var(--dark); color: white; padding: 60px 5% 20px; margin-to
     .top-bar { flex-direction: column; text-align: center; gap: 10px; }
     .footer-container { grid-template-columns: 1fr; }
 }
+
 
 
 
