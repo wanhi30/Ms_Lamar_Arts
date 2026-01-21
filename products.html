@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | M/s LAMAR ARTS</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="products.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<script src="products.js"></script> 
+</body>
+
+    <header>
+        <div class="top-bar">
+             <div class="contact-details">
+                <span><i class="fas fa-phone-alt"></i> +91 98623 30569</span>
+            </div>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <span class="logo-text">M/s LAMAR ARTS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li> <li><a href="#history">History</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <div class="search-section">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="productSearch" placeholder="Search for banners, mugs, stones...">
+        </div>
+    </div>
+
+    <section class="featured-slider">
+        <h2 class="section-title">Latest & Featured</h2>
+        <div class="snap-container">
+            <div class="snap-card" style="background-image: url('featured-stone.jpg');">
+                <div class="glass-overlay">
+                    <h3>Granite Memorials</h3>
+                    <p>Premium Machine Engraving</p>
+                </div>
+            </div>
+            <div class="snap-card" style="background-image: url('featured-tshirt.jpg');">
+                <div class="glass-overlay">
+                    <h3>Custom Apparel</h3>
+                    <p>Sublimation & Vinyl Prints</p>
+                </div>
+            </div>
+            <div class="snap-card" style="background-image: url('featured-neon.jpg');">
+                <div class="glass-overlay">
+                    <h3>Neon Signs</h3>
+                    <p>Trendy Shop Branding</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-catalog">
+
+        <section class="catalog-zone">
+            <div class="zone-header">
+                <h2><i class="fas fa-briefcase"></i> Business Solutions</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="signage">Signage</button>
+                    <button class="filter-btn" data-filter="office">Office</button>
+                    <button class="filter-btn" data-filter="heavy">Heavy Work</button>
+                </div>
+            </div>
+
+            <div class="product-list" id="business-list">
+                <div class="prod-item" data-category="heavy">
+                    <div class="prod-img"><img src="stone.jpg" alt="Granite Stone"></div>
+                    <div class="prod-info">
+                        <h4>Granite Memorial Stone</h4>
+                        <p>Machine engraving, weatherproof, gold/silver paint.</p>
+                        <a href="https://wa.me/919862330569?text=Hi%20Lamar%20Arts,%20I%20want%20to%20know%20price%20for%20Granite%20Stone" class="wa-btn"><i class="fab fa-whatsapp"></i> Order / Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-item" data-category="signage">
+                    <div class="prod-img"><img src="glowsign.jpg" alt="Glow Sign"></div>
+                    <div class="prod-info">
+                        <h4>3D LED Signboard</h4>
+                        <p>Acrylic letters with waterproof LED modules.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20interested%20in%203D%20LED%20Signboard" class="wa-btn"><i class="fab fa-whatsapp"></i> Order / Enquire</a>
+                    </div>
+                </div>
+
+                 <div class="prod-item" data-category="office">
+                    <div class="prod-img"><img src="stamp.jpg" alt="Stamp"></div>
+                    <div class="prod-info">
+                        <h4>Rubber Stamps</h4>
+                        <p>Self-inking and traditional polymer stamps.</p>
+                        <span class="badge">24hr Express</span>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20a%20Rubber%20Stamp" class="wa-btn"><i class="fab fa-whatsapp"></i> Order / Enquire</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-zone">
+            <div class="zone-header">
+                <h2><i class="fas fa-gift"></i> Gifting & Studio</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="apparel">Apparel</button>
+                    <button class="filter-btn" data-filter="memento">Mementos</button>
+                    <button class="filter-btn" data-filter="decor">Decor</button>
+                </div>
+            </div>
+
+            <div class="product-list" id="gifting-list">
+                <div class="prod-item" data-category="apparel">
+                    <div class="prod-img"><img src="tshirt.jpg" alt="Tshirt"></div>
+                    <div class="prod-info">
+                        <h4>Custom T-Shirts</h4>
+                        <p>Sublimation photo print or vinyl text.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20want%20to%20print%20a%20T-Shirt" class="wa-btn"><i class="fab fa-whatsapp"></i> Order / Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-item" data-category="memento">
+                    <div class="prod-img"><img src="keychain.jpg" alt="Keychain"></div>
+                    <div class="prod-info">
+                        <h4>Acrylic Keychains</h4>
+                        <p>Any shape, double sided photo.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20price%20for%20Keychains?" class="wa-btn"><i class="fab fa-whatsapp"></i> Order / Enquire</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <section class="services-strip">
+        <h3>Beyond Printing</h3>
+        <div class="service-grid">
+            <div class="svc-card">
+                <i class="fas fa-tools"></i>
+                <h4>Installation</h4>
+                <p>Signboards & Banners fixing on-site.</p>
+            </div>
+            <div class="svc-card">
+                <i class="fas fa-magic"></i>
+                <h4>Photo Restoration</h4>
+                <p>We fix old, damaged photos before printing.</p>
+            </div>
+            <div class="svc-card">
+                <i class="fas fa-paste"></i>
+                <h4>Vinyl Pasting</h4>
+                <p>Professional pasting for glass & vehicles.</p>
+            </div>
+            <div class="svc-card">
+                <i class="fas fa-shipping-fast"></i>
+                <h4>Worldwide Shipping</h4>
+                <p>We courier lightweight items globally.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="cross-sell">
+        <p>Looking for Fine Art?</p>
+        <a href="gallery.html" class="art-link">View Paintings & Sculptures <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="final-cta">
+        <p>Looking for something else?</p>
+        <a href="https://wa.me/919862330569?text=Hi%20Lamar%20Arts,%20I%20have%20a%20custom%20requirement" class="whatsapp-float-btn">
+            Chat with us <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
