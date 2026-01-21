@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
 
     // SPEED UP VIDEO 3X
     if(video) {
-        video.playbackRate = 3.0; 
+        video.playbackRate = 4.0; 
     }
     
     // When video ends, fade out preloader
@@ -49,4 +49,5 @@ function showSlides() {
 
 // Start slideshow
 showSlides();
+
 
