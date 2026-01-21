@@ -60,9 +60,12 @@ header {
 
 /* Mobile Responsiveness for Logo */
 @media (max-width: 768px) {
-    .logo-img { height: 45px; } /* Slightly smaller on phone but still prominent */
-    .logo-text { font-size: 1.1rem; }
-    .navbar { padding: 15px 20px; }
+    .logo-img { height: 32pxpx; } /* Slightly smaller on phone but still prominent */
+    .logo-text { font-size: 1rem; font-family: Cinzel Decorative, sans-serif; }
+    .navbar { padding: 10px 15px; height: 60px; }
+    .hamburger {
+        font-size: 1.2rem;
+    }
 }
 
 .nav-links { display: flex; list-style: none; gap: 30px; }
@@ -138,6 +141,7 @@ footer { background: var(--dark); color: white; padding: 60px 5% 20px; margin-to
     .top-bar { flex-direction: column; text-align: center; gap: 10px; }
     .footer-container { grid-template-columns: 1fr; }
 }
+
 
 
 
