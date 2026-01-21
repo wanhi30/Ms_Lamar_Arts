@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Dancing+Script:wght@700&display=swap');
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
 
 :root {
     --primary: #b91d25; /* Deep Red */
@@ -60,24 +61,37 @@ header {
 
 /* Mobile Responsiveness for Logo */
 @media (max-width: 768px) {
-    .logo-img { height: 32pxpx; } /* Slightly smaller on phone but still prominent */
-    .logo-text { font-size: 1rem; font-family: Cinzel Decorative, sans-serif; }
-    .navbar { padding: 10px 15px; height: 60px; }
+    /* 1. Ultra-Compact Container */
+    .navbar { 
+        height: 50px;           /* Hard limit on height */
+        padding: 0 15px;        /* Zero vertical padding, just side spacing */
+        display: flex;
+        align-items: center;    /* Vertically centers everything perfectly */
+    }
+
+    /* 2. Smaller Logo Image */
+    .logo-img { 
+        height: 28px;           /* Tiny mobile icon size */
+    }
+
+    /* 3. Smaller Text */
+    .logo-text { 
+        font-size: 0.95rem;     /* Smaller text to fit */
+        font-family: 'Cinzel Decorative', cursive !important; /* Forces the font */
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    /* 4. Tighter Gap */
+    .logo-container {
+        gap: 6px; 
+    }
+
+    /* 5. Adjust Hamburger to fit */
     .hamburger {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }
-
-.nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { font-weight: 600; transition: 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(--primary); }
-
-.cta-button {
-    background: var(--primary); color: white; padding: 10px 20px; border-radius: 4px; font-weight: 600; transition: 0.3s;
-}
-.cta-button:hover { background: var(--dark); }
-.menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
-
 /* --- HERO SECTION --- */
 .hero {
     padding: 80px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; background-color: var(--light);
@@ -141,6 +155,7 @@ footer { background: var(--dark); color: white; padding: 60px 5% 20px; margin-to
     .top-bar { flex-direction: column; text-align: center; gap: 10px; }
     .footer-container { grid-template-columns: 1fr; }
 }
+
 
 
 
