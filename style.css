@@ -48,10 +48,9 @@ header {
     height: 70px; width: auto; /* Adjusts logo size */
 }
 .logo-text {
-    font-family: 'Times New Roman', serif;
-    font-size: 1.3rem;
-    color: var(--dark);
-    font-weight: 800;
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+.logo-text { font-family: 'Playfair Display', serif; font-weight: 700; }
+
 }
 
 .nav-links { display: flex; list-style: none; gap: 30px; }
@@ -127,5 +126,6 @@ footer { background: var(--dark); color: white; padding: 60px 5% 20px; margin-to
     .top-bar { flex-direction: column; text-align: center; gap: 10px; }
     .footer-container { grid-template-columns: 1fr; }
 }
+
 
 
