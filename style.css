@@ -48,8 +48,8 @@ header {
     height: 70px; width: auto; /* Adjusts logo size */
 }
 .logo-text {
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-.logo-text { font-family: 'Playfair Display', serif; font-weight: 700; }
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap');
+.logo-text { font-family: 'Playfair Display', italic bold serif; font-weight: 800; }
 
 }
 
@@ -126,6 +126,7 @@ footer { background: var(--dark); color: white; padding: 60px 5% 20px; margin-to
     .top-bar { flex-direction: column; text-align: center; gap: 10px; }
     .footer-container { grid-template-columns: 1fr; }
 }
+
 
 
 
