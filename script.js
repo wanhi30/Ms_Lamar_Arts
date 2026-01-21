@@ -6,6 +6,11 @@ window.addEventListener('load', function() {
     // Attempt to play video
     video.play().catch(() => { console.log("Autoplay blocked"); });
 
+    // SPEED UP VIDEO 3X
+    if(video) {
+        video.playbackRate = 3.0; 
+    }
+    
     // When video ends, fade out preloader
     video.onended = function() { closePreloader(); };
 });
@@ -44,3 +49,4 @@ function showSlides() {
 
 // Start slideshow
 showSlides();
+
