@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | M/s LAMAR ART's</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="products.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="Lamar Arts Logo" class="logo-icon">
+                <span class="logo-text">M/s LAMAR ART's</span>
+            </a>
+            
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li> <li><a href="history.html">Our History</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <a href="https://wa.me/919862330569" class="cta-button">Get a Quote</a>
+        </div>
+    </header>
+
+    <div class="search-section">
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="productSearch" placeholder="Search for 'Granite', 'Stamps', 'Banners'...">
+        </div>
+    </div>
+
+    <div class="main-catalog">
+
+        <section class="catalog-zone" id="business-zone">
+            <div class="zone-header">
+                <h2><i class="fas fa-briefcase"></i> Business Solutions</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="stamps">Stamps & Seals</button>
+                    <button class="filter-btn" data-filter="signage">Signage & Flex</button>
+                    <button class="filter-btn" data-filter="branding">Branding & Print</button>
+                </div>
+            </div>
+
+            <div class="product-grid-layout">
+                
+                <div class="prod-card" data-category="stamps">
+                    <img src="https://images.unsplash.com/photo-1586075010923-2dd45eeed858?auto=format&fit=crop&w=400&q=80" alt="Seal">
+                    <div class="prod-details">
+                        <h4>Rubber Seals</h4>
+                        <p>Flat Seal, Round Seal, High Quality Mounts.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20a%20Rubber%20Seal" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="stamps">
+                    <img src="https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?auto=format&fit=crop&w=400&q=80" alt="Self Inking">
+                    <div class="prod-details">
+                        <h4>Self-Inking Stamps</h4>
+                        <p>Round & Flat. No ink pad required.</p>
+                        <span class="badge">Bestseller</span>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20a%20Self-Inking%20Stamp" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" alt="Glow Sign">
+                    <div class="prod-details">
+                        <h4>Glow Signboards</h4>
+                        <p>High visibility lighted boards for shops.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Glow%20Signboard" class="wa-btn">Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1550949987-0b1a206a2b8e?auto=format&fit=crop&w=400&q=80" alt="3D LED">
+                    <div class="prod-details">
+                        <h4>3D Acrylic LED</h4>
+                        <p>Premium raised letters with waterproof LED.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%203D%20LED%20Sign" class="wa-btn">Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1632924040212-32d56a315cb8?auto=format&fit=crop&w=400&q=80" alt="Flex">
+                    <div class="prod-details">
+                        <h4>Flex Printing</h4>
+                        <p>Normal Flex & Star Flex (High Quality).</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Flex%20Printing" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1557063673-0493e06a38b5?auto=format&fit=crop&w=400&q=80" alt="Vinyl">
+                    <div class="prod-details">
+                        <h4>Vinyl & Sunboard</h4>
+                        <p>Vinyl Printing, Sunboard mounting, Radium.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Vinyl%20Printing" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=400&q=80" alt="Cards">
+                    <div class="prod-details">
+                        <h4>Business Essentials</h4>
+                        <p>Business Cards, Letterheads, ID Cards.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Business%20Cards" class="wa-btn">Order</a>
+                    </div>
+                </div>
+                 <div class="prod-card" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=400&q=80" alt="Badges">
+                    <div class="prod-details">
+                        <h4>Tags & Badges</h4>
+                        <p>Name Tags, Button Badges, Flags.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Name%20Tags/Badges" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="catalog-zone" id="gifting-zone" style="background:#fcfcfc;">
+            <div class="zone-header">
+                <h2><i class="fas fa-gift"></i> Gifting & Studio</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="stone">Engraving & Stone</button>
+                    <button class="filter-btn" data-filter="decor">Photo & Decor</button>
+                    <button class="filter-btn" data-filter="merch">Custom Merch</button>
+                </div>
+            </div>
+
+            <div class="product-grid-layout">
+                
+                <div class="prod-card" data-category="stone">
+                    <img src="https://images.unsplash.com/photo-1516661972827-2c97693dc72e?auto=format&fit=crop&w=400&q=80" alt="Granite">
+                    <div class="prod-details">
+                        <h4>Memorial Stone</h4>
+                        <p>Granite Engraving (Text Only or Portrait+Text).</p>
+                        <span class="badge">Specialty</span>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Granite%20Memorial%20Stone" class="wa-btn">Enquire</a>
+                    </div>
+                </div>
+
+                 <div class="prod-card" data-category="stone">
+                    <img src="https://images.unsplash.com/photo-1620398634833-2947119f850a?auto=format&fit=crop&w=400&q=80" alt="Memento">
+                    <div class="prod-details">
+                        <h4>Mementos & Trophies</h4>
+                        <p>Stone Memento, Glass Memento, Custom Trophies.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Mementos" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="decor">
+                    <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=400&q=80" alt="Frame">
+                    <div class="prod-details">
+                        <h4>Engraved Frames</h4>
+                        <p>Wood & Acrylic Sheet Engraving.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20an%20Engraved%20Frame" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="decor">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=400&q=80" alt="LED Frame">
+                    <div class="prod-details">
+                        <h4>LED Photo Frames</h4>
+                        <p>Acrylic Sheet with LED light integration.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20an%20LED%20Photo%20Frame" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="decor">
+                    <img src="https://images.unsplash.com/photo-1531346878377-a513bc951a46?auto=format&fit=crop&w=400&q=80" alt="Framing">
+                    <div class="prod-details">
+                        <h4>Photo Framing</h4>
+                        <p>Glass Framing, Lamination, Bidding.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Photo%20Framing" class="wa-btn">Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="merch">
+                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=400&q=80" alt="Tshirt">
+                    <div class="prod-details">
+                        <h4>Apparel Printing</h4>
+                        <p>T-shirts, Hoodies, Caps, Sashes.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20T-Shirt%20Printing" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+                <div class="prod-card" data-category="merch">
+                    <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=400&q=80" alt="Mug">
+                    <div class="prod-details">
+                        <h4>Sublimation Gifts</h4>
+                        <p>Mugs, Bottles, Mouse Pads, Keychains.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Custom%20Mugs/Gifts" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+                 <div class="prod-card" data-category="merch">
+                    <img src="https://images.unsplash.com/photo-1531303435785-3853fb43548e?auto=format&fit=crop&w=400&q=80" alt="Birthday">
+                    <div class="prod-details">
+                        <h4>Event Kits</h4>
+                        <p>Birthday Banners, Cake Toppers, Cards.</p>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Birthday/Event%20Items" class="wa-btn">Order</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4><i class="fas fa-map-marker-alt"></i> Visit Us</h4>
+                <div class="address-box">
+                    <strong>Shop 1:</strong><br>
+                    M/s Lamar Arts Newhill,<br>
+                    Loomsooiung Jowai, West Jaintia Hills,<br>
+                    Meghalaya - 793150 (Near Petrol Pump)
+                </div>
+                <br>
+                <div class="address-box">
+                    <strong>Shop 2:</strong><br>
+                    M/s Lamar Arts, Iawmusiang Jowai,<br>
+                    West Jaintia Hills, Meghalaya - 793150<br>
+                    (Opp. Iaphi Complex Building)
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><i class="fab fa-whatsapp"></i> 9862330569</p>
+                <p><i class="fas fa-envelope"></i> lamararts123@gmail.com</p>
+                <br>
+                <p><a href="https://www.facebook.com/profile.php?id=61570825532138" target="_blank" style="color:white"><i class="fab fa-facebook-f"></i> Facebook Page</a></p>
+                <p><a href="https://www.instagram.com/__lamararts__" style="color:var(--magenta)"><i class="fab fa-instagram"></i> @__lamararts__</a></p>
+            </div>
+
+            <div class="footer-col map-col">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.347589620023!2d92.21319031501435!3d25.42668598378997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3751a4b655555555%3A0x1234567890abcdef!2sJowai!5e0!3m2!1sen!2sin!4v1612345678901" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 M/s Lamar Art's. "Beyond Imagination & Creativity"
+        </div>
+    </footer>
+
+    <script src="script.js"></script> <script src="products.js"></script> </body>
+</html>
