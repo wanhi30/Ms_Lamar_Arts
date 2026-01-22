@@ -9,7 +9,9 @@
     
     <link rel="stylesheet" href="products.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -27,7 +29,8 @@
 
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="products.html" class="active">Products</a></li> <li><a href="history.html">Our History</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="history.html">Our History</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
 
@@ -38,189 +41,279 @@
     <div class="search-section">
         <div class="search-wrapper">
             <i class="fas fa-search"></i>
-            <input type="text" id="productSearch" placeholder="Search for 'Granite', 'Stamps', 'Banners'...">
+            <input type="text" id="productSearch" placeholder="Search for 'Round Seal', 'Granite', 'T-shirt'...">
         </div>
     </div>
+
+    <section class="featured-slider">
+        <h3 class="section-label">Featured & Latest</h3>
+        <div class="snap-container">
+            <div class="snap-card" style="background-image: url('https://images.unsplash.com/photo-1618388810903-840bb4515f26?auto=format&fit=crop&w=600&q=80');">
+                <div class="glass-overlay"><h4>Granite Memorials</h4><p>Premium Engraving</p></div>
+            </div>
+            <div class="snap-card" style="background-image: url('https://images.unsplash.com/photo-1550949987-0b1a206a2b8e?auto=format&fit=crop&w=600&q=80');">
+                <div class="glass-overlay"><h4>3D LED Signs</h4><p>Shop Branding</p></div>
+            </div>
+            <div class="snap-card" style="background-image: url('https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=600&q=80');">
+                <div class="glass-overlay"><h4>Custom Apparel</h4><p>T-Shirts & Hoodies</p></div>
+            </div>
+        </div>
+    </section>
 
     <div class="main-catalog">
 
         <section class="catalog-zone" id="business-zone">
             <div class="zone-header">
-                <h2><i class="fas fa-briefcase"></i> Business Solutions</h2>
+                <h2>Business Solutions</h2>
                 <div class="filters">
                     <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="stamps">Stamps & Seals</button>
-                    <button class="filter-btn" data-filter="signage">Signage & Flex</button>
-                    <button class="filter-btn" data-filter="branding">Branding & Print</button>
+                    <button class="filter-btn" data-filter="stamps">Stamps</button>
+                    <button class="filter-btn" data-filter="signage">Signage</button>
+                    <button class="filter-btn" data-filter="flex">Flex</button>
+                    <button class="filter-btn" data-filter="print">Stationery</button>
                 </div>
             </div>
 
-            <div class="product-grid-layout">
+            <div class="menu-grid">
                 
-                <div class="prod-card" data-category="stamps">
-                    <img src="https://images.unsplash.com/photo-1586075010923-2dd45eeed858?auto=format&fit=crop&w=400&q=80" alt="Seal">
-                    <div class="prod-details">
-                        <h4>Rubber Seals</h4>
-                        <p>Flat Seal, Round Seal, High Quality Mounts.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20a%20Rubber%20Seal" class="wa-btn">Order</a>
+                <div class="menu-item" data-category="stamps">
+                    <img src="https://images.unsplash.com/photo-1595079676339-1534827d8c11?auto=format&fit=crop&w=300&q=80" alt="Seal">
+                    <div class="item-info">
+                        <h4>Flat Seal</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20price%20for%20Flat%20Seal?" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="stamps">
+                    <img src="https://images.unsplash.com/photo-1586075010923-2dd45eeed858?auto=format&fit=crop&w=300&q=80" alt="Round Seal">
+                    <div class="item-info">
+                        <h4>Round Seal</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20price%20for%20Round%20Seal?" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="stamps">
+                    <img src="https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?auto=format&fit=crop&w=300&q=80" alt="Self Inking">
+                    <div class="item-info">
+                        <h4>Self-Inking (Flat)</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20price%20for%20Self-Inking%20Flat?" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="stamps">
+                    <img src="https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?auto=format&fit=crop&w=300&q=80" alt="Self Inking Round">
+                    <div class="item-info">
+                        <h4>Self-Inking (Round)</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20price%20for%20Self-Inking%20Round?" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <div class="prod-card" data-category="stamps">
-                    <img src="https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?auto=format&fit=crop&w=400&q=80" alt="Self Inking">
-                    <div class="prod-details">
-                        <h4>Self-Inking Stamps</h4>
-                        <p>Round & Flat. No ink pad required.</p>
-                        <span class="badge">Bestseller</span>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20a%20Self-Inking%20Stamp" class="wa-btn">Order</a>
+                <div class="menu-item" data-category="flex">
+                    <img src="https://images.unsplash.com/photo-1632924040212-32d56a315cb8?auto=format&fit=crop&w=300&q=80" alt="Flex">
+                    <div class="item-info">
+                        <h4>Normal Flex</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Normal%20Flex" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="flex">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=300&q=80" alt="Star Flex">
+                    <div class="item-info">
+                        <h4>Star Flex (Premium)</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Star%20Flex" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <div class="prod-card" data-category="signage">
-                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" alt="Glow Sign">
-                    <div class="prod-details">
-                        <h4>Glow Signboards</h4>
-                        <p>High visibility lighted boards for shops.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Glow%20Signboard" class="wa-btn">Enquire</a>
+                <div class="menu-item" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1542204637-e67bc7d41e0e?auto=format&fit=crop&w=300&q=80" alt="Normal Sign">
+                    <div class="item-info">
+                        <h4>Normal Signboard</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Normal%20Signboard" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=300&q=80" alt="Glow Sign">
+                    <div class="item-info">
+                        <h4>Glow Signboard</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Glow%20Signboard" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1550949987-0b1a206a2b8e?auto=format&fit=crop&w=300&q=80" alt="3D LED">
+                    <div class="item-info">
+                        <h4>3D + LED Sign</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%203D%20LED%20Signboard" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1520690214124-2405c5217036?auto=format&fit=crop&w=300&q=80" alt="Vinyl">
+                    <div class="item-info">
+                        <h4>Vinyl Printing</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Vinyl%20Printing" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=300&q=80" alt="Radium">
+                    <div class="item-info">
+                        <h4>Radium Stickers</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Radium%20Stickers" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <div class="prod-card" data-category="signage">
-                    <img src="https://images.unsplash.com/photo-1550949987-0b1a206a2b8e?auto=format&fit=crop&w=400&q=80" alt="3D LED">
-                    <div class="prod-details">
-                        <h4>3D Acrylic LED</h4>
-                        <p>Premium raised letters with waterproof LED.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%203D%20LED%20Sign" class="wa-btn">Enquire</a>
+                <div class="menu-item" data-category="print">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=300&q=80" alt="Cards">
+                    <div class="item-info">
+                        <h4>Business Cards</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Business%20Cards" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="prod-card" data-category="signage">
-                    <img src="https://images.unsplash.com/photo-1632924040212-32d56a315cb8?auto=format&fit=crop&w=400&q=80" alt="Flex">
-                    <div class="prod-details">
-                        <h4>Flex Printing</h4>
-                        <p>Normal Flex & Star Flex (High Quality).</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Flex%20Printing" class="wa-btn">Order</a>
+                <div class="menu-item" data-category="print">
+                    <img src="https://images.unsplash.com/photo-1586075010923-2dd45eeed858?auto=format&fit=crop&w=300&q=80" alt="Letterhead">
+                    <div class="item-info">
+                        <h4>Letterheads & Envelopes</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Letterheads" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="prod-card" data-category="signage">
-                    <img src="https://images.unsplash.com/photo-1557063673-0493e06a38b5?auto=format&fit=crop&w=400&q=80" alt="Vinyl">
-                    <div class="prod-details">
-                        <h4>Vinyl & Sunboard</h4>
-                        <p>Vinyl Printing, Sunboard mounting, Radium.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Vinyl%20Printing" class="wa-btn">Order</a>
-                    </div>
-                </div>
-
-                <div class="prod-card" data-category="branding">
-                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=400&q=80" alt="Cards">
-                    <div class="prod-details">
-                        <h4>Business Essentials</h4>
-                        <p>Business Cards, Letterheads, ID Cards.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Business%20Cards" class="wa-btn">Order</a>
-                    </div>
-                </div>
-                 <div class="prod-card" data-category="branding">
-                    <img src="https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=400&q=80" alt="Badges">
-                    <div class="prod-details">
-                        <h4>Tags & Badges</h4>
-                        <p>Name Tags, Button Badges, Flags.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Name%20Tags/Badges" class="wa-btn">Order</a>
+                 <div class="menu-item" data-category="print">
+                    <img src="https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=300&q=80" alt="ID Cards">
+                    <div class="item-info">
+                        <h4>ID Cards & Tags</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20ID%20Cards" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <section class="catalog-zone" id="gifting-zone" style="background:#fcfcfc;">
+        <section class="catalog-zone" id="gifting-zone" style="background-color: #fcfcfc;">
             <div class="zone-header">
-                <h2><i class="fas fa-gift"></i> Gifting & Studio</h2>
+                <h2>Gifting & Studio</h2>
                 <div class="filters">
                     <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="stone">Engraving & Stone</button>
-                    <button class="filter-btn" data-filter="decor">Photo & Decor</button>
-                    <button class="filter-btn" data-filter="merch">Custom Merch</button>
+                    <button class="filter-btn" data-filter="stone">Stone & Wood</button>
+                    <button class="filter-btn" data-filter="merch">Merchandise</button>
+                    <button class="filter-btn" data-filter="decor">Decor & Mementos</button>
                 </div>
             </div>
 
-            <div class="product-grid-layout">
+            <div class="menu-grid">
                 
-                <div class="prod-card" data-category="stone">
-                    <img src="https://images.unsplash.com/photo-1516661972827-2c97693dc72e?auto=format&fit=crop&w=400&q=80" alt="Granite">
-                    <div class="prod-details">
-                        <h4>Memorial Stone</h4>
-                        <p>Granite Engraving (Text Only or Portrait+Text).</p>
-                        <span class="badge">Specialty</span>
-                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Granite%20Memorial%20Stone" class="wa-btn">Enquire</a>
+                <div class="menu-item" data-category="stone">
+                    <img src="https://images.unsplash.com/photo-1516661972827-2c97693dc72e?auto=format&fit=crop&w=300&q=80" alt="Granite Text">
+                    <div class="item-info">
+                        <h4>Granite Memorial (Text)</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Granite%20Text%20Only" class="order-link">Enquire <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="stone">
+                    <img src="https://images.unsplash.com/photo-1516661972827-2c97693dc72e?auto=format&fit=crop&w=300&q=80" alt="Granite Portrait">
+                    <div class="item-info">
+                        <h4>Granite (Portrait+Text)</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Granite%20Portrait" class="order-link">Enquire <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="stone">
+                    <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=300&q=80" alt="Wood Frame">
+                    <div class="item-info">
+                        <h4>Engraved Wood Frame</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Wood%20Frame" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                 <div class="prod-card" data-category="stone">
-                    <img src="https://images.unsplash.com/photo-1620398634833-2947119f850a?auto=format&fit=crop&w=400&q=80" alt="Memento">
-                    <div class="prod-details">
-                        <h4>Mementos & Trophies</h4>
-                        <p>Stone Memento, Glass Memento, Custom Trophies.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Mementos" class="wa-btn">Order</a>
+                <div class="menu-item" data-category="merch">
+                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=300&q=80" alt="Tshirt">
+                    <div class="item-info">
+                        <h4>Custom T-Shirts</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20want%20to%20print%20Tshirts" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="merch">
+                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=300&q=80" alt="Hoodies">
+                    <div class="item-info">
+                        <h4>Hoodies & Caps</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20want%20Hoodies/Caps" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="merch">
+                    <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=300&q=80" alt="Mug">
+                    <div class="item-info">
+                        <h4>Mugs & Bottles</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20price%20for%20Printed%20Mugs" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="merch">
+                    <img src="https://images.unsplash.com/photo-1616428359005-6447c20c451e?auto=format&fit=crop&w=300&q=80" alt="Keychain">
+                    <div class="item-info">
+                        <h4>Keychains & Covers</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20price%20for%20Keychains" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <div class="prod-card" data-category="decor">
-                    <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=400&q=80" alt="Frame">
-                    <div class="prod-details">
-                        <h4>Engraved Frames</h4>
-                        <p>Wood & Acrylic Sheet Engraving.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20an%20Engraved%20Frame" class="wa-btn">Order</a>
+                <div class="menu-item" data-category="decor">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=300&q=80" alt="LED Frame">
+                    <div class="item-info">
+                        <h4>LED Acrylic Frame</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20LED%20Frame" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="prod-card" data-category="decor">
-                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=400&q=80" alt="LED Frame">
-                    <div class="prod-details">
-                        <h4>LED Photo Frames</h4>
-                        <p>Acrylic Sheet with LED light integration.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20an%20LED%20Photo%20Frame" class="wa-btn">Order</a>
+                <div class="menu-item" data-category="decor">
+                    <img src="https://images.unsplash.com/photo-1620398634833-2947119f850a?auto=format&fit=crop&w=300&q=80" alt="Memento">
+                    <div class="item-info">
+                        <h4>Glass & Stone Mementos</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Mementos" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="prod-card" data-category="decor">
-                    <img src="https://images.unsplash.com/photo-1531346878377-a513bc951a46?auto=format&fit=crop&w=400&q=80" alt="Framing">
-                    <div class="prod-details">
+                <div class="menu-item" data-category="decor">
+                    <img src="https://images.unsplash.com/photo-1531346878377-a513bc951a46?auto=format&fit=crop&w=300&q=80" alt="Framing">
+                    <div class="item-info">
                         <h4>Photo Framing</h4>
-                        <p>Glass Framing, Lamination, Bidding.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20quote%20for%20Photo%20Framing" class="wa-btn">Enquire</a>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Photo%20Framing" class="order-link">Enquire <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="prod-card" data-category="merch">
-                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=400&q=80" alt="Tshirt">
-                    <div class="prod-details">
-                        <h4>Apparel Printing</h4>
-                        <p>T-shirts, Hoodies, Caps, Sashes.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20T-Shirt%20Printing" class="wa-btn">Order</a>
-                    </div>
-                </div>
-
-                <div class="prod-card" data-category="merch">
-                    <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=400&q=80" alt="Mug">
-                    <div class="prod-details">
-                        <h4>Sublimation Gifts</h4>
-                        <p>Mugs, Bottles, Mouse Pads, Keychains.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Custom%20Mugs/Gifts" class="wa-btn">Order</a>
-                    </div>
-                </div>
-
-                 <div class="prod-card" data-category="merch">
-                    <img src="https://images.unsplash.com/photo-1531303435785-3853fb43548e?auto=format&fit=crop&w=400&q=80" alt="Birthday">
-                    <div class="prod-details">
-                        <h4>Event Kits</h4>
-                        <p>Birthday Banners, Cake Toppers, Cards.</p>
-                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Birthday/Event%20Items" class="wa-btn">Order</a>
+                <div class="menu-item" data-category="decor">
+                    <img src="https://images.unsplash.com/photo-1531303435785-3853fb43548e?auto=format&fit=crop&w=300&q=80" alt="Birthday">
+                    <div class="item-info">
+                        <h4>Birthday Kits</h4>
+                        <a href="https://wa.me/919862330569?text=Hi,%20I%20need%20Birthday%20Kits" class="order-link">Order <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
             </div>
         </section>
+    </div>
 
+    <section class="services-strip">
+        <h3>Beyond Printing</h3>
+        <div class="service-grid">
+            <div class="svc-card">
+                <i class="fas fa-tools"></i>
+                <h4>Installation</h4>
+                <p>On-site fixing for Signboards & Banners.</p>
+            </div>
+            <div class="svc-card">
+                <i class="fas fa-magic"></i>
+                <h4>Restoration</h4>
+                <p>We repair old/damaged photos digitally.</p>
+            </div>
+            <div class="svc-card">
+                <i class="fas fa-paste"></i>
+                <h4>Vinyl Pasting</h4>
+                <p>Bubble-free pasting for glass & vehicles.</p>
+            </div>
+            <div class="svc-card">
+                <i class="fas fa-shipping-fast"></i>
+                <h4>Global Shipping</h4>
+                <p>We courier lightweight items worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="cross-sell">
+        <p>Looking for Fine Art?</p>
+        <a href="gallery.html" class="art-link">View Paintings & Sculptures <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="final-cta">
+        <p>Looking for something specific?</p>
+        <a href="https://wa.me/919862330569?text=Hi%20Lamar%20Arts,%20I%20have%20a%20custom%20request" class="whatsapp-float-btn">
+            Chat on WhatsApp <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
 
     <footer>
@@ -252,13 +345,4 @@
             </div>
 
             <div class="footer-col map-col">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.347589620023!2d92.21319031501435!3d25.42668598378997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3751a4b655555555%3A0x1234567890abcdef!2sJowai!5e0!3m2!1sen!2sin!4v1612345678901" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-        <div class="copyright">
-            © 2026 M/s Lamar Art's. "Beyond Imagination & Creativity"
-        </div>
-    </footer>
-
-    <script src="script.js"></script> <script src="products.js"></script> </body>
-</html>
+                <iframe src="https://www.google.com/maps/embed?p
