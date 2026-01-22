@@ -141,6 +141,65 @@ footer { background: var(--dark); color: white; padding: 60px 5% 20px; margin-to
     .top-bar { flex-direction: column; text-align: center; gap: 10px; }
     .footer-container { grid-template-columns: 1fr; }
 }
+/* =========================================
+   INDIVIDUAL CARD BACKGROUNDS
+   ========================================= */
+
+/* 1. Base Card Styling */
+a.card {
+    display: block;
+    position: relative;
+    height: 250px; /* Taller to show off the photo */
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    /* Remove old white background/padding */
+    padding: 0; 
+}
+
+/* 2. Dark Overlay (Makes text readable) */
+.card-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darkens the image by 50% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+/* Hover Effect: Darken more when hovered */
+a.card:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* 3. Text Styling (Must be White now) */
+.card-overlay h3 { color: white; margin-bottom: 5px; font-size: 1.2rem; text-shadow: 1px 1px 3px black; }
+.card-overlay p { color: #f0f0f0; font-size: 0.9rem; text-shadow: 1px 1px 3px black; }
+.card-overlay i { font-size: 2.5rem; color: var(--yellow); margin-bottom: 15px; }
+
+
+/* =========================================
+   IMAGE ASSIGNMENTS
+   ========================================= */
+
+/* Core Services */
+.card-memorial  { background-image: url('images/card_memorial.jpg'); }
+.card-signboard { background-image: url('images/card_signboard.jpg'); }
+.card-flex      { background-image: url('images/card_flex.jpg'); }
+.card-stamp     { background-image: url('images/card_stamp.jpg'); }
+
+/* Trendy & Custom */
+.card-laser   { background-image: url('images/card_laser.jpg'); }
+.card-tshirt  { background-image: url('images/card_tshirt.jpg'); }
+.card-poster  { background-image: url('images/card_poster.jpg'); }
+.card-sticker { background-image: url('images/card_sticker.jpg'); }
 
 
 
