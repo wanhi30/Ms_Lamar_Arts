@@ -1,9 +1,15 @@
-/* --- SEARCH BAR --- */
+/* =========================================
+   PAGE: PRODUCTS / SERVICES
+   File: products.css
+   ========================================= */
+
+/* --- 1. SEARCH BAR SECTION --- */
 .search-section {
     padding: 30px 5%;
     background: #f8f9fa;
     border-bottom: 1px solid #e0e0e0;
 }
+
 .search-wrapper {
     max-width: 600px;
     margin: 0 auto;
@@ -15,217 +21,206 @@
     border: 1px solid #ddd;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
-.search-wrapper input {
-    border: none; outline: none; width: 100%; margin-left: 15px;
-    font-size: 1rem; font-family: 'Inter', sans-serif;
-}
-.search-wrapper i { color: #b91d25; }
 
-/* --- FEATURED SLIDER --- */
-.featured-slider { padding: 30px 5%; background: #fff; }
-.section-label { font-size: 0.9rem; text-transform: uppercase; color: #666; margin-bottom: 15px; letter-spacing: 1px; }
+.search-wrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-left: 15px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.search-wrapper i {
+    color: #b91d25; /* Primary Red */
+}
+
+/* --- 2. FEATURED SLIDER (Yellow Pop) --- */
+.featured-slider {
+    padding: 30px 5%;
+    background: #ffd23e; /* New Yellow Background */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.section-label {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #1a1a1a; /* Black text to contrast with Yellow */
+    margin-bottom: 20px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    border-left: 4px solid #1a1a1a; /* Black accent line */
+    padding-left: 10px;
+}
+
 .snap-container {
-    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 10px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding-bottom: 10px;
 }
+
 .snap-container::-webkit-scrollbar { display: none; }
+
 .snap-card {
-    flex: 0 0 85%; height: 200px; scroll-snap-align: center; border-radius: 10px;
-    background-size: cover; background-position: center; position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex: 0 0 85%; /* Mobile: Shows 85% of card */
+    height: 200px;
+    scroll-snap-align: center;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
+
 .glass-overlay {
-    position: absolute; bottom: 0; width: 100%; padding: 15px;
-    background: rgba(255,255,255,0.2); backdrop-filter: blur(5px);
-    border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
 }
-@media(min-width: 768px) { .snap-card { flex: 0 0 30%; height: 250px; } }
+.glass-overlay h4 { font-size: 1rem; margin-bottom: 2px; }
+.glass-overlay p { font-size: 0.8rem; margin: 0; opacity: 0.9; }
 
-/* --- CATALOG ZONES --- */
-.catalog-zone { padding: 50px 5%; border-bottom: 1px solid #eee; }
+/* --- 3. CATALOG ZONES (Business/Gifting) --- */
+.catalog-zone {
+    padding: 50px 5%;
+    border-bottom: 1px solid #eee;
+}
+
+.zone-header {
+    margin-bottom: 25px;
+}
+
 .zone-header h2 {
-    font-family: 'Playfair Display', serif; font-size: 2rem; color: #1a1a1a; margin-bottom: 15px;
+    font-family: 'Playfair Display', serif; /* Serif Font */
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
 }
-.filters { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 25px; padding-bottom: 5px; }
-.filter-btn {
-    background: white; border: 1px solid #ccc; padding: 6px 14px; border-radius: 20px;
-    font-family: 'Inter', sans-serif; font-size: 0.85rem; cursor: pointer; white-space: nowrap;
-}
-.filter-btn.active { background: #1a1a1a; color: white; border-color: #1a1a1a; }
 
-/* --- 2-COLUMN MENU GRID --- */
-.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+/* Filter Pills */
+.filters {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.filter-btn {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+}
+
+/* --- 4. MENU GRID (Restaurant Style) --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 Columns on Mobile */
+    gap: 15px;
+}
 
 .menu-item {
-    background: white; border: 1px solid #eee; border-radius: 8px; overflow: hidden;
-    display: flex; flex-direction: column; transition: 0.2s;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
 }
-/* Ensure search works by initially showing flex */
+
+/* Ensure JS hiding works properly */
 .menu-item[style*="display: none"] { display: none !important; }
 
+.menu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
 .menu-item img {
-    width: 100%; aspect-ratio: 1/1; object-fit: cover; background: #f4f4f4;
+    width: 100%;
+    aspect-ratio: 1/1; /* Forces Perfect Square */
+    object-fit: cover;
+    background: #f4f4f4;
 }
 
 .item-info {
-    padding: 12px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
 }
-.item-info h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; line-height: 1.2; }
+
+.item-info h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    color: #222;
+}
+
 .order-link {
-    font-size: 0.8rem; color: #b91d25; font-weight: 600; text-transform: uppercase; margin-top: auto;
+    font-size: 0.8rem;
+    color: #b91d25;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: auto;
 }
 
-/* SERVICES STRIP */
-.services-strip { background: #1a1a1a; color: white; padding: 40px 5%; margin-top: 30px; }
-.services-strip h3 { text-align: center; font-family: 'Playfair Display', serif; margin-bottom: 30px; }
-.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 25px; text-align: center; }
-.svc-card i { font-size: 2rem; color: #00ADEF; margin-bottom: 10px; }
-.svc-card h4 { font-size: 1rem; margin-bottom: 5px; }
-.svc-card p { font-size: 0.8rem; color: #ccc; }
-
-/* --- GALLERY TEASER (NEW) --- */
-.gallery-teaser {
-    height: 350px;
-    /* You must upload this image yourself to images/gallery-bg.jpg */
-    background: url('images/gallery-bg.jpg') no-repeat center center/cover;
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 0;
-}
-.gallery-overlay {
-    background: rgba(0,0,0,0.6); /* Dark overlay */
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; color: white; padding: 20px;
-}
-.gallery-overlay h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
-.gallery-overlay p { font-size: 1.1rem; margin-bottom: 25px; max-width: 600px; }
-.gallery-btn {
-    border: 2px solid white; color: white; padding: 12px 30px; text-decoration: none;
-    font-weight: bold; transition: 0.3s;
-}
-.gallery-btn:hover { background: white; color: #1a1a1a; }
-
-/* FINAL CTA */
-.final-cta { text-align: center; padding: 40px 20px; background: #fff; }
-.whatsapp-float-btn {
-    display: inline-block; background: #25D366; color: white; padding: 12px 30px;
-    border-radius: 30px; font-weight: bold; margin-top: 15px;
-    box-shadow: 0 4px 10px rgba(37,211,102,0.3);
-}
-
-@media (min-width: 768px) {
-    .menu-grid { grid-template-columns: repeat(4, 1fr); gap: 25px; }
-}
-```css
-/* =========================================
-   INSTAGRAM STUDIO SECTION
-   ========================================= */
+/* --- 5. INSTAGRAM STUDIO SECTION --- */
 .insta-studio {
-    padding: 60px 5%;
-    background: #fff;
+    /* 100px Top Padding for breathing room */
+    padding: 100px 5% 60px 5%;
+    
+    /* Background: White to Pastel Magenta Gradient */
+    background: linear-gradient(180deg, #ffffff 0%, #fff0f7 100%);
     border-bottom: 1px solid #eee;
 }
 
 .insta-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
-.insta-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+
+/* Script Font for Header */
+.script-font {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
     color: #1a1a1a;
     margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.1;
 }
+
 .insta-header p {
     color: #666;
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
-}
-.insta-header i {
-    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-right: 8px;
+    margin-top: 10px;
 }
 
-/* --- THE MASONRY GRID --- */
-.masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Mobile: 2 Columns */
-    gap: 10px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.insta-item {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    border-radius: 4px;
-    aspect-ratio: 1/1; /* Forces square shape */
-}
-
-.insta-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-/* HOVER EFFECT */
-.insta-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    gap: 8px;
-}
-.insta-item:hover .insta-overlay { opacity: 1; }
-.insta-item:hover img { transform: scale(1.1); }
-
-/* --- THE HERO ITEM (Big Square) --- */
-/* Makes the first item span 2 columns and 2 rows */
-.hero-item {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-/* --- INSTAGRAM CTA BUTTON --- */
-.insta-cta {
-    text-align: center;
-    margin-top: 40px;
-}
-.insta-cta p { margin-bottom: 15px; color: #555; font-style: italic; }
-
-.ig-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border: 2px solid #ddd;
-    border-radius: 30px;
-    color: #1a1a1a;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.3s;
-    background: white;
-}
-.ig-btn:hover {
-    border-color: #bc1888; /* Instagram Purple */
-    color: #bc1888;
-    box-shadow: 0 5px 15px rgba(188, 24, 136, 0.2);
-}
-
-/* --- PC LAYOUT --- */
-@media (min-width: 768px) {
-    .masonry-grid {
-        grid-template-columns: repeat(4, 1fr); /* PC: 4 Columns */
-    }
-    /* Hero still spans 2x2, looking great in a 4-col grid */
-}
+/* Masonry Grid (Puzzle Layout)
