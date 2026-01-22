@@ -22,7 +22,7 @@
 .search-wrapper i { color: #b91d25; }
 
 /* --- FEATURED SLIDER --- */
-.featured-slider { padding: 30px 5%; background: #bbbbbb; }
+.featured-slider { padding: 30px 5%; background: #8c8c8c; }
 .section-label { font-size: 0.9rem; text-transform: uppercase; color: #666; margin-bottom: 15px; letter-spacing: 1px; }
 .snap-container {
     display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 10px;
@@ -123,7 +123,7 @@
    INSTAGRAM STUDIO SECTION
    ========================================= */
 .insta-studio {
-    padding: 100px 5% 60px 5%;
+    padding: 200px 5% 60px 5%;
     background: #a5a5a5;
     border-bottom: 1px solid #eee;
 }
@@ -230,4 +230,5 @@
     }
     /* Hero still spans 2x2, looking great in a 4-col grid */
 }
+
 
