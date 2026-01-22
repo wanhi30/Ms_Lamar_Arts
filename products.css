@@ -22,7 +22,7 @@
 .search-wrapper i { color: #b91d25; }
 
 /* --- FEATURED SLIDER --- */
-.featured-slider { padding: 30px 5%; background: #8c8c8c; }
+.featured-slider { padding: 30px 5%; background: #bcbcbc; }
 .section-label { font-size: 0.9rem; text-transform: uppercase; color: #666; margin-bottom: 15px; letter-spacing: 1px; }
 .snap-container {
     display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 10px;
@@ -129,6 +129,7 @@
 }
 
 .insta-header {
+    padding: 60px 5%;
     text-align: center;
     margin-bottom: 40px;
 }
@@ -230,5 +231,6 @@
     }
     /* Hero still spans 2x2, looking great in a 4-col grid */
 }
+
 
 
