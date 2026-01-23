@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Sphere Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #050505; /* Deep Black */
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene {
+            width: 100vw;
+            height: 100vh;
+            perspective: 1200px; /* How "deep" the 3D looks */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+        }
+
+        .sphere-container {
+            position: relative;
+            width: 0;
+            height: 0;
+            transform-style: preserve-3d;
+        }
+
+        .gallery-item {
+            position: absolute;
+            top: 0; left: 0;
+            /* Centering the item on its coordinate */
+            transform-origin: center center;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+            backface-visibility: hidden; /* Hide back of photos */
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 2px solid rgba(212, 175, 55, 0.3); /* Muted Gold Border */
+            border-radius: 4px;
+            display: block;
+            pointer-events: none; /* Let clicks pass to the div */
+        }
+
+        .gallery-item:hover img {
+            border-color: #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Overlay for expanded view */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        .overlay.active { opacity: 1; pointer-events: auto; }
+        
+        .close-btn {
+            position: absolute; top: 30px; right: 30px;
+            color: #D4AF37; font-size: 2rem; cursor: pointer;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay" id="overlay">
+        <div class="close-btn" onclick="closeZoom()">&times;</div>
+    </div>
+
+    <div class="scene" id="scene">
+        <div class="sphere-container" id="sphere">
+            </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        // --- CONFIGURATION ---
+        const totalImages = 30; // How many images in the cloud
+        const radius = 500; // How big the sphere is (px)
+        
+        // We will use your uploaded images repeatedly for the demo
+        // In reality, this would be your distinct list: ill1.jpg ... ill25.jpg
+        const imageSources = [
+            'images/ill1.jpg', 'images/ill2.jpg', 'images/ill3.jpg',
+            'images/ill4.jpg', 'images/ill5.jpg', 'images/logo1.jpg',
+            'images/restore1_new.jpg', 'images/gallery-bg.jpg'
+        ];
+
+        const container = document.getElementById('sphere');
+        let isZoomed = false;
+        let rotationX = 0;
+        let rotationY = 0;
+
+        // --- 1. BUILD THE FIBONACCI SPHERE ---
+        for (let i = 0; i < totalImages; i++) {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+
+            // Randomize sizes for "Pinterest" look
+            // Some Portrait (120x180), Some Landscape (180x120), Some Square (150x150)
+            const type = Math.random();
+            if(type < 0.3) {
+                div.style.width = '120px'; div.style.height = '180px'; // Portrait
+            } else if (type < 0.6) {
+                div.style.width = '180px'; div.style.height = '120px'; // Landscape
+            } else {
+                div.style.width = '140px'; div.style.height = '140px'; // Square
+            }
+
+            // Create Image
+            const img = document.createElement('img');
+            // Pick random image from list
+            img.src = imageSources[i % imageSources.length]; 
+            div.appendChild(img);
+
+            // --- THE MATH (Spherical Distribution) ---
+            const phi = Math.acos(-1 + (2 * i) / totalImages);
+            const theta = Math.sqrt(totalImages * Math.PI) * phi;
+
+            // Convert Polar to Cartesian (x, y, z)
+            const x = radius * Math.cos(theta) * Math.sin(phi);
+            const y = radius * Math.sin(theta) * Math.sin(phi);
+            const z = radius * Math.cos(phi);
+
+            // Apply 3D Transform
+            // translate3d: moves it to spot on sphere
+            // rotateY/X: Makes the image face OUTWARD from center
+            div.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${theta}rad) rotateX(${phi}rad)`;
+            
+            // Save original transform for "un-zoom" later
+            div.dataset.origTransform = div.style.transform;
+
+            // Add Click Event
+            div.onclick = function() { zoomImage(this); };
+
+            container.appendChild(div);
+        }
+
+        // --- 2. ROTATION LOGIC (Mouse Drag) ---
+        let isDragging = false;
+        let startX, startY;
+
+        const scene = document.getElementById('scene');
+
+        scene.addEventListener('mousedown', (e) => {
+            if(isZoomed) return;
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            scene.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+            scene.style.cursor = 'grab';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging || isZoomed) return;
+
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+
+            rotationY += deltaX * 0.2; // Speed
+            rotationX -= deltaY * 0.2;
+
+            // Apply Rotation to the WHOLE sphere container
+            gsap.to(container, {
+                rotationY: rotationY,
+                rotationX: rotationX,
+                duration: 0.5,
+                ease: "power1.out"
+            });
+
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        // --- 3. ZOOM LOGIC ---
+        let currentZoomedItem = null;
+
+        function zoomImage(item) {
+            if (isZoomed) return;
+            isZoomed = true;
+            currentZoomedItem = item;
+
+            // Show Overlay
+            document.getElementById('overlay').classList.add('active');
+
+            // 1. Calculate where the item is NOW relative to screen
+            // But simpler: Reset Sphere rotation temporarily? 
+            // Better: Move item to Z=500 (Center Front) and ignoring sphere rotation is hard.
+            
+            // EASIEST VISUAL HACK: 
+            // We detach the item visually or use `position: fixed` via GSAP Flip?
+            // Let's use simple CSS transforms override.
+
+            gsap.to(item, {
+                // We overwrite the 3D placement to bring it to center screen
+                // We must use !important logic or specific GSAP properties
+                transform: "translate3d(0, 0, 500px) rotate(0deg) scale(2.5)", 
+                zIndex: 1000,
+                duration: 0.8,
+                ease: "power3.inOut"
+            });
+            
+            // Dim others
+            gsap.to('.gallery-item', { opacity: 0.1, duration: 0.5 });
+            gsap.to(item, { opacity: 1, duration: 0.5 });
+        }
+
+        function closeZoom() {
+            if (!currentZoomedItem) return;
+
+            document.getElementById('overlay').classList.remove('active');
+
+            // Return to original spot
+            gsap.to(currentZoomedItem, {
+                transform: currentZoomedItem.dataset.origTransform,
+                zIndex: 0,
+                scale: 1,
+                duration: 0.6,
+                ease: "power2.out",
+                onComplete: () => {
+                    isZoomed = false;
+                    currentZoomedItem = null;
+                }
+            });
+
+            // Restore others
+            gsap.to('.gallery-item', { opacity: 1, duration: 0.5 });
+        }
+        
+        // Auto-Rotate gently on load
+        gsap.to(container, {
+            rotationY: 360,
+            duration: 120,
+            repeat: -1,
+            ease: "none"
+        });
+
+    </script>
+</body>
+</html>
