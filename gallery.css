@@ -226,3 +226,75 @@ header.dark-header .nav-links a.active {
     padding: 5px 15px; font-size: 0.8rem; border: 1px solid #555; text-transform: uppercase;
                      }
               
+/* =========================================
+   ANIMATION: THE LIVING GOLD
+   ========================================= */
+
+/* 1. Define the Shine Animation */
+@keyframes goldShine {
+    0% { background-position: -150%; }
+    100% { background-position: 150%; }
+}
+
+/* 2. Animate the BOX BORDER */
+.hero-overlay {
+    /* Change standard border to a Gradient Border */
+    border: 2px solid transparent; /* Transparent so we can paint over it */
+    position: relative;
+    background: 
+        linear-gradient(#000, #000) padding-box, /* Inner Black Box */
+        linear-gradient(45deg, #b38728, #fcf6ba, #b38728, #aa771c) border-box; /* Outer Gold Gradient */
+    
+    /* ANIMATION LOGIC */
+    background-size: 200% 200%; /* Make gradient big so it can move */
+    animation: goldBorderMove 4s ease infinite; /* Move every 4 seconds */
+    box-shadow: 0 0 40px rgba(180, 135, 40, 0.2); /* Soft Gold Glow */
+}
+
+@keyframes goldBorderMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 3. Animate the BUTTON (Sheen Sweep) */
+.gold-btn {
+    position: relative;
+    overflow: hidden; /* Keeps the light inside the button */
+    /* Add a shine layer on top */
+    background: linear-gradient(45deg, #b38728, #fcf6ba, #b38728); /* Base Gold */
+    z-index: 1;
+}
+
+/* Create the beam of light */
+.gold-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Start off-screen left */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.8), 
+        transparent
+    );
+    transform: skewX(-20deg); /* Tilt the beam */
+    
+    /* ANIMATION: Run for 3s, Infinite Loop */
+    animation: btnSheen 3s infinite;
+}
+
+@keyframes btnSheen {
+    0% { left: -150%; }
+    20% { left: 150%; } /* Fast sweep across */
+    100% { left: 150%; } /* Wait for the rest of the time */
+}
+
+/* Make the button text pop during animation */
+.gold-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #fcf6ba;
+}
+
