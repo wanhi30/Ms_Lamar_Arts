@@ -1,24 +1,19 @@
-// --- PRELOADER LOGIC ---
+// --- PRELOADER LOGIC (FOR GIF) ---
 window.addEventListener('load', function() {
-    const video = document.getElementById('intro-video');
-    const preloader = document.getElementById('preloader');
-
-    // Attempt to play video
-    video.play().catch(() => { console.log("Autoplay blocked"); });
-
-    // SPEED UP VIDEO 3X
-    if(video) {
-        video.playbackRate = 4.0; 
-    }
+    // Since GIFs loop and don't signal when they end, 
+    // we use a simple timer to close the preloader.
     
-    // When video ends, fade out preloader
-    video.onended = function() { closePreloader(); };
+    // Change '3000' to match how long your GIF lasts (in milliseconds)
+    // 3000 = 3 seconds
+    setTimeout(closePreloader, 3000); 
 });
 
 function closePreloader() {
     const preloader = document.getElementById('preloader');
-    preloader.style.opacity = '0';
-    setTimeout(() => { preloader.style.display = 'none'; }, 500);
+    if(preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => { preloader.style.display = 'none'; }, 500);
+    }
 }
 
 // --- MOBILE MENU TOGGLE ---
@@ -49,5 +44,3 @@ function showSlides() {
 
 // Start slideshow
 showSlides();
-
-
