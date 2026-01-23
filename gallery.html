@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery & Studio | M/s LAMAR ART's</title>
+    
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="gallery.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="Lamar Arts Logo" class="logo-icon">
+                <span class="logo-text" style="color:white;">M/s LAMAR ART's</span>
+            </a>
+            <div class="menu-toggle" onclick="toggleMenu()" style="color:white;"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html" style="color:white;">Home</a></li>
+                <li><a href="products.html" style="color:white;">Products</a></li>
+                <li><a href="gallery.html" class="active" style="color:var(--gold);">Gallery</a></li>
+                <li><a href="contact.html" style="color:white;">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="fine-art-hero" style="background-image: url('images/fineart_hero.jpg');">
+        <div class="hero-overlay">
+            <h1>The Fine Art Collection</h1>
+            <p>Where tradition meets the canvas.</p>
+            <a href="finearts.html" class="gold-btn">Enter Exhibition <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section class="studio-section restoration-lab">
+        <div class="story-container">
+            <h2>The Restoration Lab</h2>
+            <div class="curator-text">
+                <p>At M/s Lamar Art, photo editing is not a shortcut—it is a journey of manual craftsmanship.</p>
+                <p>We do not simply "recreate" faces using AI. We painstakingly <em>restore</em> every pixel manually, preserving the authentic memory and emotion of the original photograph, just as we have done since the early days of digital art.</p>
+                <p><strong>"Restoring memory, not rewriting history."</strong></p>
+            </div>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="comparison-card">
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="images/restore1_new.jpg" alt="Restored">
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="images/restore1_old.jpg" alt="Old">
+                    </div>
+                </div>
+                <p class="caption">Drag to Restore</p>
+            </div>
+            
+            <div class="comparison-card">
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="images/restore2_new.jpg" alt="Restored">
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="images/restore2_old.jpg" alt="Old">
+                    </div>
+                </div>
+                <p class="caption">Damage Repair</p>
+            </div>
+
+            <div class="comparison-card">
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="images/restore3_new.jpg" alt="Restored">
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="images/restore3_old.jpg" alt="Old">
+                    </div>
+                </div>
+                <p class="caption">Color Correction</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="studio-section logo-studio">
+        <div class="story-container">
+            <h2>Identity & Logic</h2>
+            <div class="curator-text">
+                <p>We reject the generic. Every logo identity begins with deep conceptualization—matching the company's soul to a visual mark.</p>
+                <p>From raw pencil sketches to precise vector geometry in Illustrator, we build brands that stand the test of time.</p>
+            </div>
+        </div>
+
+        <div class="horizontal-scroll-container">
+            <img src="images/logo_slide1.jpg" class="h-slide" alt="Logo Folio 1">
+            <img src="images/logo_slide2.jpg" class="h-slide" alt="Logo Folio 2">
+            <img src="images/logo_slide3.jpg" class="h-slide" alt="Logo Folio 3">
+        </div>
+    </section>
+
+    <section class="studio-section illustration-studio">
+        <div class="story-container">
+            <h2>The Illustration Archive</h2>
+            <div class="curator-text">
+                <p>From book covers that tell tales to wedding invites that celebrate love. This portfolio represents the distinct creative voice of our team member, <a href="https://www.behance.net/wanhichallam" target="_blank" class="author-link">Wanhi i Challam</a>.</p>
+                <p><em>(Scroll inside the frame below to view the collection)</em></p>
+            </div>
+        </div>
+
+        <div class="vertical-scroll-box">
+            <div class="scroll-content">
+                <img src="images/ill_book.jpg" alt="Book Cover Design">
+                <img src="images/ill_wedding.jpg" alt="Wedding Card">
+                <img src="images/ill_music.jpg" alt="Album Art">
+                <img src="images/ill_art.jpg" alt="Digital Art">
+            </div>
+        </div>
+
+        <div class="behance-cta">
+            <a href="https://www.behance.net/wanhichallam" target="_blank" class="be-btn">
+                <i class="fab fa-behance"></i> See Full Portfolio on Behance
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4><i class="fas fa-map-marker-alt"></i> Visit Us</h4>
+                <div class="address-box">M/s Lamar Arts Newhill, Jowai</div>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>9862330569 | lamararts123@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">© 2026 M/s Lamar Art's.</div>
+    </footer>
+
+    <script src="gallery.js"></script>
+    <script src="script.js"></script> </body>
+</html>
