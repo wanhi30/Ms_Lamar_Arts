@@ -3,7 +3,6 @@
    File: gallery.css
    ========================================= */
 :root {
-    /* Premium Carbon Texture Pattern */
     --bg-dark: #111;
     --text-silver: #e0e0e0;
     --gold: #D4AF37;
@@ -13,8 +12,7 @@
 body.dark-mode {
     /* DARK TEXTURE BACKGROUND */
     background-color: #0a0a0a;
-    background-image: 
-        radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
+    background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
     color: var(--text-silver);
     font-family: 'Inter', sans-serif;
 }
@@ -32,6 +30,15 @@ header.dark-header .menu-toggle {
 header.dark-header .nav-links a.active {
     color: var(--gold) !important;
 }
+
+/* Fix Mobile Menu Background Color (Was White) */
+@media (max-width: 768px) {
+    header.dark-header .nav-links {
+        background-color: #000 !important;
+        border-bottom: 1px solid #333;
+    }
+}
+
 .gold-cta {
     background: linear-gradient(45deg, #b38728, #fcf6ba, #b38728);
     color: black !important;
@@ -76,18 +83,19 @@ header.dark-header .nav-links a.active {
 
 /* --- 1. FINE ART PORTAL (Box-in-Box) --- */
 .fine-art-hero {
-    background-color: #000000;
-    padding: 60px; /* The Black Outer Frame */
+    background-color: #000000; /* OUTER BOX: BLACK */
+    padding: 60px; 
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 4px solid var(--gold); /* GOLD SEPARATOR LINE RESTORED */
 }
 
 .fine-art-frame {
     width: 100%;
     max-width: 1200px;
     height: 60vh;
-    /* Ensure you have gallery-bg.jpg in images folder */
+    /* MIDDLE BOX: Image with Dark Overlay */
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/gallery-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -100,6 +108,7 @@ header.dark-header .nav-links a.active {
 }
 
 .hero-overlay {
+    /* INNER BOX: Content */
     background: rgba(0, 0, 0, 0.9);
     padding: 40px 60px;
     text-align: center;
@@ -109,14 +118,8 @@ header.dark-header .nav-links a.active {
 }
 
 .gold-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: 0.3s;
-    margin-top: 10px;
+    display: inline-block; padding: 12px 30px; border: 1px solid var(--gold);
+    color: var(--gold); text-transform: uppercase; font-weight: bold; transition: 0.3s; margin-top: 10px;
 }
 .gold-btn:hover { background: var(--gold); color: black; box-shadow: 0 0 15px var(--gold); }
 
@@ -145,10 +148,9 @@ header.dark-header .nav-links a.active {
 
 @media (min-width: 768px) {
     .slider-wrapper { flex-direction: row; justify-content: center; flex-wrap: wrap; }
-    .img-comp-container { width: 500px; height: 500px; } /* PC Size */
+    .img-comp-container { width: 500px; height: 500px; } /* PC Size: HUGE */
     .img-comp-img img { width: 500px; height: 500px; }
     
-    /* Fine Art Frame Adjustments */
     .fine-art-hero { padding: 60px; }
 }
 @media (max-width: 768px) {
@@ -175,11 +177,10 @@ header.dark-header .nav-links a.active {
 .logo-scroller::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
 
 .logo-card {
-    flex: 0 0 auto; width: 80vw; /* Mobile width */
+    flex: 0 0 auto; width: 80vw;
     scroll-snap-align: center; border-radius: 4px; overflow: hidden; border: 1px solid #333;
 }
 .logo-card img { width: 100%; height: auto; display: block; }
-
 @media (min-width: 768px) { .logo-card { width: 400px; } }
 
 /* --- 4. ILLUSTRATION BOX --- */
@@ -223,4 +224,5 @@ header.dark-header .nav-links a.active {
     position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
     background: rgba(0,0,0,0.7); color: var(--text-silver);
     padding: 5px 15px; font-size: 0.8rem; border: 1px solid #555; text-transform: uppercase;
-}
+                     }
+              
