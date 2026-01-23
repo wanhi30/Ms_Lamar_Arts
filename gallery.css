@@ -20,7 +20,7 @@ body.dark-mode {
 
 /* --- DARK HEADER --- */
 header.dark-header {
-    background: #000;
+    background: #0a0a0a;
     border-bottom: 1px solid #333;
 }
 header.dark-header .logo-text,
@@ -189,3 +189,4 @@ header.dark-header .nav-links a.active {
 }
 .be-btn:hover { background: white; color: #1769ff; }
        
+
