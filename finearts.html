@@ -74,19 +74,20 @@
         /* NEW: Floating Golden Particles */
         .gold-particle {
             position: absolute;
-            width: 8px; height: 8px;
+            width: 6px; height: 6px;
             background: radial-gradient(circle, #fff, var(--gold) 40%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
-            opacity: 0.6;
+            opacity: 0.8;
             mix-blend-mode: screen;
+            box-shadow: 0 0 10px var(--gold);
         }
 
-        /* The Title - Bottom Right Corner */
+        /* The Title - BOTTOM LEFT CORNER */
         .hero-title-corner {
             position: absolute;
-            bottom: 60px; right: 60px;
-            text-align: right;
+            bottom: 60px; left: 60px; /* Moved to LEFT */
+            text-align: left;
             pointer-events: none; /* Let clicks pass through */
             z-index: 10;
             text-shadow: 0 0 30px black;
@@ -206,7 +207,7 @@
         /* RESPONSIVE */
         @media (max-width: 1024px) { .archive-grid { column-count: 3; } }
         @media (max-width: 768px) {
-            .hero-title-corner { bottom: 40px; right: 20px; text-align: center; width: 90%; }
+            .hero-title-corner { bottom: 40px; left: 20px; text-align: left; width: 90%; }
             .ht-main { font-size: 2.5rem; }
             .art-row, .art-row:nth-child(even) { flex-direction: column; text-align: left; gap: 30px; }
             .art-info, .art-row:nth-child(even) .art-info { border: none; border-top: 3px solid var(--gold); padding: 20px 0; }
@@ -243,7 +244,7 @@
     <section class="spotlight-section">
         
         <div class="art-row">
-            <div class="art-image"><img src="images/ill1.jpg" alt="Placeholder 1"></div>
+            <div class="art-image"><img src="images/ill1.jpg" alt="Thadlaskein"></div>
             <div class="art-info">
                 <h2 class="art-title">The Spirit of Thadlaskein</h2>
                 <div class="art-meta">Stone Lithography | 2025 | Available</div>
@@ -252,7 +253,7 @@
         </div>
 
         <div class="art-row">
-            <div class="art-image"><img src="images/ill2.jpg" alt="Placeholder 2"></div>
+            <div class="art-image"><img src="images/ill2.jpg" alt="Nartiang"></div>
             <div class="art-info">
                 <h2 class="art-title">Nartiang Monoliths</h2>
                 <div class="art-meta">Woodcut Relief | 2024 | Sold</div>
@@ -261,7 +262,7 @@
         </div>
 
         <div class="art-row">
-            <div class="art-image"><img src="images/ill3.jpg" alt="Placeholder 3"></div>
+            <div class="art-image"><img src="images/ill3.jpg" alt="Harvest"></div>
             <div class="art-info">
                 <h2 class="art-title">Behdeinkhlam Motion Study</h2>
                 <div class="art-meta">Digital Motion Print | 2025 | Edition of 10</div>
@@ -270,7 +271,7 @@
         </div>
 
         <div class="art-row">
-            <div class="art-image"><img src="images/logo1.jpg" alt="Placeholder 4"></div>
+            <div class="art-image"><img src="images/logo1.jpg" alt="Study"></div>
             <div class="art-info">
                 <h2 class="art-title">Study of Form No. 4</h2>
                 <div class="art-meta">Charcoal on Canvas | 2023 | Available</div>
@@ -279,7 +280,7 @@
         </div>
 
         <div class="art-row">
-            <div class="art-image"><img src="images/restore1_new.jpg" alt="Placeholder 5"></div>
+            <div class="art-image"><img src="images/restore1_new.jpg" alt="Portrait"></div>
             <div class="art-info">
                 <h2 class="art-title">Ancestral Portraiture</h2>
                 <div class="art-meta">Oil on Linen | 2024 | Inquire</div>
@@ -308,7 +309,7 @@
             <div class="archive-item"><img src="images/logo5.jpg"></div>
             <div class="archive-item"><img src="images/ill3.jpg"></div>
             <div class="archive-item"><img src="images/logo6.jpg"></div>
-            </div>
+        </div>
     </section>
 
     <footer class="fine-arts-footer">
@@ -329,26 +330,32 @@
         // --- 1. SPHERE CONFIGURATION (Premium & Random) ---
         const totalImages = 35; // More items for a denser cloud
         const radius = 500; // Larger radius
-        const totalParticles = 50; // Golden glitter count
+        const totalParticles = 60; // MORE GOLD GLITTER
 
-        // Placeholder list for testing (Will use _small later)
-        // Using the same image for both thumb/full for now until you create thumbs
+        // YOUR ARTWORK DATA
+        // Note: For now, 'thumb' points to the same file. 
+        // Later, rename your small files to 'ill1_small.jpg' and update the 'thumb' link here.
         const artworks = [
-            'images/ill1.jpg', 'images/ill2.jpg', 'images/ill3.jpg',
-            'images/ill4.jpg', 'images/ill5.jpg', 'images/logo1.jpg', 
-            'images/logo2.jpg', 'images/restore1_new.jpg'
+            { thumb: 'images/ill1.jpg', full: 'images/ill1.jpg' },
+            { thumb: 'images/ill2.jpg', full: 'images/ill2.jpg' },
+            { thumb: 'images/ill3.jpg', full: 'images/ill3.jpg' },
+            { thumb: 'images/ill4.jpg', full: 'images/ill4.jpg' },
+            { thumb: 'images/ill5.jpg', full: 'images/ill5.jpg' },
+            { thumb: 'images/logo1.jpg', full: 'images/logo1.jpg' },
+            { thumb: 'images/logo2.jpg', full: 'images/logo2.jpg' },
+            { thumb: 'images/restore1_new.jpg', full: 'images/restore1_new.jpg' }
         ];
 
         const container = document.getElementById('sphere');
         const zoomOverlay = document.getElementById('zoom-overlay');
         const zoomImg = document.getElementById('zoom-img');
 
-        // A. GENERATE IMAGES
+        // A. GENERATE IMAGES (Random Sizes)
         for (let i = 0; i < totalImages; i++) {
             const div = document.createElement('div');
             div.className = 'gallery-item';
 
-            // Randomize Sizes (The "Organic" look you wanted back)
+            // RANDOM SIZES (The "Pinterest" Vibe)
             const type = Math.random();
             if(type < 0.4) {
                 div.style.width = '100px'; div.style.height = '150px'; // Portrait
@@ -359,36 +366,36 @@
             }
 
             const img = document.createElement('img');
-            // Pick random image
-            const src = artworks[i % artworks.length];
-            img.src = src; 
+            // Pick image from list
+            const art = artworks[i % artworks.length];
+            img.src = art.thumb; // Load THUMBNAIL
             div.appendChild(img);
 
-            // Fibonacci Math
+            // Fibonacci Sphere Distribution
             const phi = Math.acos(-1 + (2 * i) / totalImages);
             const theta = Math.sqrt(totalImages * Math.PI) * phi;
             const x = radius * Math.cos(theta) * Math.sin(phi);
             const y = radius * Math.sin(theta) * Math.sin(phi);
             const z = radius * Math.cos(phi);
 
-            // Apply 3D position, keeping them facing outward
+            // Apply 3D position
             div.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${theta}rad) rotateX(${phi}rad)`;
             
-            // Click to Zoom
+            // Click -> Load FULL RES
             div.onclick = function() {
-                zoomImg.src = this.querySelector('img').src;
+                zoomImg.src = art.full; 
                 zoomOverlay.classList.add('active');
             };
 
             container.appendChild(div);
         }
 
-        // B. GENERATE GOLD PARTICLES (Glitter)
+        // B. GENERATE GOLD PARTICLES (The Glitter!)
         for (let i = 0; i < totalParticles; i++) {
             const particle = document.createElement('div');
             particle.className = 'gold-particle';
             
-            // Random math for particles
+            // Random placement around sphere
             const phi = Math.acos(-1 + (2 * i) / totalParticles);
             const theta = Math.sqrt(totalParticles * Math.PI) * phi;
             // Place them slightly further out for depth
@@ -398,6 +405,7 @@
             const z = pRadius * Math.cos(phi);
 
             particle.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+            
             // Randomize size slightly
             const scale = 0.5 + Math.random();
             particle.style.transform += ` scale(${scale})`;
@@ -431,7 +439,7 @@
 
         // Continuous slow Auto-Rotation
         gsap.to(container, {
-            rotationY: "+=360", rotationX: "-=360", // Rotate on both axes for more dynamic movement
+            rotationY: "+=360", rotationX: "-=360", 
             duration: 180, repeat: -1, ease: "none"
         });
 
