@@ -138,7 +138,7 @@ header {
 
 
 
-.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
 
 .nav-links a { font-weight: 600; transition: 0.3s; }
 
@@ -401,6 +401,7 @@ a.card:hover .card-overlay {
 .card-poster  { background-image: url('images/card_poster.jpg'); }
 
 .card-sticker { background-image: url('images/card_sticker.jpg'); }
+
 
 
 
