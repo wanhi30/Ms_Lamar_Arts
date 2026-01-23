@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="gallery.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="dark-mode">
@@ -36,16 +36,18 @@
     </header>
 
     <section class="fine-art-hero">
-        <div class="hero-overlay">
-            <h1 class="shiny-gold">The Fine Art Collection</h1>
-            <p class="shiny-sub">Where tradition meets the canvas.</p>
-            <a href="finearts.html" class="gold-btn">Enter Exhibition <i class="fas fa-arrow-right"></i></a>
+        <div class="fine-art-frame">
+            <div class="hero-overlay">
+                <h1 class="shiny-gold">The Fine Art Collection</h1>
+                <p class="shiny-sub">Where tradition meets the canvas.</p>
+                <a href="finearts.html" class="gold-btn">Enter Exhibition <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
     </section>
 
     <section class="studio-section restoration-lab">
         <div class="story-container">
-            <h2 class="shiny-gold">The Restoration Lab</h2>
+            <h2 class="shiny-silver">The Restoration Lab</h2>
             <div class="curator-text">
                 <p>At M/s Lamar Art, photo editing is a journey of manual craftsmanship. We painstakingly restore every pixel, preserving the authentic memory of the original photograph.</p>
                 <p><strong>"Restoring memory, not rewriting history."</strong></p>
@@ -55,33 +57,33 @@
         <div class="slider-wrapper">
             <div class="comparison-card">
                 <div class="img-comp-container">
-                    <div class="img-comp-img">
-                        <img src="images/restore1_new.jpg" alt="Restored">
-                    </div>
-                    <div class="img-comp-img img-comp-overlay">
-                        <img src="images/restore1_old.jpg" alt="Old">
-                    </div>
+                    <div class="img-comp-img"><img src="images/restore1_new.jpg" alt="Restored"></div>
+                    <div class="img-comp-img img-comp-overlay"><img src="images/restore1_old.jpg" alt="Old"></div>
                 </div>
                 <p class="caption">Drag to Restore</p>
             </div>
             
             <div class="comparison-card">
                 <div class="img-comp-container">
-                    <div class="img-comp-img">
-                        <img src="images/restore2_new.jpg" alt="Restored">
-                    </div>
-                    <div class="img-comp-img img-comp-overlay">
-                        <img src="images/restore2_old.jpg" alt="Old">
-                    </div>
+                    <div class="img-comp-img"><img src="images/restore2_new.jpg" alt="Restored"></div>
+                    <div class="img-comp-img img-comp-overlay"><img src="images/restore2_old.jpg" alt="Old"></div>
                 </div>
                 <p class="caption">Damage Repair</p>
+            </div>
+
+            <div class="comparison-card">
+                <div class="img-comp-container">
+                    <div class="img-comp-img"><img src="images/restore3_new.jpg" alt="Restored"></div>
+                    <div class="img-comp-img img-comp-overlay"><img src="images/restore3_old.jpg" alt="Old"></div>
+                </div>
+                <p class="caption">Color Correction</p>
             </div>
         </div>
     </section>
 
     <section class="studio-section logo-studio">
         <div class="story-container">
-            <h2 class="shiny-gold">Identity & Logic</h2>
+            <h2 class="shiny-silver">Identity & Logic</h2>
             <div class="curator-text">
                 <p>We reject the generic. Every logo identity begins with deep conceptualization—matching the company's soul to a visual mark.</p>
             </div>
@@ -93,12 +95,12 @@
             <div class="logo-card"><img src="images/logo3.jpg" alt="Logo 3"></div>
             <div class="logo-card"><img src="images/logo4.jpg" alt="Logo 4"></div>
             <div class="logo-card"><img src="images/logo5.jpg" alt="Logo 5"></div>
-            </div>
+        </div>
     </section>
 
     <section class="studio-section illustration-studio">
         <div class="story-container">
-            <h2 class="shiny-gold">The Illustration Archive</h2>
+            <h2 class="shiny-silver">The Illustration Archive</h2>
             <div class="curator-text">
                 <p>From book covers to digital paintings. Portfolio by <a href="https://www.behance.net/gallery/241182321/Illustrations-Portfolio" target="_blank" class="author-link">Wanhi i Challam</a>.</p>
                 <p style="font-size: 0.9rem; color: #888;">(Scroll inside the frame below)</p>
@@ -110,7 +112,6 @@
                 <img src="images/ill1.jpg" alt="Illustration 1">
                 <img src="images/ill2.jpg" alt="Illustration 2">
                 <img src="images/ill3.jpg" alt="Illustration 3">
-                <img src="images/ill4.jpg" alt="Illustration 4">
             </div>
         </div>
 
@@ -121,21 +122,72 @@
         </div>
     </section>
 
+    <section class="studio-section concept-vault">
+        <div class="story-container">
+            <h2 class="shiny-silver">The Concept Vault</h2>
+            <div class="curator-text">
+                <p>Every masterpiece starts with a messy line. Peek into our raw sketchbooks before they became digital reality.</p>
+                <p style="font-size:0.9rem; color:#888;">(Hover/Tap card to flip)</p>
+            </div>
+        </div>
+
+        <div class="vault-grid">
+            <div class="vault-item">
+                <div class="vault-inner">
+                    <div class="vault-front"><img src="images/sketch1.jpg" alt="Raw Sketch"><span class="vault-label">Raw Sketch</span></div>
+                    <div class="vault-back"><img src="images/sketch1_final.jpg" alt="Final Design"><span class="vault-label">Final Render</span></div>
+                </div>
+            </div>
+            <div class="vault-item">
+                <div class="vault-inner">
+                    <div class="vault-front"><img src="images/sketch2.jpg" alt="Raw Sketch"><span class="vault-label">Raw Sketch</span></div>
+                    <div class="vault-back"><img src="images/sketch2_final.jpg" alt="Final Design"><span class="vault-label">Final Render</span></div>
+                </div>
+            </div>
+            <div class="vault-item">
+                <div class="vault-inner">
+                    <div class="vault-front"><img src="images/sketch3.jpg" alt="Raw Sketch"><span class="vault-label">Raw Sketch</span></div>
+                    <div class="vault-back"><img src="images/sketch3_final.jpg" alt="Final Design"><span class="vault-label">Final Render</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-container">
             <div class="footer-col">
                 <h4><i class="fas fa-map-marker-alt"></i> Visit Us</h4>
-                <div class="address-box">M/s Lamar Arts Newhill, Jowai</div>
+                <div class="address-box">
+                    <strong>Shop 1:</strong><br>
+                    M/s Lamar Arts Newhill,<br>
+                    Loomsooiung Jowai, West Jaintia Hills,<br>
+                    Meghalaya - 793150 (Near Petrol Pump)
+                </div>
+                <br>
+                <div class="address-box">
+                    <strong>Shop 2:</strong><br>
+                    M/s Lamar Arts, Iawmusiang Jowai,<br>
+                    West Jaintia Hills, Meghalaya - 793150<br>
+                    (Opp. Iaphi Complex Building)
+                </div>
             </div>
+
             <div class="footer-col">
                 <h4>Contact</h4>
-                <p>9862330569 | lamararts123@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> 9862330569</p>
+                <p><i class="fas fa-envelope"></i> lamararts123@gmail.com</p>
                 <br>
                 <p><a href="https://www.facebook.com/profile.php?id=61570825532138" target="_blank" style="color:white"><i class="fab fa-facebook-f"></i> Facebook</a></p>
                 <p><a href="https://www.instagram.com/__lamararts__" style="color:var(--magenta)"><i class="fab fa-instagram"></i> Instagram</a></p>
             </div>
+
+            <div class="footer-col map-col">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.347589620023!2d92.21319031501435!3d25.42668598378997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3751a4b655555555%3A0x1234567890abcdef!2sJowai!5e0!3m2!1sen!2sin!4v1612345678901" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
-        <div class="copyright">© 2026 M/s Lamar Art's.</div>
+        <div class="copyright">
+            © 2026 M/s Lamar Art's. "Beyond Imagination & Creativity"
+        </div>
     </footer>
 
     <script src="gallery.js"></script>
