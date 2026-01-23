@@ -37,7 +37,18 @@ header {
     background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; top: auto; z-index: 1000; border-bottom: 1px solid var(--border);
 }
 .nav-container {
-    display: flex; justify-content: space-between; align-items: center; padding: 15px 5%;
+    /* Tighten menu for 5 items */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Reduced from 30px */
+}
+
+.nav-links a {
+    font-size: 0.95rem; /* Slightly smaller text if needed */
+    font-weight: 600;
+    transition: 0.3s;
+    letter-spacing: 0.5px;
 }
 
 /* LOGO STYLING */
@@ -200,6 +211,7 @@ a.card:hover .card-overlay {
 .card-tshirt  { background-image: url('images/card_tshirt.jpg'); }
 .card-poster  { background-image: url('images/card_poster.jpg'); }
 .card-sticker { background-image: url('images/card_sticker.jpg'); }
+
 
 
 
