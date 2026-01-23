@@ -2,119 +2,300 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>3D Sphere Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Arts Collection | M/s LAMAR ART's</title>
+    <link rel="stylesheet" href="gallery.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body {
-            margin: 0;
-            background-color: #050505; /* Deep Black */
-            overflow: hidden;
-            font-family: 'Inter', sans-serif;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* --- PAGE SPECIFIC STYLES --- */
+        body { 
+            overflow-x: hidden; 
+            background: #050505; 
         }
 
-        .scene {
-            width: 100vw;
+        /* SECTION 1: THE 3D SPHERE HERO (100vh) */
+        #sphere-hero {
+            position: relative;
+            width: 100%;
             height: 100vh;
-            perspective: 1200px; /* How "deep" the 3D looks */
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            perspective: 1200px;
             cursor: grab;
+            border-bottom: 2px solid var(--gold);
         }
+        #sphere-hero:active { cursor: grabbing; }
 
         .sphere-container {
             position: relative;
-            width: 0;
-            height: 0;
             transform-style: preserve-3d;
         }
 
         .gallery-item {
             position: absolute;
             top: 0; left: 0;
-            /* Centering the item on its coordinate */
             transform-origin: center center;
             transform-style: preserve-3d;
             cursor: pointer;
-            transition: box-shadow 0.3s;
-            backface-visibility: hidden; /* Hide back of photos */
+            backface-visibility: hidden;
+            transition: opacity 0.3s;
         }
         
         .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border: 2px solid rgba(212, 175, 55, 0.3); /* Muted Gold Border */
-            border-radius: 4px;
-            display: block;
-            pointer-events: none; /* Let clicks pass to the div */
+            width: 100%; height: 100%; object-fit: cover;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 15px rgba(0,0,0,0.8);
+            display: block; pointer-events: none;
         }
 
-        .gallery-item:hover img {
-            border-color: #D4AF37;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        /* Floating Hero Text */
+        .hero-title-overlay {
+            position: absolute;
+            bottom: 50px; left: 50px;
+            pointer-events: none; /* Let clicks pass through to sphere */
+            z-index: 10;
+        }
+        .hero-title-overlay h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 4rem;
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0;
+        }
+        .hero-title-overlay p {
+            font-family: 'Cormorant Garamond', serif;
+            color: #ccc; font-size: 1.2rem; margin-top: 10px;
         }
 
-        /* Overlay for expanded view */
+        /* SECTION 2: CURATOR STATEMENT */
+        .curator-section {
+            padding: 100px 10%;
+            text-align: center;
+            background: #080808;
+        }
+        .curator-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--text-silver);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+        .curator-sig {
+            margin-top: 30px;
+            color: var(--gold);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* SECTION 3: SPOTLIGHT LAYOUT (Zig-Zag) */
+        .spotlight-section { padding: 50px 5%; }
+        
+        .art-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 150px;
+            gap: 60px;
+            opacity: 0; /* Animated later */
+            transform: translateY(50px);
+            transition: 1s ease-out;
+        }
+        .art-row.visible { opacity: 1; transform: translateY(0); }
+
+        /* Alternating Order */
+        .art-row:nth-child(even) { flex-direction: row-reverse; }
+
+        .art-image {
+            flex: 1; max-width: 600px;
+            position: relative;
+        }
+        .art-image img {
+            width: 100%; display: block;
+            border: 1px solid #333;
+            box-shadow: -20px 20px 60px rgba(0,0,0,0.8);
+            transition: 0.5s;
+        }
+        .art-image:hover img { transform: scale(1.02); border-color: var(--gold); }
+
+        .art-info {
+            flex: 1; max-width: 500px;
+            padding: 30px;
+            border-left: 2px solid var(--gold); /* Museum Label Line */
+            background: linear-gradient(90deg, rgba(20,20,20,0.8), transparent);
+        }
+        .art-row:nth-child(even) .art-info {
+            border-left: none; border-right: 2px solid var(--gold);
+            text-align: right;
+            background: linear-gradient(-90deg, rgba(20,20,20,0.8), transparent);
+        }
+
+        .art-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.2rem; color: white; margin-bottom: 10px;
+        }
+        .art-meta {
+            color: var(--gold); font-size: 0.9rem;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+        }
+        .art-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem; color: #bbb; line-height: 1.8; margin-bottom: 30px;
+        }
+        .enquire-btn {
+            padding: 10px 30px;
+            border: 1px solid #555;
+            color: white; text-transform: uppercase; font-size: 0.8rem;
+            background: transparent; cursor: pointer; transition: 0.3s;
+        }
+        .enquire-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* ZOOM OVERLAY (For Sphere) */
         .overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 100;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 9999;
+            opacity: 0; pointer-events: none; transition: 0.5s;
+            display: flex; align-items: center; justify-content: center;
         }
         .overlay.active { opacity: 1; pointer-events: auto; }
-        
-        .close-btn {
-            position: absolute; top: 30px; right: 30px;
-            color: #D4AF37; font-size: 2rem; cursor: pointer;
-            z-index: 101;
+        .overlay img { max-width: 90%; max-height: 90vh; box-shadow: 0 0 50px black; border: 2px solid var(--gold); }
+        .close-zoom {
+            position: absolute; top: 30px; right: 40px;
+            font-size: 3rem; color: white; cursor: pointer;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-title-overlay h1 { font-size: 2.5rem; }
+            .art-row, .art-row:nth-child(even) { flex-direction: column; text-align: left; }
+            .art-info, .art-row:nth-child(even) .art-info { 
+                border: none; border-top: 2px solid var(--gold); 
+                text-align: left; padding: 20px 0;
+            }
         }
     </style>
 </head>
-<body>
+<body class="dark-mode">
 
-    <div class="overlay" id="overlay">
-        <div class="close-btn" onclick="closeZoom()">&times;</div>
-    </div>
+    <header class="dark-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text">M/s LAMAR ART's</span>
+            </a>
+            <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="finearts.html" class="active">Fine Arts</a></li> <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-    <div class="scene" id="scene">
+    <div id="sphere-hero">
         <div class="sphere-container" id="sphere">
             </div>
+        
+        <div class="hero-title-overlay">
+            <h1>The Sanctum</h1>
+            <p>Drag to Explore · Click to Expand</p>
+        </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <div class="overlay" id="zoom-overlay">
+        <div class="close-zoom" onclick="closeZoom()">&times;</div>
+        <img id="zoom-img" src="" alt="Zoomed Art">
+    </div>
 
-    <script>
-        // --- CONFIGURATION ---
-        const totalImages = 30; // How many images in the cloud
-        const radius = 500; // How big the sphere is (px)
+    <section class="curator-section">
+        <p class="curator-quote">
+            "My work is an exploration of the Pnar identity—bridging the gap between the oral traditions of the past and the visual language of the present. Through lithography and moving prints, I seek to capture the echoes of our ancestors."
+        </p>
+        <div class="curator-sig">— Ohiwan Lamar, Visual Arts Scholar</div>
+    </section>
+
+    <section class="spotlight-section">
         
-        // We will use your uploaded images repeatedly for the demo
-        // In reality, this would be your distinct list: ill1.jpg ... ill25.jpg
-        const imageSources = [
+        <div class="art-row">
+            <div class="art-image">
+                <img src="images/ill1.jpg" alt="Art Piece 1">
+            </div>
+            <div class="art-info">
+                <h2 class="art-title">The Spirit of Thadlaskein</h2>
+                <div class="art-meta">Stone Lithography | 24 x 36 Inches | 2025</div>
+                <p class="art-desc">
+                    A visual interpretation of the sacred lake, exploring the duality of calmness and the depth of history submerged beneath the surface. The textures represent the erosion of memory over time.
+                </p>
+                <button class="enquire-btn">Inquire for Price</button>
+            </div>
+        </div>
+
+        <div class="art-row">
+            <div class="art-image">
+                <img src="images/ill2.jpg" alt="Art Piece 2">
+            </div>
+            <div class="art-info">
+                <h2 class="art-title">Echoes of the monoliths</h2>
+                <div class="art-meta">Woodcut Relief Print | 18 x 24 Inches | 2024</div>
+                <p class="art-desc">
+                    Standing tall against the test of time, the monoliths of Nartiang serve as the silent guardians of our tribe. This piece uses high-contrast relief to emphasize their endurance.
+                </p>
+                <button class="enquire-btn">Inquire for Price</button>
+            </div>
+        </div>
+
+        <div class="art-row">
+            <div class="art-image">
+                <img src="images/ill3.jpg" alt="Art Piece 3">
+            </div>
+            <div class="art-info">
+                <h2 class="art-title">Faces of the Harvest</h2>
+                <div class="art-meta">Charcoal & Ink on Paper | A1 Size | 2025</div>
+                <p class="art-desc">
+                    Captured during the Behdeinkhlam festival, this series focuses on the micro-expressions of the dancers—the exhaustion and the ecstasy of spiritual fulfillment.
+                </p>
+                <button class="enquire-btn">Inquire for Price</button>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="copyright" style="text-align: center; padding: 20px; color: #555;">
+            © 2026 M/s Lamar Art's.
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // --- 1. SPHERE CONFIGURATION ---
+        const totalImages = 25; // Number of items in cloud
+        const radius = 450; // Sphere size
+        // Images to cycle through in the sphere
+        const sphereImages = [
             'images/ill1.jpg', 'images/ill2.jpg', 'images/ill3.jpg',
-            'images/ill4.jpg', 'images/ill5.jpg', 'images/logo1.jpg',
-            'images/restore1_new.jpg', 'images/gallery-bg.jpg'
+            'images/ill4.jpg', 'images/ill5.jpg', 'images/logo1.jpg', 
+            'images/logo2.jpg', 'images/restore1_new.jpg'
         ];
 
         const container = document.getElementById('sphere');
-        let isZoomed = false;
+        const zoomOverlay = document.getElementById('zoom-overlay');
+        const zoomImg = document.getElementById('zoom-img');
         let rotationX = 0;
         let rotationY = 0;
 
-        // --- 1. BUILD THE FIBONACCI SPHERE ---
+        // --- BUILD SPHERE ---
         for (let i = 0; i < totalImages; i++) {
             const div = document.createElement('div');
             div.className = 'gallery-item';
 
-            // Randomize sizes for "Pinterest" look
-            // Some Portrait (120x180), Some Landscape (180x120), Some Square (150x150)
+            // Random Dimensions (Pinterest Vibe)
             const type = Math.random();
             if(type < 0.3) {
                 div.style.width = '120px'; div.style.height = '180px'; // Portrait
@@ -124,138 +305,87 @@
                 div.style.width = '140px'; div.style.height = '140px'; // Square
             }
 
-            // Create Image
             const img = document.createElement('img');
-            // Pick random image from list
-            img.src = imageSources[i % imageSources.length]; 
+            img.src = sphereImages[i % sphereImages.length]; 
             div.appendChild(img);
 
-            // --- THE MATH (Spherical Distribution) ---
+            // Fibonacci Sphere Math
             const phi = Math.acos(-1 + (2 * i) / totalImages);
             const theta = Math.sqrt(totalImages * Math.PI) * phi;
-
-            // Convert Polar to Cartesian (x, y, z)
             const x = radius * Math.cos(theta) * Math.sin(phi);
             const y = radius * Math.sin(theta) * Math.sin(phi);
             const z = radius * Math.cos(phi);
 
-            // Apply 3D Transform
-            // translate3d: moves it to spot on sphere
-            // rotateY/X: Makes the image face OUTWARD from center
             div.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${theta}rad) rotateX(${phi}rad)`;
             
-            // Save original transform for "un-zoom" later
-            div.dataset.origTransform = div.style.transform;
-
-            // Add Click Event
-            div.onclick = function() { zoomImage(this); };
+            // Click to Zoom (Simple Overlay version)
+            div.onclick = function() {
+                zoomImg.src = this.querySelector('img').src;
+                zoomOverlay.classList.add('active');
+            };
 
             container.appendChild(div);
         }
 
-        // --- 2. ROTATION LOGIC (Mouse Drag) ---
+        // --- MOUSE DRAG ROTATION ---
         let isDragging = false;
         let startX, startY;
+        const heroSection = document.getElementById('sphere-hero');
 
-        const scene = document.getElementById('scene');
-
-        scene.addEventListener('mousedown', (e) => {
-            if(isZoomed) return;
+        heroSection.addEventListener('mousedown', (e) => {
             isDragging = true;
             startX = e.clientX;
             startY = e.clientY;
-            scene.style.cursor = 'grabbing';
         });
 
-        window.addEventListener('mouseup', () => {
-            isDragging = false;
-            scene.style.cursor = 'grab';
-        });
+        window.addEventListener('mouseup', () => { isDragging = false; });
 
         window.addEventListener('mousemove', (e) => {
-            if (!isDragging || isZoomed) return;
-
+            if (!isDragging) return;
             const deltaX = e.clientX - startX;
             const deltaY = e.clientY - startY;
-
-            rotationY += deltaX * 0.2; // Speed
-            rotationX -= deltaY * 0.2;
-
-            // Apply Rotation to the WHOLE sphere container
+            rotationY += deltaX * 0.15;
+            rotationX -= deltaY * 0.15;
+            
             gsap.to(container, {
                 rotationY: rotationY,
                 rotationX: rotationX,
                 duration: 0.5,
                 ease: "power1.out"
             });
-
             startX = e.clientX;
             startY = e.clientY;
         });
 
-        // --- 3. ZOOM LOGIC ---
-        let currentZoomedItem = null;
-
-        function zoomImage(item) {
-            if (isZoomed) return;
-            isZoomed = true;
-            currentZoomedItem = item;
-
-            // Show Overlay
-            document.getElementById('overlay').classList.add('active');
-
-            // 1. Calculate where the item is NOW relative to screen
-            // But simpler: Reset Sphere rotation temporarily? 
-            // Better: Move item to Z=500 (Center Front) and ignoring sphere rotation is hard.
-            
-            // EASIEST VISUAL HACK: 
-            // We detach the item visually or use `position: fixed` via GSAP Flip?
-            // Let's use simple CSS transforms override.
-
-            gsap.to(item, {
-                // We overwrite the 3D placement to bring it to center screen
-                // We must use !important logic or specific GSAP properties
-                transform: "translate3d(0, 0, 500px) rotate(0deg) scale(2.5)", 
-                zIndex: 1000,
-                duration: 0.8,
-                ease: "power3.inOut"
-            });
-            
-            // Dim others
-            gsap.to('.gallery-item', { opacity: 0.1, duration: 0.5 });
-            gsap.to(item, { opacity: 1, duration: 0.5 });
-        }
-
-        function closeZoom() {
-            if (!currentZoomedItem) return;
-
-            document.getElementById('overlay').classList.remove('active');
-
-            // Return to original spot
-            gsap.to(currentZoomedItem, {
-                transform: currentZoomedItem.dataset.origTransform,
-                zIndex: 0,
-                scale: 1,
-                duration: 0.6,
-                ease: "power2.out",
-                onComplete: () => {
-                    isZoomed = false;
-                    currentZoomedItem = null;
-                }
-            });
-
-            // Restore others
-            gsap.to('.gallery-item', { opacity: 1, duration: 0.5 });
-        }
-        
-        // Auto-Rotate gently on load
+        // Auto-Rotate gently
         gsap.to(container, {
-            rotationY: 360,
+            rotationY: "+=360",
             duration: 120,
             repeat: -1,
             ease: "none"
         });
 
+        function closeZoom() {
+            zoomOverlay.classList.remove('active');
+        }
+
+        // --- 2. SCROLL ANIMATION FOR ART ROWS ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.art-row').forEach(row => {
+            observer.observe(row);
+        });
+
+        // --- 3. MOBILE MENU ---
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
     </script>
 </body>
 </html>
