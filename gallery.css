@@ -227,7 +227,47 @@ header.dark-header .nav-links a.active {
                      }
 
 /* =========================================
-   FINAL FIXED ANIMATION: BORDER & TEXT ONLY
-   (Paste at the bottom of gallery.css)
+   TEXT ANIMATION: SHINY FLASH (ENTER EXHIBITION)
    ========================================= */
+.flash-text {
+    /* 1. Font Styling (Matches your Luxury Theme) */
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
 
+    /* 2. The Light Gradient */
+    /* It goes: Silver -> Bright White Flash -> Silver */
+    background: linear-gradient(
+        120deg, 
+        var(--text-silver) 40%, 
+        #ffffff 50%, 
+        var(--text-silver) 60%
+    );
+
+    /* 3. Make the background the text color */
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* 4. The Animation Timing */
+    /* 4s Total Duration = 1s shine + 3s wait */
+    animation: shine-travel 4s ease-in-out infinite;
+}
+
+@keyframes shine-travel {
+    0% {
+        background-position: 200% center;
+    }
+    30% {
+        /* The light crosses the text */
+        background-position: -200% center;
+    }
+    100% {
+        /* The light waits here until the 4s is up */
+        background-position: -200% center;
+    }
+}
