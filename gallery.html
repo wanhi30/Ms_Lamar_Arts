@@ -7,41 +7,47 @@
     
     <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="gallery.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="dark-mode">
 
-    <header>
+    <header class="dark-header">
         <div class="nav-container">
             <a href="index.html" class="logo-link">
                 <img src="logo.png" alt="Lamar Arts Logo" class="logo-icon">
-                <span class="logo-text" style="color:white;">M/s LAMAR ART's</span>
+                <span class="logo-text">M/s LAMAR ART's</span>
             </a>
-            <div class="menu-toggle" onclick="toggleMenu()" style="color:white;"><i class="fas fa-bars"></i></div>
+            
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
             <ul class="nav-links">
-                <li><a href="index.html" style="color:white;">Home</a></li>
-                <li><a href="products.html" style="color:white;">Products</a></li>
-                <li><a href="gallery.html" class="active" style="color:var(--gold);">Gallery</a></li>
-                <li><a href="contact.html" style="color:white;">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="history.html">Our History</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
+
+            <a href="https://wa.me/919862330569" class="cta-button gold-cta">Get a Quote</a>
         </div>
     </header>
 
-    <section class="fine-art-hero" style="background-image: url('images/fineart_hero.jpg');">
+    <section class="fine-art-hero">
         <div class="hero-overlay">
-            <h1>The Fine Art Collection</h1>
-            <p>Where tradition meets the canvas.</p>
+            <h1 class="shiny-gold">The Fine Art Collection</h1>
+            <p class="shiny-sub">Where tradition meets the canvas.</p>
             <a href="finearts.html" class="gold-btn">Enter Exhibition <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
     <section class="studio-section restoration-lab">
         <div class="story-container">
-            <h2>The Restoration Lab</h2>
+            <h2 class="shiny-gold">The Restoration Lab</h2>
             <div class="curator-text">
-                <p>At M/s Lamar Art, photo editing is not a shortcut—it is a journey of manual craftsmanship.</p>
-                <p>We do not simply "recreate" faces using AI. We painstakingly <em>restore</em> every pixel manually, preserving the authentic memory and emotion of the original photograph, just as we have done since the early days of digital art.</p>
+                <p>At M/s Lamar Art, photo editing is a journey of manual craftsmanship. We painstakingly restore every pixel, preserving the authentic memory of the original photograph.</p>
                 <p><strong>"Restoring memory, not rewriting history."</strong></p>
             </div>
         </div>
@@ -70,58 +76,47 @@
                 </div>
                 <p class="caption">Damage Repair</p>
             </div>
-
-            <div class="comparison-card">
-                <div class="img-comp-container">
-                    <div class="img-comp-img">
-                        <img src="images/restore3_new.jpg" alt="Restored">
-                    </div>
-                    <div class="img-comp-img img-comp-overlay">
-                        <img src="images/restore3_old.jpg" alt="Old">
-                    </div>
-                </div>
-                <p class="caption">Color Correction</p>
-            </div>
         </div>
     </section>
 
     <section class="studio-section logo-studio">
         <div class="story-container">
-            <h2>Identity & Logic</h2>
+            <h2 class="shiny-gold">Identity & Logic</h2>
             <div class="curator-text">
                 <p>We reject the generic. Every logo identity begins with deep conceptualization—matching the company's soul to a visual mark.</p>
-                <p>From raw pencil sketches to precise vector geometry in Illustrator, we build brands that stand the test of time.</p>
             </div>
         </div>
 
-        <div class="horizontal-scroll-container">
-            <img src="images/logo_slide1.jpg" class="h-slide" alt="Logo Folio 1">
-            <img src="images/logo_slide2.jpg" class="h-slide" alt="Logo Folio 2">
-            <img src="images/logo_slide3.jpg" class="h-slide" alt="Logo Folio 3">
-        </div>
+        <div class="logo-scroller">
+            <div class="logo-card"><img src="images/logo1.jpg" alt="Logo 1"></div>
+            <div class="logo-card"><img src="images/logo2.jpg" alt="Logo 2"></div>
+            <div class="logo-card"><img src="images/logo3.jpg" alt="Logo 3"></div>
+            <div class="logo-card"><img src="images/logo4.jpg" alt="Logo 4"></div>
+            <div class="logo-card"><img src="images/logo5.jpg" alt="Logo 5"></div>
+            </div>
     </section>
 
     <section class="studio-section illustration-studio">
         <div class="story-container">
-            <h2>The Illustration Archive</h2>
+            <h2 class="shiny-gold">The Illustration Archive</h2>
             <div class="curator-text">
-                <p>From book covers that tell tales to wedding invites that celebrate love. This portfolio represents the distinct creative voice of our team member, <a href="https://www.behance.net/wanhichallam" target="_blank" class="author-link">Wanhi i Challam</a>.</p>
-                <p><em>(Scroll inside the frame below to view the collection)</em></p>
+                <p>From book covers to digital paintings. Portfolio by <a href="https://www.behance.net/gallery/241182321/Illustrations-Portfolio" target="_blank" class="author-link">Wanhi i Challam</a>.</p>
+                <p style="font-size: 0.9rem; color: #888;">(Scroll inside the frame below)</p>
             </div>
         </div>
 
         <div class="vertical-scroll-box">
             <div class="scroll-content">
-                <img src="images/ill_book.jpg" alt="Book Cover Design">
-                <img src="images/ill_wedding.jpg" alt="Wedding Card">
-                <img src="images/ill_music.jpg" alt="Album Art">
-                <img src="images/ill_art.jpg" alt="Digital Art">
+                <img src="images/ill1.jpg" alt="Illustration 1">
+                <img src="images/ill2.jpg" alt="Illustration 2">
+                <img src="images/ill3.jpg" alt="Illustration 3">
+                <img src="images/ill4.jpg" alt="Illustration 4">
             </div>
         </div>
 
         <div class="behance-cta">
-            <a href="https://www.behance.net/wanhichallam" target="_blank" class="be-btn">
-                <i class="fab fa-behance"></i> See Full Portfolio on Behance
+            <a href="https://www.behance.net/gallery/241182321/Illustrations-Portfolio" target="_blank" class="be-btn">
+                <i class="fab fa-behance"></i> View on Behance
             </a>
         </div>
     </section>
@@ -135,11 +130,15 @@
             <div class="footer-col">
                 <h4>Contact</h4>
                 <p>9862330569 | lamararts123@gmail.com</p>
+                <br>
+                <p><a href="https://www.facebook.com/profile.php?id=61570825532138" target="_blank" style="color:white"><i class="fab fa-facebook-f"></i> Facebook</a></p>
+                <p><a href="https://www.instagram.com/__lamararts__" style="color:var(--magenta)"><i class="fab fa-instagram"></i> Instagram</a></p>
             </div>
         </div>
         <div class="copyright">© 2026 M/s Lamar Art's.</div>
     </footer>
 
     <script src="gallery.js"></script>
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
 </html>
