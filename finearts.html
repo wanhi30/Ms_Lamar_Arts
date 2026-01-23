@@ -36,7 +36,7 @@
             transform-style: preserve-3d;
         }
 
-        /* The Images */
+        /* The Images Container */
         .gallery-item {
             position: absolute;
             top: 0; left: 0;
@@ -44,25 +44,27 @@
             transform-style: preserve-3d;
             cursor: pointer;
             backface-visibility: hidden;
-            transition: all 0.4s ease-out;
+            transition: z-index 0s; /* Instant z-index change */
         }
         
         .gallery-item img {
             width: 100%; height: 100%; object-fit: cover;
-            /* Subtle border initially */
             border: 1px solid rgba(212, 175, 55, 0.3);
             box-shadow: 0 0 20px rgba(0,0,0,0.9);
             display: block; pointer-events: none;
-            transition: 0.4s;
+            transition: transform 0.4s ease, border-color 0.4s, box-shadow 0.4s, filter 0.4s;
             filter: brightness(0.8);
         }
 
-        /* THE GLOW EFFECT (Kept this as requested) */
+        /* --- THE FIX IS HERE --- */
         .gallery-item:hover {
-            z-index: 100; /* Bring forward */
-            transform: scale(1.15) !important; /* Pop out */
+            z-index: 100; /* Bring parent to front */
+            /* Removed the 'transform' here to stop the jitter conflict */
         }
+        
         .gallery-item:hover img {
+            /* Scale the IMAGE instead of the BOX */
+            transform: scale(1.15); 
             border-color: var(--gold);
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), inset 0 0 20px var(--gold);
             filter: brightness(1.1);
@@ -246,7 +248,7 @@
             <div class="art-image"><img src="images/ill1.jpg" alt="Thadlaskein"></div>
             <div class="art-info">
                 <h2 class="art-title">The Spirit of Thadlaskein</h2>
-                <div class="art-meta">Stone Lithography | 2025</div>
+                <div class="art-meta">Stone Lithography | 2025 | Available</div>
                 <p class="art-desc">A visual interpretation of the sacred lake. The textures represent the erosion of memory over time, submerged beneath the surface.</p>
                 <button class="enquire-btn">Inquire for Price</button>
             </div>
@@ -256,7 +258,7 @@
             <div class="art-image"><img src="images/ill2.jpg" alt="Nartiang"></div>
             <div class="art-info">
                 <h2 class="art-title">Nartiang Monoliths</h2>
-                <div class="art-meta">Woodcut Relief | 2024</div>
+                <div class="art-meta">Woodcut Relief | 2024 | Sold</div>
                 <p class="art-desc">Silent guardians of the tribe. This piece uses high-contrast relief to emphasize endurance against the test of time.</p>
                 <button class="enquire-btn">Sold Out</button>
             </div>
@@ -266,7 +268,7 @@
             <div class="art-image"><img src="images/ill3.jpg" alt="Harvest"></div>
             <div class="art-info">
                 <h2 class="art-title">Behdeinkhlam Motion Study</h2>
-                <div class="art-meta">Digital Motion Print | 2025</div>
+                <div class="art-meta">Digital Motion Print | 2025 | Edition of 10</div>
                 <p class="art-desc">Capturing the ecstasy of spiritual fulfillment during the festival. A study of rhythm and community movement.</p>
                 <button class="enquire-btn">Inquire for Price</button>
             </div>
@@ -276,7 +278,7 @@
             <div class="art-image"><img src="images/logo1.jpg" alt="Study"></div>
             <div class="art-info">
                 <h2 class="art-title">Study of Form No. 4</h2>
-                <div class="art-meta">Charcoal on Canvas | 2023</div>
+                <div class="art-meta">Charcoal on Canvas | 2023 | Available</div>
                 <p class="art-desc">An academic exploration of light and shadow, focusing on the raw structure of the subject matter.</p>
                 <button class="enquire-btn">Inquire for Price</button>
             </div>
@@ -286,7 +288,7 @@
             <div class="art-image"><img src="images/restore1_new.jpg" alt="Portrait"></div>
             <div class="art-info">
                 <h2 class="art-title">Ancestral Portraiture</h2>
-                <div class="art-meta">Oil on Linen | 2024</div>
+                <div class="art-meta">Oil on Linen | 2024 | Inquire</div>
                 <p class="art-desc">Merging traditional techniques with contemporary subjects to bridge the generational gap.</p>
                 <button class="enquire-btn">Inquire for Price</button>
             </div>
