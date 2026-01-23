@@ -1,5 +1,6 @@
 /* =========================================
    GALLERY: DARK LUXURY + TEXTURE
+   File: gallery.css
    ========================================= */
 :root {
     /* Premium Carbon Texture Pattern */
@@ -18,9 +19,9 @@ body.dark-mode {
     font-family: 'Inter', sans-serif;
 }
 
-/* --- DARK HEADER --- */
+/* --- DARK HEADER OVERRIDE --- */
 header.dark-header {
-    background: #0a0a0a;
+    background: #000;
     border-bottom: 1px solid #333;
 }
 header.dark-header .logo-text,
@@ -37,13 +38,13 @@ header.dark-header .nav-links a.active {
     border: none;
 }
 
-/* --- SHINY GOLD TEXT EFFECT --- */
+/* --- SHINY TEXT EFFECTS --- */
+/* Gold for Fine Art */
 .shiny-gold {
     font-family: 'Cinzel Decorative', serif;
     font-size: 2.5rem;
     font-weight: 700;
     text-transform: uppercase;
-    /* The Shiny Reflection Gradient */
     background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
     -webkit-background-clip: text;
     background-clip: text;
@@ -53,33 +54,60 @@ header.dark-header .nav-links a.active {
 }
 .shiny-sub {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem; /* Smaller for mobile */
+    font-size: 1.2rem;
     color: #fcf6ba;
     font-style: italic;
     margin-bottom: 20px;
 }
 
-/* --- 1. FINE ART PORTAL --- */
+/* Silver for Studio/Design */
+.shiny-silver {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #cfcfcf, #ffffff, #a0a0a0, #ffffff, #cfcfcf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    margin-bottom: 15px;
+}
+
+/* --- 1. FINE ART PORTAL (Box-in-Box) --- */
 .fine-art-hero {
-    height: 60vh;
-    /* Use the gallery background but make it very dark */
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/gallery-bg.jpg');
-    background-size: cover;
-    background-position: center;
+    background-color: #000000;
+    padding: 60px; /* The Black Outer Frame */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 4px solid var(--gold);
 }
+
+.fine-art-frame {
+    width: 100%;
+    max-width: 1200px;
+    height: 60vh;
+    /* Ensure you have gallery-bg.jpg in images folder */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/gallery-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: inset 0 0 100px black;
+}
+
 .hero-overlay {
-    background: rgba(0, 0, 0, 0.85); /* Very Dark Box */
-    padding: 30px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 40px 60px;
     text-align: center;
-    border: 1px solid #444;
-    border-radius: 4px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.8);
-    max-width: 90%;
+    border: 1px solid #222;
+    box-shadow: 0 0 50px black;
+    max-width: 600px;
 }
+
 .gold-btn {
     display: inline-block;
     padding: 12px 30px;
@@ -92,8 +120,8 @@ header.dark-header .nav-links a.active {
 }
 .gold-btn:hover { background: var(--gold); color: black; box-shadow: 0 0 15px var(--gold); }
 
-/* --- SECTIONS --- */
-.studio-section { padding: 60px 5%; border-bottom: 1px solid #222; }
+/* --- SECTIONS GLOBAL --- */
+.studio-section { padding: 80px 5%; border-bottom: 1px solid #222; }
 .story-container { max-width: 800px; margin: 0 auto 40px auto; text-align: center; }
 .curator-text p {
     font-family: 'Cormorant Garamond', serif;
@@ -101,32 +129,31 @@ header.dark-header .nav-links a.active {
 }
 .author-link { color: var(--cyan); text-decoration: underline; }
 
-/* --- 2. RESTORATION SLIDER (BIG ON PC) --- */
-.slider-wrapper {
-    display: flex; flex-direction: column; align-items: center; gap: 40px;
-}
+/* --- 2. RESTORATION SLIDER (Big on PC) --- */
+.slider-wrapper { display: flex; flex-direction: column; align-items: center; gap: 40px; }
 .comparison-card { text-align: center; }
 
 .img-comp-container {
     position: relative;
-    /* Mobile Default Size */
-    width: 300px; height: 300px;
+    width: 300px; height: 300px; /* Mobile Size */
     overflow: hidden;
     border: 2px solid #444;
     margin: 0 auto 10px auto;
 }
 .img-comp-img { position: absolute; width: auto; height: auto; overflow: hidden; }
-.img-comp-img img { display: block; width: 300px; height: 300px; } /* Must match container */
+.img-comp-img img { display: block; width: 300px; height: 300px; }
 
-/* PC SIZE INCREASE */
 @media (min-width: 768px) {
     .slider-wrapper { flex-direction: row; justify-content: center; flex-wrap: wrap; }
-    .img-comp-container {
-        width: 500px; height: 500px; /* Much Bigger */
-    }
-    .img-comp-img img {
-        width: 500px; height: 500px;
-    }
+    .img-comp-container { width: 500px; height: 500px; } /* PC Size */
+    .img-comp-img img { width: 500px; height: 500px; }
+    
+    /* Fine Art Frame Adjustments */
+    .fine-art-hero { padding: 60px; }
+}
+@media (max-width: 768px) {
+    .fine-art-hero { padding: 0; }
+    .fine-art-frame { height: 50vh; border: none; }
 }
 
 .img-comp-slider {
@@ -136,47 +163,29 @@ header.dark-header .nav-links a.active {
     transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center;
     box-shadow: 0 0 10px black;
 }
-.img-comp-slider::before {
-    content: '< >'; font-weight: 900; color: white; font-family: monospace;
-}
+.img-comp-slider::before { content: '< >'; font-weight: 900; color: white; font-family: monospace; }
 .caption { font-size: 0.9rem; color: #666; text-transform: uppercase; letter-spacing: 2px; }
 
-/* --- 3. LOGO SLIDER (Landscape A4 Snap Scroll) --- */
+/* --- 3. LOGO SLIDER (Landscape Snap) --- */
 .logo-scroller {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 10px; /* Closer spacing */
-    padding-bottom: 20px;
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+    gap: 10px; padding-bottom: 20px;
 }
 .logo-scroller::-webkit-scrollbar { height: 6px; background: #111; }
 .logo-scroller::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
 
 .logo-card {
-    flex: 0 0 auto;
-    width: 80vw; /* Mobile: 80% of screen */
-    scroll-snap-align: center;
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid #333;
+    flex: 0 0 auto; width: 80vw; /* Mobile width */
+    scroll-snap-align: center; border-radius: 4px; overflow: hidden; border: 1px solid #333;
 }
-.logo-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+.logo-card img { width: 100%; height: auto; display: block; }
 
-@media (min-width: 768px) {
-    /* PC: Show 3 slides at a time */
-    .logo-card { width: 400px; } 
-}
+@media (min-width: 768px) { .logo-card { width: 400px; } }
 
-/* --- 4. ILLUSTRATION VERTICAL BOX (Thin Border) --- */
+/* --- 4. ILLUSTRATION BOX --- */
 .vertical-scroll-box {
     width: 100%; max-width: 600px; height: 500px; margin: 0 auto;
-    overflow-y: auto; 
-    border: 1px solid #444; /* Thin Border */
-    background: #000;
+    overflow-y: auto; border: 1px solid #444; background: #000;
 }
 .vertical-scroll-box::-webkit-scrollbar { width: 6px; background: #111; }
 .vertical-scroll-box::-webkit-scrollbar-thumb { background: #444; }
@@ -188,5 +197,30 @@ header.dark-header .nav-links a.active {
     border-radius: 30px; font-weight: bold; transition: 0.3s;
 }
 .be-btn:hover { background: white; color: #1769ff; }
-       
 
+/* --- 5. THE CONCEPT VAULT (Flip Effect) --- */
+.vault-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; max-width: 1000px; margin: 0 auto;
+}
+.vault-item { background-color: transparent; height: 300px; perspective: 1000px; }
+.vault-inner {
+    position: relative; width: 100%; height: 100%; text-align: center;
+    transition: transform 0.8s; transform-style: preserve-3d;
+}
+.vault-item:hover .vault-inner { transform: rotateY(180deg); }
+
+.vault-front, .vault-back {
+    position: absolute; width: 100%; height: 100%;
+    -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    border: 1px solid #333; border-radius: 4px;
+}
+.vault-front { background-color: #111; }
+.vault-back { transform: rotateY(180deg); }
+.vault-front img, .vault-back img { width: 100%; height: 100%; object-fit: cover; }
+
+.vault-label {
+    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.7); color: var(--text-silver);
+    padding: 5px 15px; font-size: 0.8rem; border: 1px solid #555; text-transform: uppercase;
+}
