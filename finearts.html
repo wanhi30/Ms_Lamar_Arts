@@ -3,190 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sanctum | M/s LAMAR ART's</title>
-    <link rel="stylesheet" href="gallery.css">
+    <title>Fine Arts Collection | M/s LAMAR ART's</title>
+    <link rel="stylesheet" href="gallery.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- CORE PAGE STYLES --- */
+        /* --- PAGE SPECIFIC OVERRIDES --- */
         body { 
             overflow-x: hidden; 
-            background: #050505; 
+            background: #050505; /* Deepest Black */
             margin: 0;
         }
 
-        /* --- SMART HEADER (Hides on Scroll) --- */
-        header.dark-header {
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            transition: transform 0.4s ease-in-out, background 0.3s;
-            background: rgba(0,0,0,0.9) !important; /* Slight transparency */
-            backdrop-filter: blur(10px);
-        }
-        header.hidden { transform: translateY(-100%); }
-        /* Mobile: Always show hamburger or use same logic? We'll use same logic */
-
-        /* --- SECTION 1: THE NUCLEUS SPHERE (100vh) --- */
+        /* === SECTION 1: THE 3D SPHERE HERO (Organic & Premium) === */
         #sphere-hero {
-            position: relative; width: 100%; height: 100vh;
-            overflow: hidden; display: flex; align-items: center; justify-content: center;
-            background: radial-gradient(circle at center, #151515 0%, #000 80%);
-            perspective: 1000px;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Subtle vignette background */
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 90%);
+            perspective: 1200px;
             cursor: grab;
+            /* The Golden Line at the bottom */
+            border-bottom: 3px solid var(--gold);
         }
         #sphere-hero:active { cursor: grabbing; }
 
-        /* The Center Title (Static Nucleus) */
-        .nucleus-title {
-            position: absolute; z-index: 10; pointer-events: none;
-            text-align: center; width: 100%; max-width: 800px;
-            /* Cool glow effect behind text */
-            text-shadow: 0 0 30px rgba(0,0,0,0.8);
-        }
-        .nucleus-top {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C0C0C0; /* Silver */
-            font-size: 1rem; letter-spacing: 2px;
-            position: absolute; top: -20px; right: 20%;
-        }
-        .nucleus-main {
-            font-family: 'Cinzel Decorative', serif;
-            font-size: 5vw; /* Responsive huge text */
-            background: linear-gradient(to bottom, #d4af37, #aa771c, #d4af37);
-            -webkit-background-clip: text; color: transparent;
-            line-height: 1; margin: 0;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
-        }
-        .nucleus-sub {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300; color: #a0a0a0; /* Silver, not stylish */
-            font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase;
-            margin-top: 15px;
-        }
-
-        /* The Rotating Cloud */
+        /* The Container that rotates */
         .sphere-container {
-            position: absolute;
-            top: 50%; left: 50%;
+            position: relative;
             transform-style: preserve-3d;
         }
 
+        /* The Images */
         .gallery-item {
             position: absolute;
-            /* Center the items exactly so they rotate around 0,0 */
-            top: -50px; left: -50px; 
-            width: 100px; height: 100px; /* Default small size */
+            top: 0; left: 0;
+            transform-origin: center center;
             transform-style: preserve-3d;
+            cursor: pointer;
             backface-visibility: hidden;
-            cursor: pointer; transition: 0.3s;
+            transition: all 0.4s ease-out;
         }
+        
         .gallery-item img {
             width: 100%; height: 100%; object-fit: cover;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 10px black;
-            opacity: 0.8; transition: 0.3s;
-        }
-        .gallery-item:hover img { 
-            border-color: var(--gold); opacity: 1; 
-            transform: scale(1.2); box-shadow: 0 0 20px var(--gold);
+            /* Subtle border initially */
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 20px rgba(0,0,0,0.9);
+            display: block; pointer-events: none;
+            transition: 0.4s;
+            filter: brightness(0.8);
         }
 
-        /* Instructions */
+        /* HOVER EFFECT: The Glow you liked */
+        .gallery-item:hover {
+            z-index: 100; /* Bring slightly forward */
+            transform: scale(1.15) !important; /*Pop out */
+        }
+        .gallery-item:hover img {
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), inset 0 0 20px var(--gold);
+            filter: brightness(1.1);
+        }
+
+        /* NEW: Floating Golden Particles */
+        .gold-particle {
+            position: absolute;
+            width: 8px; height: 8px;
+            background: radial-gradient(circle, #fff, var(--gold) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.6;
+            mix-blend-mode: screen;
+        }
+
+        /* The Title - Bottom Right Corner */
+        .hero-title-corner {
+            position: absolute;
+            bottom: 60px; right: 60px;
+            text-align: right;
+            pointer-events: none; /* Let clicks pass through */
+            z-index: 10;
+            text-shadow: 0 0 30px black;
+        }
+        .ht-top {
+            font-family: 'Cormorant Garamond', serif;
+            color: #C0C0C0; /* Silver */
+            font-size: 1.1rem; letter-spacing: 2px;
+            font-style: italic;
+        }
+        .ht-main {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3.5rem;
+            /* Rich Gold Gradient */
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728);
+            -webkit-background-clip: text; color: transparent;
+            margin: 5px 0; line-height: 1;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+        }
+        .ht-sub {
+            font-family: 'Inter', sans-serif;
+            color: #C0C0C0; font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase;
+        }
+
+        /* Drag Instruction */
         .drag-hint {
-            position: absolute; bottom: 30px; width: 100%; text-align: center;
-            color: #444; font-family: 'Inter', sans-serif; font-size: 0.75rem;
-            letter-spacing: 2px; text-transform: uppercase; pointer-events: none;
+            position: absolute; bottom: 20px; width: 100%; text-align: center;
+            color: #555; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
             animation: pulse 3s infinite;
         }
-        @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
+        @keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:0.7} }
 
-        /* --- SECTION 2: COMPACT CURATOR NOTE --- */
+        /* === SECTION 2: CURATOR NOTE === */
         .curator-mini {
-            text-align: center; padding: 60px 20px;
-            background: linear-gradient(to bottom, #000, #0a0a0a);
-            border-bottom: 1px solid #222;
+            text-align: center; padding: 80px 20px;
+            background: #080808;
         }
         .curator-mini p {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
-            color: #888; max-width: 600px; margin: 0 auto; line-height: 1.6;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+            color: #999; max-width: 700px; margin: 0 auto; line-height: 1.6; font-style: italic;
         }
-        .curator-mini .sig { color: var(--gold); font-size: 0.8rem; margin-top: 15px; display: block; }
+        .curator-mini .sig { color: var(--gold); font-size: 0.9rem; margin-top: 20px; display: block; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- SECTION 3: SPOTLIGHT (Top 5 Works) --- */
-        .spotlight-section { padding: 80px 5%; background: #0a0a0a; }
+        /* === SECTION 3: SPOTLIGHT (Top 5 Works) === */
+        .spotlight-section { padding: 50px 5%; background: #050505; }
+        
         .art-row {
             display: flex; align-items: center; justify-content: center;
-            margin-bottom: 120px; gap: 50px; opacity: 0; transform: translateY(30px); transition: 0.8s;
+            margin-bottom: 150px; gap: 60px;
+            opacity: 0; transform: translateY(50px); transition: 1s ease-out;
         }
         .art-row.visible { opacity: 1; transform: translateY(0); }
+        /* Alternating Layout */
         .art-row:nth-child(even) { flex-direction: row-reverse; }
-        
-        .art-image { flex: 1.2; max-width: 650px; }
-        .art-image img { width: 100%; border: 1px solid #222; display: block; }
-        
-        .art-info { flex: 0.8; max-width: 450px; padding: 20px; border-left: 2px solid var(--gold); }
-        .art-row:nth-child(even) .art-info { border-left: none; border-right: 2px solid var(--gold); text-align: right; }
-        
-        .art-title { font-family: 'Cinzel Decorative', serif; font-size: 2rem; color: #e0e0e0; margin: 0 0 10px 0; }
-        .art-meta { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
-        .art-desc { color: #999; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-bottom: 20px; }
 
-        /* --- SECTION 4: THE ARCHIVE (Masonry Grid for the "Bunch") --- */
-        .archive-section { padding: 80px 5%; background: #050505; border-top: 1px solid #222; }
+        .art-image { flex: 1; max-width: 600px; perspective: 1000px; }
+        .art-image img {
+            width: 100%; display: block;
+            border: 1px solid #222;
+            box-shadow: -30px 30px 60px rgba(0,0,0,0.8);
+            transition: 0.5s; transform: rotateY(5deg); /* Slight 3D feel */
+        }
+        .art-image:hover img { transform: rotateY(0deg) scale(1.02); border-color: var(--gold); }
+
+        .art-info {
+            flex: 1; max-width: 500px; padding: 30px;
+            border-left: 3px solid var(--gold); /* Museum Label Line */
+        }
+        .art-row:nth-child(even) .art-info { border-left: none; border-right: 3px solid var(--gold); text-align: right; }
+
+        .art-title { font-family: 'Cinzel Decorative', serif; font-size: 2.2rem; color: #e0e0e0; margin-bottom: 10px; }
+        .art-meta { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: bold; }
+        .art-desc { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #bbb; line-height: 1.8; }
+
+        /* === SECTION 4: THE ARCHIVE (Masonry) === */
+        .archive-section { padding: 100px 5%; background: #080808; border-top: 1px solid #222; }
         .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-family: 'Cinzel Decorative', serif; color: #333; font-size: 3rem; margin: 0; }
-        .section-header span { color: var(--gold); font-family: 'Inter', sans-serif; letter-spacing: 3px; font-size: 0.8rem; }
+        .section-header h2 { font-family: 'Cinzel Decorative', serif; color: var(--text-silver); font-size: 3rem; margin: 0; }
+        .section-header span { color: var(--gold); letter-spacing: 4px; font-size: 0.9rem; text-transform: uppercase; }
 
-        .archive-grid {
-            column-count: 3; column-gap: 20px; /* The Masonry Magic */
-        }
+        /* Masonry Grid Setup */
+        .archive-grid { column-count: 4; column-gap: 20px; }
         .archive-item {
-            display: inline-block; width: 100%; margin-bottom: 20px;
-            position: relative; cursor: pointer; border: 1px solid #222;
-            transition: 0.3s;
+            break-inside: avoid; margin-bottom: 20px; position: relative;
+            cursor: pointer; transition: 0.3s; border: 1px solid transparent;
         }
-        .archive-item img { width: 100%; display: block; filter: grayscale(80%); transition: 0.5s; }
-        .archive-item:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .archive-item:hover img { filter: grayscale(0%); }
+        .archive-item img { width: 100%; display: block; filter: grayscale(50%) brightness(0.8); transition: 0.5s; }
+        /* Hover on archive items */
+        .archive-item:hover { border-color: var(--gold); transform: translateY(-5px); z-index: 2; }
+        .archive-item:hover img { filter: grayscale(0%) brightness(1); box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
 
-        /* Responsive Archive */
-        @media (max-width: 1024px) { .archive-grid { column-count: 2; } }
-        @media (max-width: 600px) { .archive-grid { column-count: 1; } }
-
-        /* --- ZOOM OVERLAY --- */
+        /* === ZOOM OVERLAY === */
         .overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.98); z-index: 9999;
-            opacity: 0; pointer-events: none; transition: 0.4s;
+            background: rgba(0,0,0,0.96); z-index: 9999;
+            opacity: 0; pointer-events: none; transition: 0.5s;
             display: flex; align-items: center; justify-content: center;
         }
         .overlay.active { opacity: 1; pointer-events: auto; }
-        .overlay img { max-width: 95%; max-height: 90vh; border: 1px solid var(--gold); box-shadow: 0 0 50px black; }
-        .close-zoom { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem; cursor: pointer; }
+        .overlay img { max-width: 90%; max-height: 90vh; border: 2px solid var(--gold); box-shadow: 0 0 80px black; }
+        .close-zoom { position: absolute; top: 30px; right: 40px; font-size: 3rem; color: var(--gold); cursor: pointer; }
+
+        /* === FOOTER WITH MENU === */
+        footer.fine-arts-footer {
+            background: #000; padding: 50px 20px; text-align: center; border-top: 3px solid var(--gold);
+        }
+        .footer-menu {
+            list-style: none; padding: 0; margin-bottom: 30px;
+            display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+        }
+        .footer-menu a {
+            color: #888; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;
+        }
+        .footer-menu a:hover, .footer-menu a.active { color: var(--gold); }
+        .copyright { color: #444; font-size: 0.8rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) { .archive-grid { column-count: 3; } }
+        @media (max-width: 768px) {
+            .hero-title-corner { bottom: 40px; right: 20px; text-align: center; width: 90%; }
+            .ht-main { font-size: 2.5rem; }
+            .art-row, .art-row:nth-child(even) { flex-direction: column; text-align: left; gap: 30px; }
+            .art-info, .art-row:nth-child(even) .art-info { border: none; border-top: 3px solid var(--gold); padding: 20px 0; }
+            .archive-grid { column-count: 2; }
+        }
+        @media (max-width: 480px) { .archive-grid { column-count: 1; } }
     </style>
 </head>
-<body class="dark-mode">
-
-    <header class="dark-header" id="main-header">
-        <div class="nav-container">
-            <a href="index.html" class="logo-link"><span class="logo-text">M/s LAMAR ART's</span></a>
-            <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="finearts.html" class="active">Fine Arts</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </header>
+<body>
 
     <div id="sphere-hero">
-        <div class="nucleus-title">
-            <div class="nucleus-top">The</div>
-            <h1 class="nucleus-main">M/s Lamar Arts</h1>
-            <div class="nucleus-sub">Fine Arts Collection</div>
-        </div>
+        <div class="sphere-container" id="sphere">
+            </div>
         
-        <div class="sphere-container" id="sphere"></div>
+        <div class="hero-title-corner">
+            <div class="ht-top">The</div>
+            <h1 class="ht-main">M/s Lamar Art's</h1>
+            <div class="ht-sub">Fine Arts Collection</div>
+        </div>
 
         <div class="drag-hint">Drag to Explore &bull; Click to Expand</div>
     </div>
@@ -197,159 +236,212 @@
     </div>
 
     <section class="curator-mini">
-        <p>"A curated selection of lithographs, paintings, and relief prints exploring the Pnar identity. From the silence of the monoliths to the motion of modern interpretation."</p>
+        <p>"A curated selection exploring the Pnar identity through academic rigor and ancestral memory. Where stone lithography meets the digital canvas, capturing the echoes of what was and the motion of what is to come."</p>
         <span class="sig">— Ohiwan Lamar</span>
     </section>
 
     <section class="spotlight-section">
+        
         <div class="art-row">
-            <div class="art-image"><img src="images/ill1.jpg" alt="Artwork 1"></div>
+            <div class="art-image"><img src="images/ill1.jpg" alt="Placeholder 1"></div>
             <div class="art-info">
                 <h2 class="art-title">The Spirit of Thadlaskein</h2>
-                <div class="art-meta">Stone Lithography | 2025</div>
-                <p class="art-desc">A visual interpretation of the sacred lake, exploring the duality of calmness and history.</p>
+                <div class="art-meta">Stone Lithography | 2025 | Available</div>
+                <p class="art-desc">A visual interpretation of the sacred lake. The textures represent the erosion of memory over time, submerged beneath the surface.</p>
             </div>
         </div>
+
         <div class="art-row">
-            <div class="art-image"><img src="images/ill2.jpg" alt="Artwork 2"></div>
+            <div class="art-image"><img src="images/ill2.jpg" alt="Placeholder 2"></div>
             <div class="art-info">
-                <h2 class="art-title">Nartiang Echoes</h2>
-                <div class="art-meta">Woodcut Relief | 2024</div>
-                <p class="art-desc">Standing tall against time, the monoliths serve as silent guardians of the tribe.</p>
+                <h2 class="art-title">Nartiang Monoliths</h2>
+                <div class="art-meta">Woodcut Relief | 2024 | Sold</div>
+                <p class="art-desc">Silent guardians of the tribe. This piece uses high-contrast relief to emphasize endurance against the test of time.</p>
             </div>
         </div>
+
         <div class="art-row">
-            <div class="art-image"><img src="images/ill3.jpg" alt="Artwork 3"></div>
+            <div class="art-image"><img src="images/ill3.jpg" alt="Placeholder 3"></div>
             <div class="art-info">
-                <h2 class="art-title">Harvest Faces</h2>
-                <div class="art-meta">Charcoal on Paper | 2025</div>
-                <p class="art-desc">Captured during Behdeinkhlam, focusing on the exhaustion and ecstasy of faith.</p>
+                <h2 class="art-title">Behdeinkhlam Motion Study</h2>
+                <div class="art-meta">Digital Motion Print | 2025 | Edition of 10</div>
+                <p class="art-desc">Capturing the ecstasy of spiritual fulfillment during the festival. A study of rhythm and community movement.</p>
             </div>
         </div>
-        </section>
+
+        <div class="art-row">
+            <div class="art-image"><img src="images/logo1.jpg" alt="Placeholder 4"></div>
+            <div class="art-info">
+                <h2 class="art-title">Study of Form No. 4</h2>
+                <div class="art-meta">Charcoal on Canvas | 2023 | Available</div>
+                <p class="art-desc">An academic exploration of light and shadow, focusing on the raw structure of the subject matter.</p>
+            </div>
+        </div>
+
+        <div class="art-row">
+            <div class="art-image"><img src="images/restore1_new.jpg" alt="Placeholder 5"></div>
+            <div class="art-info">
+                <h2 class="art-title">Ancestral Portraiture</h2>
+                <div class="art-meta">Oil on Linen | 2024 | Inquire</div>
+                <p class="art-desc">Merging traditional techniques with contemporary subjects to bridge the generational gap.</p>
+            </div>
+        </div>
+
+    </section>
 
     <section class="archive-section">
         <div class="section-header">
             <h2>The Archive</h2>
-            <span>Sketches & Studies</span>
+            <span>Studies, Sketches & Experimental Works</span>
         </div>
-        <div class="archive-grid" id="archive-grid">
+        
+        <div class="archive-grid">
             <div class="archive-item"><img src="images/ill4.jpg"></div>
             <div class="archive-item"><img src="images/ill5.jpg"></div>
-            <div class="archive-item"><img src="images/logo1.jpg"></div>
             <div class="archive-item"><img src="images/logo2.jpg"></div>
-            <div class="archive-item"><img src="images/restore1_new.jpg"></div>
+            <div class="archive-item"><img src="images/logo3.jpg"></div>
+            <div class="archive-item"><img src="images/restore2_new.jpg"></div>
+            <div class="archive-item"><img src="images/ill1.jpg"></div>
+            <div class="archive-item"><img src="images/logo4.jpg"></div>
+            <div class="archive-item"><img src="images/ill2.jpg"></div>
+            <div class="archive-item"><img src="images/restore3_new.jpg"></div>
+            <div class="archive-item"><img src="images/logo5.jpg"></div>
+            <div class="archive-item"><img src="images/ill3.jpg"></div>
+            <div class="archive-item"><img src="images/logo6.jpg"></div>
             </div>
     </section>
 
+    <footer class="fine-arts-footer">
+        <ul class="footer-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="finearts.html" class="active" style="color:var(--gold)">Fine Arts</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="copyright">
+            © 2026 M/s Lamar Art's. All rights reserved.
+        </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
-        // --- 1. SMART HEADER LOGIC ---
-        let lastScrollY = window.scrollY;
-        const header = document.getElementById('main-header');
+        // --- 1. SPHERE CONFIGURATION (Premium & Random) ---
+        const totalImages = 35; // More items for a denser cloud
+        const radius = 500; // Larger radius
+        const totalParticles = 50; // Golden glitter count
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > lastScrollY && window.scrollY > 100) {
-                header.classList.add('hidden'); // Scroll Down -> Hide
-            } else {
-                header.classList.remove('hidden'); // Scroll Up -> Show
-            }
-            lastScrollY = window.scrollY;
-        });
-        
-        // Show header when mouse near top (Desktop only)
-        document.addEventListener('mousemove', (e) => {
-            if (e.clientY < 50) header.classList.remove('hidden');
-        });
-
-        // --- 2. SPHERE LOGIC (Thumb vs Full) ---
-        const sphereConfig = {
-            total: 30, // How many floating images
-            radius: 400 // Radius of cloud
-        };
-        
-        // YOUR IMAGE LIST: { thumb: 'low_res.jpg', full: 'high_res.jpg' }
-        // For now, I assume you have file_small.jpg and file.jpg. 
-        // If not, just put the same filename in both spots until you create thumbs.
+        // Placeholder list for testing (Will use _small later)
+        // Using the same image for both thumb/full for now until you create thumbs
         const artworks = [
-            { thumb: 'images/ill1_small.jpg', full: 'images/ill1.jpg' },
-            { thumb: 'images/ill2_small.jpg', full: 'images/ill2.jpg' },
-            { thumb: 'images/ill3_small.jpg', full: 'images/ill3.jpg' },
-            { thumb: 'images/ill4_small.jpg', full: 'images/ill4.jpg' },
-            { thumb: 'images/logo1.jpg', full: 'images/logo1.jpg' }, // Example fallback
-            // ... Add more pairs here
+            'images/ill1.jpg', 'images/ill2.jpg', 'images/ill3.jpg',
+            'images/ill4.jpg', 'images/ill5.jpg', 'images/logo1.jpg', 
+            'images/logo2.jpg', 'images/restore1_new.jpg'
         ];
 
         const container = document.getElementById('sphere');
         const zoomOverlay = document.getElementById('zoom-overlay');
         const zoomImg = document.getElementById('zoom-img');
 
-        // Generate Sphere
-        for (let i = 0; i < sphereConfig.total; i++) {
+        // A. GENERATE IMAGES
+        for (let i = 0; i < totalImages; i++) {
             const div = document.createElement('div');
             div.className = 'gallery-item';
-            
-            // Random sizes for organic feel
-            const r = Math.random();
-            if(r<0.3) { div.style.width='80px'; div.style.height='120px'; } // Portrait
-            else if(r<0.6) { div.style.width='120px'; div.style.height='80px'; } // Landscape
-            
-            // Pick image (loop if not enough)
-            const art = artworks[i % artworks.length]; 
-            
+
+            // Randomize Sizes (The "Organic" look you wanted back)
+            const type = Math.random();
+            if(type < 0.4) {
+                div.style.width = '100px'; div.style.height = '150px'; // Portrait
+            } else if (type < 0.7) {
+                div.style.width = '150px'; div.style.height = '100px'; // Landscape
+            } else {
+                div.style.width = '120px'; div.style.height = '120px'; // Square
+            }
+
             const img = document.createElement('img');
-            img.src = art.thumb; // Load LOW RES
+            // Pick random image
+            const src = artworks[i % artworks.length];
+            img.src = src; 
             div.appendChild(img);
 
-            // Math to place on sphere
-            const phi = Math.acos(-1 + (2 * i) / sphereConfig.total);
-            const theta = Math.sqrt(sphereConfig.total * Math.PI) * phi;
-            const x = sphereConfig.radius * Math.cos(theta) * Math.sin(phi);
-            const y = sphereConfig.radius * Math.sin(theta) * Math.sin(phi);
-            const z = sphereConfig.radius * Math.cos(phi);
+            // Fibonacci Math
+            const phi = Math.acos(-1 + (2 * i) / totalImages);
+            const theta = Math.sqrt(totalImages * Math.PI) * phi;
+            const x = radius * Math.cos(theta) * Math.sin(phi);
+            const y = radius * Math.sin(theta) * Math.sin(phi);
+            const z = radius * Math.cos(phi);
 
-            div.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+            // Apply 3D position, keeping them facing outward
+            div.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${theta}rad) rotateX(${phi}rad)`;
             
-            // Click -> Load HIGH RES
-            div.onclick = () => {
-                zoomImg.src = art.full; 
+            // Click to Zoom
+            div.onclick = function() {
+                zoomImg.src = this.querySelector('img').src;
                 zoomOverlay.classList.add('active');
             };
 
             container.appendChild(div);
         }
 
-        // Mouse Drag Rotation
+        // B. GENERATE GOLD PARTICLES (Glitter)
+        for (let i = 0; i < totalParticles; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'gold-particle';
+            
+            // Random math for particles
+            const phi = Math.acos(-1 + (2 * i) / totalParticles);
+            const theta = Math.sqrt(totalParticles * Math.PI) * phi;
+            // Place them slightly further out for depth
+            const pRadius = radius * (0.8 + Math.random() * 0.4);
+            const x = pRadius * Math.cos(theta) * Math.sin(phi);
+            const y = pRadius * Math.sin(theta) * Math.sin(phi);
+            const z = pRadius * Math.cos(phi);
+
+            particle.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+            // Randomize size slightly
+            const scale = 0.5 + Math.random();
+            particle.style.transform += ` scale(${scale})`;
+            
+            container.appendChild(particle);
+        }
+
+        // --- 2. MOUSE INTERACTION ---
         let rotX = 0, rotY = 0;
         let isDragging = false, startX, startY;
         const hero = document.getElementById('sphere-hero');
 
-        hero.addEventListener('mousedown', (e) => { isDragging=true; startX=e.clientX; startY=e.clientY; });
-        window.addEventListener('mouseup', () => isDragging=false );
+        hero.addEventListener('mousedown', (e) => { isDragging=true; startX=e.clientX; startY=e.clientY; hero.style.cursor='grabbing'; });
+        window.addEventListener('mouseup', () => { isDragging=false; hero.style.cursor='grab'; });
         window.addEventListener('mousemove', (e) => {
             if(!isDragging) return;
             const dx = e.clientX - startX;
             const dy = e.clientY - startY;
-            rotY += dx * 0.2;
-            rotX -= dy * 0.2;
+            rotY += dx * 0.15; // Speed
+            rotX -= dy * 0.15;
             
-            gsap.to(container, { rotationY: rotY, rotationX: rotX, duration: 0.5 });
+            // Animate the container rotation
+            gsap.to(container, {
+                rotationY: rotY,
+                rotationX: rotX,
+                duration: 0.8,
+                ease: "power1.out"
+            });
             startX = e.clientX; startY = e.clientY;
         });
 
-        // Continuous slow rotation
-        gsap.to(container, { rotationY: "+=360", duration: 150, repeat: -1, ease: "none" });
+        // Continuous slow Auto-Rotation
+        gsap.to(container, {
+            rotationY: "+=360", rotationX: "-=360", // Rotate on both axes for more dynamic movement
+            duration: 180, repeat: -1, ease: "none"
+        });
 
         function closeZoom() { zoomOverlay.classList.remove('active'); }
 
-        // --- 3. SCROLL REVEAL (Spotlight) ---
+        // --- 3. SCROLL REVEAL ANIMATION ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.15 });
         document.querySelectorAll('.art-row').forEach(row => observer.observe(row));
-
-        // --- 4. MOBILE MENU ---
-        function toggleMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
     </script>
 </body>
 </html>
