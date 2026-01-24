@@ -15,18 +15,14 @@
             margin: 0;
         }
 
-        /* === SECTION 1: THE 3D SPHERE HERO (Clean & Premium) === */
+        /* === SECTION 1: THE 3D SPHERE HERO === */
         #sphere-hero {
             position: relative;
-            width: 100%;
-            height: 100vh;
+            width: 100%; height: 100vh;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             background: radial-gradient(circle at center, #1a1a1a 0%, #000 90%);
-            perspective: 1200px;
-            cursor: grab;
+            perspective: 1200px; cursor: grab;
             border-bottom: 3px solid var(--gold);
         }
         #sphere-hero:active { cursor: grabbing; }
@@ -43,37 +39,45 @@
         
         .gallery-item img {
             width: 100%; height: 100%; object-fit: cover;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            /* 1. UPGRADE: PERMANENT GOLD BORDER */
+            border: 2px solid var(--gold);
             box-shadow: 0 0 20px rgba(0,0,0,0.9);
             display: block; pointer-events: none;
             transition: transform 0.4s ease, border-color 0.4s, box-shadow 0.4s, filter 0.4s;
             filter: brightness(0.8);
         }
 
-        /* JITTER FIX: Scale image, not box */
+        /* Hover Zoom */
         .gallery-item:hover { z-index: 100; }
         .gallery-item:hover img {
             transform: scale(1.15); 
-            border-color: var(--gold);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), inset 0 0 20px var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), inset 0 0 20px var(--gold);
             filter: brightness(1.1);
         }
 
-        /* Title - BOTTOM LEFT CORNER */
+        /* 2. UPGRADE: GLASSMORPHISM TITLE BACKDROP */
         .hero-title-corner {
-            position: absolute; bottom: 60px; left: 60px; 
-            text-align: left; pointer-events: none; z-index: 10;
-            text-shadow: 0 0 30px black;
+            position: absolute; bottom: 60px; left: 40px; 
+            text-align: left; z-index: 10;
+            padding: 30px;
+            /* The Glass Effect */
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            max-width: 90%;
         }
         .ht-top { font-family: 'Cormorant Garamond', serif; color: #C0C0C0; font-size: 1.1rem; letter-spacing: 2px; font-style: italic; }
         .ht-main {
-            font-family: 'Cinzel Decorative', serif; font-size: 3.5rem;
+            font-family: 'Cinzel Decorative', serif; font-size: 3rem;
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728);
             -webkit-background-clip: text; color: transparent;
-            margin: 5px 0; line-height: 1;
-            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+            margin: 5px 0; line-height: 1.1;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
         }
-        .ht-sub { font-family: 'Inter', sans-serif; color: #C0C0C0; font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; }
+        .ht-sub { font-family: 'Inter', sans-serif; color: #C0C0C0; font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; margin-top: 10px; }
 
         .drag-hint {
             position: absolute; bottom: 20px; width: 100%; text-align: center;
@@ -84,13 +88,13 @@
 
         /* === SECTION 2: CURATOR NOTE === */
         .curator-mini {
-            text-align: center; padding: 80px 20px; background: #080808;
+            text-align: center; padding: 100px 20px; background: #080808;
         }
         .curator-mini p {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
-            color: #999; max-width: 700px; margin: 0 auto; line-height: 1.6; font-style: italic;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+            color: #aaa; max-width: 800px; margin: 0 auto; line-height: 1.7; font-style: italic;
         }
-        .curator-mini .sig { color: var(--gold); font-size: 0.9rem; margin-top: 20px; display: block; text-transform: uppercase; letter-spacing: 2px; }
+        .curator-mini .sig { color: var(--gold); font-size: 0.8rem; margin-top: 30px; display: block; text-transform: uppercase; letter-spacing: 2px; }
 
         /* === SECTION 3: SPOTLIGHT (Zig Zag) === */
         .spotlight-section { padding: 50px 5%; background: #050505; }
@@ -108,303 +112,3 @@
         .art-row:nth-child(even) .art-info { border-left: none; border-right: 3px solid var(--gold); text-align: right; }
         .art-title { font-family: 'Cinzel Decorative', serif; font-size: 2.2rem; color: #e0e0e0; margin-bottom: 10px; }
         .art-meta { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: bold; }
-        .art-desc { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #bbb; line-height: 1.8; margin-bottom: 25px; }
-        .enquire-btn {
-            padding: 12px 35px; background: transparent; border: 1px solid #444; color: #ccc;
-            text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; cursor: pointer; transition: 0.3s;
-        }
-        .enquire-btn:hover { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-
-        /* === SECTION 4, 5, 6: THE ARCHIVE CATEGORIES === */
-        .archive-section { padding: 80px 5%; background: #080808; border-top: 1px solid #222; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-family: 'Cinzel Decorative', serif; color: var(--text-silver); font-size: 2.5rem; margin: 0; }
-        .section-header span { color: var(--gold); letter-spacing: 4px; font-size: 0.8rem; text-transform: uppercase; }
-
-        .archive-grid { column-count: 4; column-gap: 20px; }
-        .archive-item {
-            break-inside: avoid; margin-bottom: 20px; position: relative;
-            cursor: pointer; transition: 0.3s; border: 1px solid transparent;
-        }
-        .archive-item img { width: 100%; display: block; filter: grayscale(50%) brightness(0.8); transition: 0.5s; }
-        .archive-item:hover { border-color: var(--gold); transform: translateY(-5px); z-index: 2; }
-        .archive-item:hover img { filter: grayscale(0%) brightness(1); box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-
-        /* === SECTION 7: OHIWAN LAMAR (Side Swipe) === */
-        .ohiwan-section { padding: 80px 0; background: #050505; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
-        .ohiwan-scroll-container {
-            display: flex; overflow-x: auto; gap: 30px; padding: 0 5%;
-            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-        }
-        /* Custom Scrollbar */
-        .ohiwan-scroll-container::-webkit-scrollbar { height: 8px; background: #111; }
-        .ohiwan-scroll-container::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
-        
-        .ohiwan-card {
-            flex: 0 0 auto; width: 300px; scroll-snap-align: center;
-            border: 1px solid #333; position: relative; transition: 0.3s;
-        }
-        .ohiwan-card img { width: 100%; height: 400px; object-fit: cover; display: block; filter: sepia(30%); }
-        .ohiwan-card:hover { transform: scale(1.02); border-color: var(--gold); }
-        .ohiwan-card:hover img { filter: sepia(0%); }
-
-        /* === ZOOM OVERLAY === */
-        .overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.96); z-index: 9999;
-            opacity: 0; pointer-events: none; transition: 0.5s;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .overlay.active { opacity: 1; pointer-events: auto; }
-        .overlay img { max-width: 90%; max-height: 90vh; border: 2px solid var(--gold); box-shadow: 0 0 80px black; }
-        .close-zoom { position: absolute; top: 30px; right: 40px; font-size: 3rem; color: var(--gold); cursor: pointer; }
-
-        /* === FOOTER WITH MENU === */
-        footer.fine-arts-footer { background: #000; padding: 50px 20px; text-align: center; border-top: 1px solid #222; }
-        .footer-menu { list-style: none; padding: 0; margin-bottom: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .footer-menu a { color: #888; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s; }
-        .footer-menu a:hover, .footer-menu a.active { color: var(--gold); }
-        .copyright { color: #444; font-size: 0.8rem; }
-
-        /* RESPONSIVE */
-        @media (max-width: 1024px) { .archive-grid { column-count: 3; } }
-        @media (max-width: 768px) {
-            .hero-title-corner { bottom: 40px; left: 20px; text-align: left; width: 90%; }
-            .ht-main { font-size: 2.5rem; }
-            .art-row, .art-row:nth-child(even) { flex-direction: column; text-align: left; gap: 30px; }
-            .art-info, .art-row:nth-child(even) .art-info { border: none; border-top: 3px solid var(--gold); padding: 20px 0; }
-            .archive-grid { column-count: 2; }
-            .ohiwan-card { width: 260px; }
-        }
-        @media (max-width: 480px) { .archive-grid { column-count: 1; } }
-    </style>
-</head>
-<body>
-
-    <div id="sphere-hero">
-        <div class="sphere-container" id="sphere">
-            </div>
-        <div class="hero-title-corner">
-            <div class="ht-top">The</div>
-            <h1 class="ht-main">M/s Lamar Art's</h1>
-            <div class="ht-sub">Fine Arts Collection</div>
-        </div>
-        <div class="drag-hint">Drag to Explore &bull; Click to Expand</div>
-    </div>
-
-    <div class="overlay" id="zoom-overlay">
-        <div class="close-zoom" onclick="closeZoom()">&times;</div>
-        <img id="zoom-img" src="" alt="Zoomed Art">
-    </div>
-
-    <section class="curator-mini">
-        <p>"A curated selection exploring the Pnar identity through academic rigor and ancestral memory. Where stone lithography meets the digital canvas, capturing the echoes of what was and the motion of what is to come."</p>
-        <span class="sig">— Ohiwan Lamar</span>
-    </section>
-
-    <section class="spotlight-section">
-        <div class="art-row">
-            <div class="art-image"><img src="images/ill1.jpg" alt="Featured 1"></div>
-            <div class="art-info">
-                <h2 class="art-title">The Spirit of Thadlaskein</h2>
-                <div class="art-meta">Stone Lithography | 2025 | Available</div>
-                <p class="art-desc">A visual interpretation of the sacred lake. The textures represent the erosion of memory over time.</p>
-                <button class="enquire-btn">Inquire for Price</button>
-            </div>
-        </div>
-        <div class="art-row">
-            <div class="art-image"><img src="images/ill2.jpg" alt="Featured 2"></div>
-            <div class="art-info">
-                <h2 class="art-title">Nartiang Monoliths</h2>
-                <div class="art-meta">Woodcut Relief | 2024 | Sold</div>
-                <p class="art-desc">Silent guardians of the tribe. This piece uses high-contrast relief to emphasize endurance.</p>
-                <button class="enquire-btn">Sold Out</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="archive-section">
-        <div class="section-header">
-            <h2>The Collections</h2>
-            <span>Printmaking • Sculptures • Ceramics</span>
-        </div>
-        <div class="archive-grid" id="grid-collections">
-            </div>
-    </section>
-
-    <section class="archive-section" style="background: #050505;">
-        <div class="section-header">
-            <h2>Portraiture Study</h2>
-            <span>Capturing the Human Spirit</span>
-        </div>
-        <div class="archive-grid" id="grid-portraits">
-            </div>
-    </section>
-
-    <section class="archive-section">
-        <div class="section-header">
-            <h2>The Scenic World</h2>
-            <span>Landscapes & Nature</span>
-        </div>
-        <div class="archive-grid" id="grid-landscapes">
-            </div>
-    </section>
-
-    <section class="ohiwan-section">
-        <div class="section-header">
-            <h2 style="color:var(--gold);">Works by Ohiwan Lamar</h2>
-            <span>Exclusive Artist Showcase</span>
-        </div>
-        <div class="ohiwan-scroll-container" id="swipe-ohiwan">
-            </div>
-    </section>
-
-    <footer class="fine-arts-footer">
-        <ul class="footer-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="finearts.html" class="active" style="color:var(--gold)">Fine Arts</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="copyright">© 2026 M/s Lamar Art's. All rights reserved.</div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        // --- CONFIGURATION ---
-        const fileExt = '.webp'; // Using .haha thloh
-        
-        // FILE COUNTS
-        const counts = {
-            untitled: 17,
-            portrait: 20,
-            landscape: 31,
-            ohiwan: 24
-        };
-
-        const zoomOverlay = document.getElementById('zoom-overlay');
-        const zoomImg = document.getElementById('zoom-img');
-
-        // --- HELPER: Create Image Item ---
-        function createItem(src, className) {
-            const div = document.createElement('div');
-            div.className = className;
-            const img = document.createElement('img');
-            img.src = src;
-            div.appendChild(img);
-            
-            // Click to Zoom
-            div.onclick = () => {
-                zoomImg.src = src;
-                zoomOverlay.classList.add('active');
-            };
-            return div;
-        }
-
-        // --- 1. FILL THE GRIDS AUTOMATICALLY ---
-        
-        // A. Collections (untitled1 - untitled17)
-        const gridCol = document.getElementById('grid-collections');
-        for(let i=1; i<=counts.untitled; i++) {
-            gridCol.appendChild(createItem(`images/untitled${i}${fileExt}`, 'archive-item'));
-        }
-
-        // B. Portraits (portrait1 - portrait20)
-        const gridPort = document.getElementById('grid-portraits');
-        for(let i=1; i<=counts.portrait; i++) {
-            gridPort.appendChild(createItem(`images/portrait${i}${fileExt}`, 'archive-item'));
-        }
-
-        // C. Landscapes (landscape1 - landscape31)
-        const gridLand = document.getElementById('grid-landscapes');
-        for(let i=1; i<=counts.landscape; i++) {
-            gridLand.appendChild(createItem(`images/landscape${i}${fileExt}`, 'archive-item'));
-        }
-
-        // D. Ohiwan (ohiwan1 - ohiwan24) - Horizontal Scroll
-        const swipeOhiwan = document.getElementById('swipe-ohiwan');
-        for(let i=1; i<=counts.ohiwan; i++) {
-            swipeOhiwan.appendChild(createItem(`images/ohiwan${i}${fileExt}`, 'ohiwan-card'));
-        }
-
-        // --- 2. THE SPHERE (SELECTIVE MIX 40) ---
-        // Strategy: We pick 10 from each category to equal 40 total.
-        const sphereContainer = document.getElementById('sphere');
-        const sphereTotal = 40; 
-        const radius = 500;
-
-        let sphereList = [];
-
-        // Pick 10 Untitled (thumbnails: lowuntitled1.jpg...)
-        for(let i=1; i<=10; i++) sphereList.push({ thumb: `images/lowuntitled${i}${fileExt}`, full: `images/untitled${i}${fileExt}` });
-        // Pick 10 Portraits
-        for(let i=1; i<=10; i++) sphereList.push({ thumb: `images/lowportrait${i}${fileExt}`, full: `images/portrait${i}${fileExt}` });
-        // Pick 10 Landscapes
-        for(let i=1; i<=10; i++) sphereList.push({ thumb: `images/lowlandscape${i}${fileExt}`, full: `images/landscape${i}${fileExt}` });
-        // Pick 10 Ohiwan
-        for(let i=1; i<=10; i++) sphereList.push({ thumb: `images/lowohiwan${i}${fileExt}`, full: `images/ohiwan${i}${fileExt}` });
-
-        // BUILD SPHERE
-        sphereList.forEach((art, index) => {
-            const div = document.createElement('div');
-            div.className = 'gallery-item';
-
-            // Random Sizes
-            const r = Math.random();
-            if(r < 0.4) { div.style.width='100px'; div.style.height='150px'; }
-            else if(r < 0.7) { div.style.width='150px'; div.style.height='100px'; }
-            else { div.style.width='120px'; div.style.height='120px'; }
-
-            const img = document.createElement('img');
-            img.src = art.thumb; // Load Low Res
-            div.appendChild(img);
-
-            // Math
-            const phi = Math.acos(-1 + (2 * index) / sphereTotal);
-            const theta = Math.sqrt(sphereTotal * Math.PI) * phi;
-            const x = radius * Math.cos(theta) * Math.sin(phi);
-            const y = radius * Math.sin(theta) * Math.sin(phi);
-            const z = radius * Math.cos(phi);
-
-            div.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${theta}rad) rotateX(${phi}rad)`;
-            
-            // Click to Full Res
-            div.onclick = () => {
-                zoomImg.src = art.full;
-                zoomOverlay.classList.add('active');
-            };
-
-            sphereContainer.appendChild(div);
-        });
-
-        // --- 3. ANIMATIONS ---
-        
-        // Sphere Drag & Rotate
-        let rotX = 0, rotY = 0, isDragging = false, startX, startY;
-        const hero = document.getElementById('sphere-hero');
-
-        hero.addEventListener('mousedown', (e) => { isDragging=true; startX=e.clientX; startY=e.clientY; hero.style.cursor='grabbing'; });
-        window.addEventListener('mouseup', () => { isDragging=false; hero.style.cursor='grab'; });
-        window.addEventListener('mousemove', (e) => {
-            if(!isDragging) return;
-            const dx = e.clientX - startX;
-            const dy = e.clientY - startY;
-            rotY += dx * 0.15; rotX -= dy * 0.15;
-            gsap.to(sphereContainer, { rotationY: rotY, rotationX: rotX, duration: 0.8, ease: "power1.out" });
-            startX = e.clientX; startY = e.clientY;
-        });
-
-        gsap.to(sphereContainer, { rotationY: "+=360", rotationX: "-=360", duration: 180, repeat: -1, ease: "none" });
-
-        // Scroll Reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('.art-row').forEach(row => observer.observe(row));
-
-        function closeZoom() { zoomOverlay.classList.remove('active'); }
-    </script>
-</body>
-</html>
-
