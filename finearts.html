@@ -3,528 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fine Arts Collection | M/s LAMAR ART's</title>
-    <link rel="stylesheet" href="gallery.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Our Legacy | M/s LAMAR ART's</title>
     
-    <style>
-        /* --- PAGE SPECIFIC OVERRIDES --- */
-        body { 
-            overflow-x: hidden; 
-            background: #050505; /* Deepest Black */
-            margin: 0;
-        }
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="history.css">
 
-        /* === SECTION 1: THE 3D SPHERE HERO (Clean & Premium) === */
-        #sphere-hero {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 90%);
-            perspective: 1200px;
-            cursor: grab;
-            border-bottom: 3px solid var(--gold);
-        }
-        #sphere-hero:active { cursor: grabbing; }
-
-        .sphere-container { position: relative; transform-style: preserve-3d; }
-
-        .gallery-item {
-            position: absolute; top: 0; left: 0;
-            transform-origin: center center;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-            /* Emergency Border: If image breaks, you see a gold box */
-            border: 0px solid var(--gold); 
-            background: rgba(20, 20, 20, 0.5);
-            width: 100%; height: 100%}
-        
-        .gallery-item img {
-            width: auto; height: 100%; object-fit: contain;
-            border: 5px solid var(212, 175, 55, 0.3);
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
-            display: block; pointer-events: none;
-            transition: transform 0.4s ease, border-color 0.4s, box-shadow 0.4s, filter 0.4s;
-            filter: brightness(0.8);
-        }
-
-        /* JITTER FIX: Scale image, not box */
-        .gallery-item:hover { z-index: 100; }
-        .gallery-item:hover img {
-            transform: scale(1.15); 
-            border-color: var(--gold);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), inset 0 0 20px var(--gold);
-            filter: brightness(1.1);
-        }
-
-        /* Title - BOTTOM LEFT CORNER */
-        .hero-title-corner {
-            position: absolute; bottom: 60px; left: 60px; 
-            text-align: left; pointer-events: none; z-index: 10;
-            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.8));
-        }
-        .ht-top { font-family: 'Cormorant Garamond', serif; color: #C0C0C0; font-size: 1.1rem; letter-spacing: 2px; font-style: italic; text-shadow: 0 2px 4px rgba(0,0,0,0.9); }
-        .ht-main {
-            font-family: 'Cinzel Decorative', serif; font-size: 3.5rem;
-            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728);
-            -webkit-background-clip: text; color: transparent;
-            margin: 5px 0; line-height: 1;
-            filter: drop-shadow(0 2px 0px rgba(0,0,0,1)) drop-shadow(0 0 20px rgba(0,0,0,0.8));
-        }
-        .ht-sub { font-family: 'Inter', sans-serif; color: #C0C0C0; font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.9);
-            background: rgba(0,0,0,0.4); /* Optional: semi-transparent box behind just this line */
-            padding: 2px 5px; /* Padding for the box */ }
-
-        .drag-hint {
-            position: absolute; bottom: 20px; width: 100%; text-align: center;
-            color: #555; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
-            animation: pulse 3s infinite;
-        }
-        @keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:0.7} }
-
-        /* === SECTION 2: CURATOR NOTE === */
-        .curator-mini {
-            text-align: center; padding: 80px 20px; background: #080808;
-        }
-        .curator-mini p {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
-            color: #999; max-width: 1200px; width: 90%; margin: 0 auto; line-height: 1.6; font-style: italic;
-        }
-        .curator-mini .sig { color: var(--gold); font-size: 0.9rem; margin-top: 20px; display: block; text-transform: uppercase; letter-spacing: 2px; }
-
-        /* === SECTION 3: SPOTLIGHT (Zig Zag) === */
-        .spotlight-section { padding: 50px 5%; background: #050505; }
-        .art-row {
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 150px; gap: 60px;
-            opacity: 0; transform: translateY(50px); transition: 1s ease-out;
-        }
-        .art-row.visible { opacity: 1; transform: translateY(0); }
-        .art-row:nth-child(even) { flex-direction: row-reverse; }
-        .art-image { flex: 1; max-width: 600px; perspective: 1000px; }
-        .art-image img { width: 100%; border: 1px solid #222; box-shadow: -30px 30px 60px rgba(0,0,0,0.8); transition: 0.5s; transform: rotateY(5deg); }
-        .art-image:hover img { transform: rotateY(0deg) scale(1.02); border-color: var(--gold); }
-        .art-info { flex: 1; max-width: 500px; padding: 30px; border-left: 3px solid var(--gold); }
-        .art-row:nth-child(even) .art-info { border-left: none; border-right: 3px solid var(--gold); text-align: right; }
-        .art-title { font-family: 'Cinzel Decorative', serif; font-size: 2.2rem; color: #e0e0e0; margin-bottom: 10px; }
-        .art-meta { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: bold; }
-        .art-desc { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #bbb; line-height: 1.8; margin-bottom: 25px; }
-        .enquire-btn {
-            padding: 12px 35px; background: transparent; border: 1px solid #444; color: #ccc;
-            text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; cursor: pointer; transition: 0.3s;
-        }
-        .enquire-btn:hover { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-
-        /* === SECTION 4, 5, 6: THE ARCHIVE CATEGORIES === */
-        .archive-section { padding: 80px 5%; background: #080808; border-top: 1px solid #222; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-family: 'Cinzel Decorative', serif; color: var(--text-silver); font-size: 2.5rem; margin: 0; }
-        .section-header span { color: var(--gold); letter-spacing: 4px; font-size: 0.8rem; text-transform: uppercase; }
-
-        .archive-grid { column-count: 4; column-gap: 20px; }
-        .archive-item {
-            break-inside: avoid; margin-bottom: 20px; position: relative;
-            cursor: pointer; transition: 0.3s; border: 1px solid transparent;
-        }
-        .archive-item img { width: 100%; display: block; filter: grayscale(50%) brightness(0.8); transition: 0.5s; }
-        .archive-item:hover { border-color: var(--gold); transform: translateY(-5px); z-index: 2; }
-        .archive-item:hover img { filter: grayscale(0%) brightness(1); box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-
-        /* === SECTION 7: OHIWAN LAMAR (Side Swipe) === */
-        .ohiwan-section { padding: 80px 0; background: #050505; border-top: 0px solid var(--gold); border-bottom: 3px solid var(--gold); }
-        .ohiwan-scroll-container {
-            display: flex; overflow-x: auto; gap: 70px; padding: 0 5%;
-            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-        }
-        
-        .ohiwan-card {
-            flex: 0 0 auto; width: 400; height: 260px; scroll-snap-align: center;
-            border: 1px solid #333; position: relative; transition: 0.3s;
-        }
-        .ohiwan-card img { width: auto; height: 260px; object-fit: cover; display: block; filter: sepia(30%); }
-        .ohiwan-card:hover { transform: scale(1.02); border-color: var(--gold); }
-        .ohiwan-card:hover img { filter: sepia(0%); }
-
-        /* === ZOOM OVERLAY === */
-        .overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.96); z-index: 9999;
-            opacity: 0; pointer-events: none; transition: 0.5s;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .overlay.active { opacity: 1; pointer-events: auto; }
-        .overlay img { max-width: 90%; max-height: 90vh; border: 2px solid var(--gold); box-shadow: 0 0 80px black; }
-        .close-zoom { position: absolute; top: 30px; right: 40px; font-size: 3rem; color: var(--gold); cursor: pointer; }
-
-        /* --- NEW: EXPAND BUTTON LOGIC --- */
-        .archive-grid { 
-        column-count: 4; column-gap: 20px; 
-        max-height: 600px; /* Limits height initially */
-        overflow: hidden; 
-        transition: max-height 1.5s ease; /* Smooth open */
-        }
-        .archive-grid.expanded { max-height: 3500px !important; transition: max-height 2s ease-in-out; }
-
-        /* Hide items beyond a certain number initially */
-        .archive-grid:not(.expanded) .archive-item:nth-child(n+13) { display: none; } /* PC: Show 12 */
-        @media (max-width: 768px) {
-        .archive-grid:not(.expanded) .archive-item:nth-child(n+5) { display: none; } /* Mobile: Show 4 */
-        }
-
-        .expand-zone {
-        text-align: center; padding-top: 20px;
-        background: linear-gradient(to bottom, transparent, #080808 40%);
-        margin-top: -60px; position: relative; z-index: 5; padding-bottom: 20px;
-        }
-        .expand-btn {
-        background: #000; border: 1px solid var(--gold); color: var(--gold);
-        padding: 10px 25px; text-transform: uppercase; letter-spacing: 2px;
-        font-size: 0.8rem; cursor: pointer; transition: 0.3s;
-        }
-        .expand-btn:hover { background: var(--gold); color: black; }
-
-        /* --- NEW: COMMUNITY SECTION --- */
-        .community-section {
-        padding: 80px 20px; background: #080808; display: flex; justify-content: center;
-        }
-        .community-card {
-        max-width: 1200px; width: 90%;
-        border: 0px solid var(--gold); padding: 50px; text-align: center;
-        background: linear-gradient(135deg, #111 0%, #050505 100%);
-        box-shadow: 0 0 40px rgba(0,0,0,0.5);
-        }
-        .comm-title { font-family: 'Cinzel Decorative', serif; color: var(--gold); font-size: 2rem; margin-bottom: 20px; }
-        .comm-text { color: #ccc; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
-        .comm-cta { color: white; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 5px; font-size: 1.1rem; transition: 0.3s; }
-        .comm-cta:hover { color: var(--gold); }
-
-        .gold-separator {
-        width: 100%;
-        height: 3px;
-        background: var(--gold);
-        box-shadow: 0 0 10px var(--gold);
-        border: none;
-        margin: 0;
-        }
-
-        /* === FOOTER WITH MENU === */
-        footer.fine-arts-footer { background: #000; padding: 50px 20px; text-align: center; border-top: 1px solid #222; }
-        .footer-menu { list-style: none; padding: 0; margin-bottom: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .footer-menu a { color: #888; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s; }
-        .footer-menu a:hover, .footer-menu a.active { color: var(--gold); }
-        .copyright { color: #444; font-size: 0.8rem; }
-
-        /* RESPONSIVE */
-        @media (max-width: 1024px) { .archive-grid { column-count: 3; } }
-        @media (max-width: 768px) {
-            .hero-title-corner { bottom: 40px; left: 20px; text-align: left; width: 90%; }
-            .ht-main { font-size: 2.5rem; }
-            .art-row, .art-row:nth-child(even) { flex-direction: column; text-align: left; gap: 30px; }
-            .art-info, .art-row:nth-child(even) .art-info { border: none; border-top: 3px solid var(--gold); padding: 20px 0; }
-            .archive-grid { column-count: 2; }
-            .ohiwan-card { width: autopx; height: 200px; }
-        }
-        @media (max-width: 480px) { .archive-grid { column-count: 1; } }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div id="sphere-hero">
-        <div class="sphere-container" id="sphere">
-            </div>
-        <div class="hero-title-corner">
-            <div class="ht-top">The</div>
-            <h1 class="ht-main">M/s Lamar Art's</h1>
-            <div class="ht-sub">Fine Arts Collection</div>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="Lamar Arts Logo" class="logo-icon">
+                <span class="logo-text">M/s LAMAR ART's</span>
+            </a>
+            <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="history.html" class="active">Our History</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
-        <div class="drag-hint">Drag to Explore &bull; Click to Expand</div>
-    </div>
+    </header>
 
-    <div class="overlay" id="zoom-overlay">
-        <div class="close-zoom" onclick="closeZoom()">&times;</div>
-        <img id="zoom-img" src="" alt="Zoomed Art">
-    </div>
-
-    <section class="curator-mini">
-        <p>"A curated collection of printmaking, painting, and sculpture by Meghalaya artists — Ohiwan Lamar, Wanhi i Challam, Sanikawan Challam and more. Drawing from the folklore and landscapes of the Meghalaya hills, these works bridge ancient tradition and the contemporary world to reflect the vivid identity of Meghalaya and Northeast India."</p>
+    <section class="history-hero parallax" style="background-image: url('images/history_hero_texture.jpg');">
+        <div class="hero-overlay">
+            <span class="chapter-tag">Our Story</span>
+            <h1>Beyond Imagination & Creativity</h1>
+            <p class="hero-sub">Evolution of M/s Lamar Arts</p>
+            <div class="divider-line"></div>
+            <blockquote class="intro-quote">
+                "What began with a brush and stone grew into a living print legacy."
+            </blockquote>
+        </div>
     </section>
 
-    <section class="spotlight-section">
-        <div class="art-row">
-            <div class="art-image"><img src="images/untitled2.webp" alt="Featured 1"></div>
-            <div class="art-info">
-                <h2 class="art-title">Between Two Worlds</h2>
-                <div class="art-meta">Stone Lithography | 2024 | Available</div>
-                <p class="art-desc">A conceptual work speaking on shifting identities.</p>
-                <button class="enquire-btn">Inquire for Price</button>
-            </div>
-        </div>
-        <div class="art-row">
-            <div class="art-image"><img src="images/rootbridge1.jpg" alt="Featured 2"></div>
-            <div class="art-info">
-                <h2 class="art-title">Rootbridge II (Series Part)</h2>
-                <div class="art-meta">Acrylic Painting | 2023 | Sold</div>
-                <p class="art-desc">Meghalaya essense in colours</p>
-                <button class="enquire-btn">Sold Out</button>
-            </div>
-        </div>
-          <div class="art-row">
-            <div class="art-image"><img src="images/mawoh.jpg" alt="Featured 3"></div>
-            <div class="art-info">
-                <h2 class="art-title">Head Study</h2>
-                <div class="art-meta">Terracotta | 2023 | Not For Sale</div>
-                <p class="art-desc">Preserving memories in 3D form</p>
-                <button class="enquire-btn">Not For Sale</button>
-    </section>
+    <div class="timeline-wrapper">
+        <div class="timeline-line"></div>
 
-    <section class="archive-section">
-        <div class="section-header">
-            <h2>The Collections</h2>
-            <span>Printmaking • Sculptures • Ceramics</span>
-        </div>
-        <div class="archive-grid" id="grid-collections">
-            </div>
-   <div class="expand-zone">
-    <button class="expand-btn" onclick="toggleGrid('grid-collections', this)">View Full Collection</button>
-</div>
-    </section>
-
-    <section class="archive-section" style="background: #050505;">
-        <div class="section-header">
-            <h2>Portraitures</h2>
-            <span>Capturing the Human Spirit</span>
-        </div>
-        <div class="archive-grid" id="grid-portraits">
-            </div>
-    <div class="expand-zone">
-    <button class="expand-btn" onclick="toggleGrid('grid-portraits', this)">View Full Collection</button>
-</div>
-        
-    </section>
-
-    <section class="archive-section">
-        <div class="section-header">
-            <h2>The Scenic World</h2>
-            <span>Landscapes & Nature</span>
-        </div>
-        <div class="archive-grid" id="grid-landscapes">
-            </div>
-    <div class="expand-zone">
-    <button class="expand-btn" onclick="toggleGrid('grid-landscapes', this)">View Full Collection</button>
-</div>
-    </section>
-
-    <section class="ohiwan-section">
-        <div class="section-header">
-            <h2 style="color:var(--gold);">Works by Ohiwan Lamar</h2>
-            <span>Exclusive Artist Showcase</span>
-        </div>
-        <div class="ohiwan-scroll-container" id="swipe-ohiwan">
-            </div>
-    </section>
+        <section class="chapter vintage-chapter" id="origin">
+            <div class="content-box left">
+                <div class="date-badge">Chapter 1: The Origin</div>
+                <h2>A Rhythm Distinct</h2>
                 
-<section class="community-section">
-    <div class="community-card">
-        <h2 class="comm-title">Empowering Artists</h2>
-        <p class="comm-text">
-            Lamar Arts is committed to uplifting the artistic community. We actively support young and aspiring artists looking to build their careers.<br><br>
-            <strong>Collaborate & Network:</strong> We invite proposals for art projects and collaborative ventures.
-        </p>
-        <a href="mailto:lamararts123@gmail.com" class="comm-cta">Get in Touch: lamararts123@gmail.com</a>
-    </div>
-</section>
-                </section> <hr class="gold-separator">
-
-    <footer class="fine-arts-footer">
-
+                <p>To truly understand the spirit of M/s Lamar Arts, one must journey back to the Jowai of the nineties. It was a time before the digital clutter, when the town moved to a rhythm distinct from the frenetic pace of today. In those days, the vibrant commercial life of the district headquarters did not rely on pixels or glossy flex prints; it relied heavily on the human hand.</p>
                 
-    <footer class="fine-arts-footer">
-        <ul class="footer-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="finearts.html" class="active" style="color:var(--gold)">Fine Arts</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="copyright">© 2026 M/s Lamar Art's. All rights reserved.</div>
+                <p>It was an era when creativity was a necessity. As the seasons turned and the town prepared for the grandeur of <em>Behdeinkhlam</em> or the bustling excitement of the Winter Fete, the demand for visual expression soared. One recalls the vivid backdrops known in the Pnar tongue as <strong>"Ki Sing,"</strong> which transformed stages into different worlds during the theatrical seasons of <em>Bamphalar</em>.</p>
+                
+                <p>It was in this setting that <strong>Ohiwan Lamar</strong>—known to his peers simply as <strong>Bah-O</strong>—began what was then a humble endeavor. The son of (L) Elkin Paswet and (L) Emhok Lamar, he started with little more than a brush and a natural gift.</p>
+                
+                <p>From a small home studio improvised within a storage room, he produced the landscape paintings, portraits, and hand-lettered signboards that dotted the town. Yet, this was not art for art’s sake alone; it was a labor of love born of the need to support his family.</p>
+            </div>
+            <div class="image-box right tilt-left">
+                <img src="images/old_shop_1999.jpg" alt="The Original Shop" class="polaroid-img sepia-filter">
+                <span class="img-caption">The First Studio</span>
+            </div>
+        </section>
+
+        <section class="chapter transition-chapter" id="evolution">
+            <div class="image-box left tilt-right">
+                <img src="images/handao_lamar.jpg" alt="Handao Lamar" class="polaroid-img sepia-filter">
+                <span class="img-caption">Handao Lamar (Late)</span>
+            </div>
+            <div class="content-box right">
+                <div class="date-badge">Chapter 2: The Evolution</div>
+                <h2>The Modern Architect</h2>
+                
+                <p>The winds of change arrived with the dawn of the digital era. Observing the struggle of the common man in Jowai to procure even simple rubber stamps, the enterprise pivoted. It was here that the story welcomed a new protagonist: his brother, <strong>Handa-o Lamar</strong>.</p>
+                
+                <p>If Bah-O was the traditional soul, Handa-o was the modern architect. A self-taught visionary, he mastered the language of computers and transformed the humble workshop into a hub of technology, introducing Desktop Publishing and plotters to a town just waking up to these possibilities.</p>
+
+                <p>The shop became a unique convergence of old and new. While Handa-o navigated the digital realm, Lamar continued hand-engraving memorial stones. They were joined by unique talents like <strong>Ma Ming Pde</strong>, a calligrapher with the flair and long curls of a nineties rock star.</p>
+            </div>
+        </section>
+
+        <section class="chapter memorial-chapter">
+            <div class="full-width-content">
+                <h2>The Shadows & The Pillars</h2>
+                <div class="story-block">
+                    <p>However, life in the hills is never without its shadows. The establishment first lost the gifted Ma Ming Pde, and then, in the dark quiet of the pandemic in late 2020, Handa-o Lamar passed away.</p>
+                    <p>The loss was existential. With Handa-o gone, the digital heartbeat of the shop fell silent. It appeared that M/s Lamar Arts would fade into memory.</p>
+                </div>
+                
+                <div class="polaroid-grid">
+                    <div class="polaroid-card">
+                        <div class="pin"></div>
+                        <img src="images/handao_portrait.jpg" alt="Handao Lamar" class="grayscale-img">
+                        <div class="p-text">
+                            <h4>Handa-o Lamar</h4>
+                            <p>The Visionary who brought the future.</p>
+                        </div>
+                    </div>
+                    <div class="polaroid-card">
+                        <div class="pin"></div>
+                        <img src="images/maming.jpg" alt="Ma Ming Pde" class="grayscale-img"> 
+                        <div class="p-text">
+                            <h4>Ma Ming Pde</h4>
+                            <p>The Master Calligrapher.</p>
+                        </div>
+                    </div>
+                    <div class="polaroid-card">
+                        <div class="pin"></div>
+                        <img src="images/grandparents.jpg" alt="Grandparents" class="grayscale-img">
+                        <div class="p-text">
+                            <h4>(L) Elkin Paswet &<br>(L) Emhok Lamar</h4>
+                            <p>The Silent Roots who watered this tree.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="chapter revival-chapter" id="revival">
+            <div class="content-box left">
+                <div class="date-badge" style="background:var(--primary); color:white;">The Revival</div>
+                <h2>"Let's Try"</h2>
+                
+                <p>But it is often in the deepest valleys that one finds the strength to climb. In a twist of fate—or perhaps by the blessings of those who had passed on—the torch was not extinguished.</p>
+                
+                <p>It was Ohiwan Lamar’s nephew who first stepped into the silence of the workspace. Armed not with expertise, but with a simple, curious gesture—<strong>"Let's try"</strong>—he began to decipher the legacy his late uncle had left behind.</p>
+                
+                <p>His courage sparked a revival. Soon, other youths joined the fold, bringing fresh energy to the old foundation. Today, the establishment at Loomsooiung has evolved from that old storage room into a modern showroom.</p>
+            </div>
+            <div class="image-box right tilt-left">
+                <img src="images/revival_team.jpg" alt="The New Generation" class="polaroid-img">
+                <span class="img-caption">The Legacy Continues</span>
+            </div>
+        </section>
+
+        <section class="chapter dedication-section">
+            <div class="dedication-box">
+                <h2>To Whom We Serve</h2>
+                <p>Legacy is nothing without loyalty. To the students, shopkeepers, officers, and families of West Jaintia Hills who have trusted us for over two decades—this story is yours as much as it is ours.</p>
+                <p><strong>We strive every day to honour that trust with quality and speed.</strong></p>
+            </div>
+        </section>
+
+    </div> <section class="squad-section">
+        <h2 class="modern-title">The Current Squad</h2>
+        <div class="squad-grid">
+            <div class="squad-card">
+                <div class="squad-img">
+                    <img src="images/ohiwan_current.jpg" alt="Ohiwan Lamar">
+                </div>
+                <h3>Ohiwan Lamar</h3>
+                <span class="role">Founder & Mentor</span>
+            </div>
+            <div class="squad-card">
+                <div class="squad-img">
+                    <img src="images/wanhi.jpg" alt="Wanhi">
+                </div>
+                <h3>Wanhi i Challam</h3>
+                <span class="role">Visual Artist & Strategy</span>
+            </div>
+            <div class="squad-card">
+                <div class="squad-img">
+                    <img src="images/team3.jpg" alt="Team Member">
+                </div>
+                <h3>Name Here</h3>
+                <span class="role">Production Head</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="activities-section">
+        <div class="activity-container">
+            <h2><i class="fas fa-hands-helping"></i> Community & Spirit</h2>
+            <div class="activity-content">
+                <p>We believe in standing by our people. From supporting our community during the challenging times of the pandemic to encouraging local art, Lamar Arts is more than a shop.</p>
+                <ul class="activity-list">
+                    <li><i class="fas fa-check-circle"></i> Covid-19 Safety Signage Drives</li>
+                    <li><i class="fas fa-check-circle"></i> Sponsoring Local Art Competitions</li>
+                    <li><i class="fas fa-check-circle"></i> Student Internship Programs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="fine-art-preview">
+        <div class="art-preview-content">
+            <h2>The Artist Behind The Brand</h2>
+            <p>Before the digital machines, there was the canvas. Explore the original paintings and fine art journey of our founder, Ohiwan Lamar.</p>
+            <a href="gallery.html" class="art-btn">View Art Gallery <i class="fas fa-palette"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4><i class="fas fa-map-marker-alt"></i> Visit Us</h4>
+                <div class="address-box">M/s Lamar Arts Newhill, Jowai</div>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>9862330569 | lamararts123@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">© 2026 M/s Lamar Art's.</div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        // --- CONFIGURATION ---
-        const fileExt = '.webp'; // Using .haha thloh
-        
-        // FILE COUNTS
-        const counts = {
-            untitled: 17,
-            portrait: 20,
-            landscape: 31,
-            ohiwan: 24
-        };
-
-        const zoomOverlay = document.getElementById('zoom-overlay');
-        const zoomImg = document.getElementById('zoom-img');
-
-        // --- HELPER: Create Image Item ---
-        function createItem(src, className) {
-            const div = document.createElement('div');
-            div.className = className;
-            const img = document.createElement('img');
-            img.src = src;
-            div.appendChild(img);
-            
-            // Click to Zoom
-            div.onclick = () => {
-                zoomImg.src = src;
-                zoomOverlay.classList.add('active');
-            };
-            return div;
-        }
-
-        // --- SMART EXPAND/COLLAPSE FUNCTION ---
-function toggleGrid(gridId, btn) {
-    const grid = document.getElementById(gridId);
-    
-    // Check if it is already open
-    if (grid.classList.contains('expanded')) {
-        // If open, CLOSE it
-        grid.classList.remove('expanded');
-        btn.innerText = "View Full Collection";
-        
-        // Optional: Scroll back up to the header of this section lightly
-        // grid.scrollIntoView({behavior: "smooth", block: "center"}); 
-    } else {
-        // If closed, OPEN it
-        grid.classList.add('expanded');
-        btn.innerText = "View Less";
-    }
-}
-
-        // --- 1. FILL THE GRIDS AUTOMATICALLY ---
-        
-        // A. Collections (untitled1 - untitled17)
-        const gridCol = document.getElementById('grid-collections');
-        for(let i=1; i<=counts.untitled; i++) {
-            gridCol.appendChild(createItem(`images/untitled${i}${fileExt}`, 'archive-item'));
-        }
-
-        // B. Portraits (portrait1 - portrait20)
-        const gridPort = document.getElementById('grid-portraits');
-        for(let i=1; i<=counts.portrait; i++) {
-            gridPort.appendChild(createItem(`images/portrait${i}${fileExt}`, 'archive-item'));
-        }
-
-        // C. Landscapes (landscape1 - landscape31)
-        const gridLand = document.getElementById('grid-landscapes');
-        for(let i=1; i<=counts.landscape; i++) {
-            gridLand.appendChild(createItem(`images/landscape${i}${fileExt}`, 'archive-item'));
-        }
-
-        // D. Ohiwan (ohiwan1 - ohiwan24) - Horizontal Scroll
-        const swipeOhiwan = document.getElementById('swipe-ohiwan');
-        for(let i=1; i<=counts.ohiwan; i++) {
-            swipeOhiwan.appendChild(createItem(`images/ohiwan${i}${fileExt}`, 'ohiwan-card'));
-        }
-
-        // --- 2. THE SPHERE (SELECTIVE MIX 40) ---
-        // Strategy: We pick 10 from each category to equal 40 total.
-        const sphereContainer = document.getElementById('sphere');
-        const sphereTotal = 40; 
-        const radius = 500;
-
-        let sphereList = [];
-
-        // Pick 10 Untitled (thumbnails: lowuntitled1.jpg...)
-        for(let i=1; i<=10; i++) sphereList.push({ thumb: `images/lowuntitled${i}${fileExt}`, full: `images/untitled${i}${fileExt}` });
-        // Pick 10 Portraits
-        for(let i=1; i<=10; i++) sphereList.push({ thumb: `images/lowportrait${i}${fileExt}`, full: `images/portrait${i}${fileExt}` });
-        // Pick 10 Landscapes
-        for(let i=1; i<=10; i++) sphereList.push({ thumb: `images/lowlandscape${i}${fileExt}`, full: `images/landscape${i}${fileExt}` });
-        // Pick 10 Ohiwan
-        for(let i=1; i<=10; i++) sphereList.push({ thumb: `images/lowohiwan${i}${fileExt}`, full: `images/ohiwan${i}${fileExt}` });
-
-        // BUILD SPHERE
-        sphereList.forEach((art, index) => {
-            const div = document.createElement('div');
-            div.className = 'gallery-item';
-
-            // Random Sizes
-            const r = Math.random();
-            if(r < 0.4) { div.style.width='100px'; div.style.height='150px'; }
-            else if(r < 0.7) { div.style.width='150px'; div.style.height='100px'; }
-            else { div.style.width='120px'; div.style.height='120px'; }
-
-            const img = document.createElement('img');
-            img.src = art.thumb; // Load Low Res
-            div.appendChild(img);
-
-            // Math
-            const phi = Math.acos(-1 + (2 * index) / sphereTotal);
-            const theta = Math.sqrt(sphereTotal * Math.PI) * phi;
-            const x = radius * Math.cos(theta) * Math.sin(phi);
-            const y = radius * Math.sin(theta) * Math.sin(phi);
-            const z = radius * Math.cos(phi);
-
-            div.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${theta}rad) rotateX(${phi}rad)`;
-            
-            // Click to Full Res
-            div.onclick = () => {
-                zoomImg.src = art.full;
-                zoomOverlay.classList.add('active');
-            };
-
-            sphereContainer.appendChild(div);
-        });
-
-        // --- 3. ANIMATIONS ---
-        
-        // Sphere Drag & Rotate
-        let rotX = 0, rotY = 0, isDragging = false, startX, startY;
-        const hero = document.getElementById('sphere-hero');
-
-        hero.addEventListener('mousedown', (e) => { isDragging=true; startX=e.clientX; startY=e.clientY; hero.style.cursor='grabbing'; });
-        window.addEventListener('mouseup', () => { isDragging=false; hero.style.cursor='grab'; });
-        window.addEventListener('mousemove', (e) => {
-            if(!isDragging) return;
-            const dx = e.clientX - startX;
-            const dy = e.clientY - startY;
-            rotY += dx * 0.15; rotX -= dy * 0.15;
-            gsap.to(sphereContainer, { rotationY: rotY, rotationX: rotX, duration: 0.8, ease: "power1.out" });
-            startX = e.clientX; startY = e.clientY;
-        });
-
-        gsap.to(sphereContainer, { rotationY: "+=360", rotationX: "-=360", duration: 180, repeat: -1, ease: "none" });
-
-        // Scroll Reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('.art-row').forEach(row => observer.observe(row));
-
-        function closeZoom() { zoomOverlay.classList.remove('active'); }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
