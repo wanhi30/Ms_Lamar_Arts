@@ -27,6 +27,68 @@ body {
     position: relative;
 }
 
+/* --- PASTE AT THE VERY BOTTOM OF history.css --- */
+
+/* MOBILE REPAIRS for History Page */
+@media (max-width: 768px) {
+    
+    /* 1. Fix Huge Text */
+    .hero-overlay h1 {
+        font-size: 2rem !important; /* Force text to be smaller */
+        line-height: 1.3;
+        margin-top: 20px;
+    }
+
+    .hero-overlay .hero-sub {
+        font-size: 1rem !important;
+        padding: 0 20px;
+    }
+
+    .chapter h2, .modern-title, .gold-title {
+        font-size: 1.8rem !important; /* Shrink section titles */
+    }
+
+    /* 2. Fix Layout (Stack items instead of side-by-side) */
+    .chapter, 
+    .chapter.transition-chapter, 
+    .chapter.revival-chapter {
+        flex-direction: column !important;
+        display: flex !important;
+        gap: 40px;
+        padding: 0 15px;
+    }
+
+    /* 3. Fix Widths to prevent White Border/Overflow */
+    .content-box, .image-box {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .timeline-wrapper {
+        padding: 40px 0 !important;
+        overflow-x: hidden; /* CUT OFF anything sticking out */
+    }
+
+    /* 4. Fix Tilted Images poking off screen */
+    .polaroid-img {
+        transform: rotate(0deg) !important; /* Straighten images on mobile */
+        width: 90% !important;
+        margin: 0 auto;
+    }
+
+    /* 5. Hide the vertical line on mobile (It breaks the stacked layout) */
+    .timeline-line {
+        display: none !important;
+    }
+
+    /* 6. Fix "Current Squad" Swipe */
+    .squad-section {
+        padding: 40px 0 !important;
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
 /* --- MOBILE RESPONSIVENESS FIXES --- */
 @media (max-width: 768px) {
     
@@ -589,4 +651,5 @@ body {
     .center-frame { transform: scale(1); }
     .gold-title { font-size: 2rem; }
 }
+
 
