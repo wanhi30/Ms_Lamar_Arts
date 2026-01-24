@@ -322,4 +322,119 @@ body {
     .image-box { margin-top: 30px; }
     .polaroid-img { transform: rotate(0deg); }
     .dedication-box { width: 100%; }
+
+}
+/* --- UPDATED SQUAD SECTION (Maroon & Swipe) --- */
+.squad-section {
+    padding: 60px 0; /* Remove side padding to allow full swipe */
+    text-align: center;
+    overflow: hidden;
+}
+
+.squad-sub {
+    font-size: 0.9rem; color: #888; margin-bottom: 20px;
+    display: block;
+}
+
+.squad-swipe-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 30px;
+    padding: 20px 5%; /* Padding inside the scroll area */
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on mobile */
+}
+
+.squad-swipe-container::-webkit-scrollbar {
+    height: 6px;
+    background: #f1f1f1;
+}
+.squad-swipe-container::-webkit-scrollbar-thumb {
+    background: #800000; /* Maroon Scrollbar */
+    border-radius: 10px;
+}
+
+.squad-card {
+    flex: 0 0 200px; /* Fixed width for swipe items */
+    scroll-snap-align: center;
+}
+
+/* MAROON BORDER UPDATE */
+.squad-img {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px auto;
+    border: 4px solid #800000; /* MAROON BORDER */
+    padding: 3px;
+    background: white;
+}
+
+/* --- UPDATED ACTIVITIES DESIGN --- */
+.activity-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.activity-text { flex: 1; text-align: left; }
+.activity-image { flex: 1; max-width: 400px; }
+
+.activity-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.activity-list span {
+    font-weight: bold;
+    color: #800000; /* Maroon Year */
+    background: #fcebeb;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* --- UPDATED ART PREVIEW DESIGN --- */
+.fine-art-preview {
+    background: #111; /* Darker luxury background */
+    padding: 80px 5%;
+    text-align: center;
+    border-top: 4px solid #D4AF37; /* Gold Top Border */
+}
+
+.art-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.art-thumb {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid #333;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+
+.art-thumb:hover {
+    transform: scale(1.1);
+    border-color: #D4AF37; /* Gold on hover */
+    z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .activity-wrapper { flex-direction: column; text-align: center; }
+    .activity-text { text-align: center; }
+    .activity-list li { justify-content: center; }
 }
