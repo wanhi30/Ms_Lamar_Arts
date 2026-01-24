@@ -89,8 +89,8 @@
             text-align: center; padding: 80px 20px; background: #080808;
         }
         .curator-mini p {
-            font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
-            color: #999; max-width: 700px; margin: 0 auto; line-height: 1.6; font-style: italic;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+            color: #999; max-width: 1200px; width: 90%; margin: 0 auto; line-height: 1.6; font-style: italic;
         }
         .curator-mini .sig { color: var(--gold); font-size: 0.9rem; margin-top: 20px; display: block; text-transform: uppercase; letter-spacing: 2px; }
 
@@ -190,15 +190,24 @@
         padding: 80px 20px; background: #080808; display: flex; justify-content: center;
         }
         .community-card {
-        max-width: 800px; width: 100%;
-        border: 2px solid var(--gold); padding: 50px; text-align: center;
+        max-width: 1200px; width: 90%;
+        border: 0px solid var(--gold); padding: 50px; text-align: center;
         background: linear-gradient(135deg, #111 0%, #050505 100%);
         box-shadow: 0 0 40px rgba(0,0,0,0.5);
         }
         .comm-title { font-family: 'Cinzel Decorative', serif; color: var(--gold); font-size: 2rem; margin-bottom: 20px; }
-        .comm-text { color: #ccc; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; line-height: 1.6; margin-bottom: 30px; }
+        .comm-text { color: #ccc; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
         .comm-cta { color: white; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 5px; font-size: 1.1rem; transition: 0.3s; }
         .comm-cta:hover { color: var(--gold); }
+
+        .gold-separator {
+        width: 100%;
+        height: 3px;
+        background: var(--gold);
+        box-shadow: 0 0 10px var(--gold);
+        border: none;
+        margin: 0;
+        }
 
         /* === FOOTER WITH MENU === */
         footer.fine-arts-footer { background: #000; padding: 50px 20px; text-align: center; border-top: 1px solid #222; }
@@ -277,9 +286,9 @@
         </div>
         <div class="archive-grid" id="grid-collections">
             </div>
-    <div class="expand-zone">
-        <button class="expand-btn" onclick="toggleGrid('grid-collections', this)">View Full Collection</button>
-    </div>
+   <div class="expand-zone">
+    <button class="expand-btn" onclick="toggleGrid('grid-collections', this)">View Full Collection</button>
+</div>
     </section>
 
     <section class="archive-section" style="background: #050505;">
@@ -290,8 +299,8 @@
         <div class="archive-grid" id="grid-portraits">
             </div>
     <div class="expand-zone">
-        <button class="expand-btn" onclick="toggleGrid('grid-collections', this)">View Full Collection</button>
-    </div>
+    <button class="expand-btn" onclick="toggleGrid('grid-portraits', this)">View Full Collection</button>
+</div>
         
     </section>
 
@@ -303,8 +312,8 @@
         <div class="archive-grid" id="grid-landscapes">
             </div>
     <div class="expand-zone">
-        <button class="expand-btn" onclick="toggleGrid('grid-collections', this)">View Full Collection</button>
-    </div>
+    <button class="expand-btn" onclick="toggleGrid('grid-landscapes', this)">View Full Collection</button>
+</div>
     </section>
 
     <section class="ohiwan-section">
@@ -326,6 +335,9 @@
         <a href="mailto:lamararts123@gmail.com" class="comm-cta">Get in Touch: lamararts123@gmail.com</a>
     </div>
 </section>
+                </section> <hr class="gold-separator">
+
+    <footer class="fine-arts-footer">
 
                 
     <footer class="fine-arts-footer">
@@ -371,12 +383,24 @@
             return div;
         }
 
-        // --- EXPAND FUNCTION ---
-        function toggleGrid(gridId, button) {
-        const grid = document.getElementById(gridId);
-        grid.classList.add('expanded'); // Removes the height limit
-        button.style.display = 'none';  // Hides the button
-        }
+        // --- SMART EXPAND/COLLAPSE FUNCTION ---
+function toggleGrid(gridId, btn) {
+    const grid = document.getElementById(gridId);
+    
+    // Check if it is already open
+    if (grid.classList.contains('expanded')) {
+        // If open, CLOSE it
+        grid.classList.remove('expanded');
+        btn.innerText = "View Full Collection";
+        
+        // Optional: Scroll back up to the header of this section lightly
+        // grid.scrollIntoView({behavior: "smooth", block: "center"}); 
+    } else {
+        // If closed, OPEN it
+        grid.classList.add('expanded');
+        btn.innerText = "View Less";
+    }
+}
 
         // --- 1. FILL THE GRIDS AUTOMATICALLY ---
         
@@ -483,6 +507,7 @@
     </script>
 </body>
 </html>
+
 
 
 
