@@ -1,0 +1,177 @@
+/* =========================================
+   PAGE: CONTACT US
+   File: contact.css
+   ========================================= */
+
+body {
+    background-color: #f8f9fa;
+}
+
+/* HERO */
+.contact-hero {
+    background: #1a1a1a; /* Dark Commercial Look */
+    color: white;
+    padding: 80px 5%;
+    text-align: center;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/shop-hero.jpg'); /* Reuse your shop hero image */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* LAYOUT GRID */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info { flex: 1; min-width: 300px; }
+.contact-form-container { flex: 1; min-width: 300px; }
+
+/* LEFT SIDE: CARDS */
+.section-heading {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.sub-heading {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.location-card {
+    display: flex;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary); /* Red accent */
+    transition: transform 0.3s;
+}
+
+.location-card:hover { transform: translateY(-3px); }
+
+.icon-box {
+    width: 50px; height: 50px;
+    background: #f4f4f4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.loc-details h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.loc-details p { font-size: 0.9rem; color: #555; margin-bottom: 8px; line-height: 1.4; }
+.landmark { font-size: 0.85rem; color: #888; display: block; margin-bottom: 10px; font-weight: 600; }
+
+.direction-link {
+    font-size: 0.85rem;
+    color: var(--cyan);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.direction-link:hover { text-decoration: underline; }
+
+/* DIRECT CHANNELS */
+.direct-channels { margin-top: 40px; }
+.channel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+}
+.channel i { color: var(--primary); }
+
+.social-row { display: flex; gap: 15px; margin-top: 20px; }
+.soc-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+.soc-btn.fb:hover { background: #1877F2; }
+.soc-btn.insta:hover { background: #E1306C; }
+
+/* RIGHT SIDE: FORM */
+.contact-form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    height: fit-content;
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: #333; }
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    background: #fafafa;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #25D366; /* WhatsApp Green */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn:hover { background: #1ebc57; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .contact-wrapper { flex-direction: column; padding: 40px 5%; }
+    .hero-content h1 { font-size: 2rem; }
+}
