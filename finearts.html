@@ -63,13 +63,7 @@
         .hero-title-corner {
             position: absolute; bottom: 60px; left: 60px; 
             text-align: left; pointer-events: none; z-index: 10;
-            text-shadow: 0 0 30px black;
-            background: rgba(0, 0, 0, 0.6); 
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 20px 30px;
-            border-left: 3px solid var(--gold);
-            border-radius: 4px;
+            text-shadow: 30 30 30px black;
         }
         .ht-top { font-family: 'Cormorant Garamond', serif; color: #C0C0C0; font-size: 1.1rem; letter-spacing: 2px; font-style: italic; }
         .ht-main {
@@ -142,9 +136,6 @@
             display: flex; overflow-x: auto; gap: 30px; padding: 0 5%;
             scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
         }
-        /* Custom Scrollbar */
-        .ohiwan-scroll-container::-webkit-scrollbar { height: 8px; background: #111; }
-        .ohiwan-scroll-container::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
         
         .ohiwan-card {
             flex: 0 0 auto; width: auto; height: 260px; scroll-snap-align: center;
@@ -420,6 +411,7 @@
     </script>
 </body>
 </html>
+
 
 
 
