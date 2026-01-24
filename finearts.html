@@ -65,7 +65,7 @@
         .hero-title-corner {
             position: absolute; bottom: 60px; left: 60px; 
             text-align: left; pointer-events: none; z-index: 10;
-            text-shadow: 30 30 30px black;
+            text-shadow: 0 0 30px black;
         }
         .ht-top { font-family: 'Cormorant Garamond', serif; color: #C0C0C0; font-size: 1.1rem; letter-spacing: 2px; font-style: italic; }
         .ht-main {
@@ -143,7 +143,7 @@
             flex: 0 0 auto; width: auto; height: 260px; scroll-snap-align: center;
             border: 1px solid #333; position: relative; transition: 0.3s;
         }
-        .ohiwan-card img { width: auto; height: 400px; object-fit: cover; display: block; filter: sepia(30%); }
+        .ohiwan-card img { width: autopx; height: 260pxpx; object-fit: cover; display: block; filter: sepia(30%); }
         .ohiwan-card:hover { transform: scale(1.02); border-color: var(--gold); }
         .ohiwan-card:hover img { filter: sepia(0%); }
 
@@ -157,6 +157,48 @@
         .overlay.active { opacity: 1; pointer-events: auto; }
         .overlay img { max-width: 90%; max-height: 90vh; border: 2px solid var(--gold); box-shadow: 0 0 80px black; }
         .close-zoom { position: absolute; top: 30px; right: 40px; font-size: 3rem; color: var(--gold); cursor: pointer; }
+
+        /* --- NEW: EXPAND BUTTON LOGIC --- */
+        .archive-grid { 
+        column-count: 4; column-gap: 20px; 
+        max-height: 600px; /* Limits height initially */
+        overflow: hidden; 
+        transition: max-height 1.5s ease; /* Smooth open */
+        }
+        .archive-grid.expanded { max-height: 8000px !important; }
+
+        /* Hide items beyond a certain number initially */
+        .archive-grid:not(.expanded) .archive-item:nth-child(n+13) { display: none; } /* PC: Show 12 */
+        @media (max-width: 768px) {
+        .archive-grid:not(.expanded) .archive-item:nth-child(n+5) { display: none; } /* Mobile: Show 4 */
+        }
+
+        .expand-zone {
+        text-align: center; padding-top: 20px;
+        background: linear-gradient(to bottom, transparent, #080808 40%);
+        margin-top: -60px; position: relative; z-index: 5; padding-bottom: 20px;
+        }
+        .expand-btn {
+        background: #000; border: 1px solid var(--gold); color: var(--gold);
+        padding: 10px 25px; text-transform: uppercase; letter-spacing: 2px;
+        font-size: 0.8rem; cursor: pointer; transition: 0.3s;
+        }
+        .expand-btn:hover { background: var(--gold); color: black; }
+
+        /* --- NEW: COMMUNITY SECTION --- */
+        .community-section {
+        padding: 80px 20px; background: #080808; display: flex; justify-content: center;
+        }
+        .community-card {
+        max-width: 800px; width: 100%;
+        border: 2px solid var(--gold); padding: 50px; text-align: center;
+        background: linear-gradient(135deg, #111 0%, #050505 100%);
+        box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
+        .comm-title { font-family: 'Cinzel Decorative', serif; color: var(--gold); font-size: 2rem; margin-bottom: 20px; }
+        .comm-text { color: #ccc; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; line-height: 1.6; margin-bottom: 30px; }
+        .comm-cta { color: white; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 5px; font-size: 1.1rem; transition: 0.3s; }
+        .comm-cta:hover { color: var(--gold); }
 
         /* === FOOTER WITH MENU === */
         footer.fine-arts-footer { background: #000; padding: 50px 20px; text-align: center; border-top: 1px solid #222; }
@@ -173,7 +215,7 @@
             .art-row, .art-row:nth-child(even) { flex-direction: column; text-align: left; gap: 30px; }
             .art-info, .art-row:nth-child(even) .art-info { border: none; border-top: 3px solid var(--gold); padding: 20px 0; }
             .archive-grid { column-count: 2; }
-            .ohiwan-card { width: auto; }
+            .ohiwan-card { width: autopx; height: 200px; }
         }
         @media (max-width: 480px) { .archive-grid { column-count: 1; } }
     </style>
@@ -413,6 +455,7 @@
     </script>
 </body>
 </html>
+
 
 
 
