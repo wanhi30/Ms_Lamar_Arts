@@ -75,14 +75,15 @@ body {
     line-height: 1.6;
 }
 
-/* --- 2. TIMELINE STRUCTURE --- */
 .timeline-wrapper {
     position: relative;
     padding: 80px 5%;
-    /* Gradient Background: Sepia to White */
     background: linear-gradient(to bottom, var(--sepia-bg) 0%, var(--sepia-bg) 40%, #ffffff 100%);
-    overflow: hidden;
+    
+    /* ADD THIS LINE TO FIX THE LEAK */
+    overflow: hidden; 
 }
+
 
 /* The Center Line */
 .timeline-line {
@@ -437,4 +438,116 @@ body {
     .activity-wrapper { flex-direction: column; text-align: center; }
     .activity-text { text-align: center; }
     .activity-list li { justify-content: center; }
+}
+
+/* --- PREMIUM ARTIST SECTION (Dark Mode) --- */
+.premium-dark-mode {
+    background-color: #0f0f0f; /* Deep Black */
+    padding: 100px 5%;
+    text-align: center;
+    border-top: 4px solid #D4AF37; /* Gold Border */
+    position: relative;
+    /* Optional: Add a subtle texture if you have one */
+    /* background-image: url('images/dark_texture.png'); */
+}
+
+.gold-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3rem;
+    color: #D4AF37; /* Gold */
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.gold-divider {
+    width: 100px;
+    height: 2px;
+    background: #D4AF37;
+    margin: 20px auto;
+}
+
+.silver-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: #e0e0e0; /* Silver */
+    font-style: italic;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Museum Grid Layout */
+.museum-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.frame {
+    padding: 10px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease;
+}
+
+.frame img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid #000;
+}
+
+/* Make the center image slightly larger */
+.center-frame {
+    transform: scale(1.1);
+    border-color: #D4AF37; /* Gold Border for center */
+    z-index: 2;
+}
+
+.frame:hover {
+    transform: scale(1.05);
+    border-color: #D4AF37;
+}
+
+.center-frame:hover {
+    transform: scale(1.15);
+}
+
+.artist-name {
+    font-family: 'Cinzel Decorative', serif;
+    color: #888;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+}
+
+.gold-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.gold-btn:hover {
+    background: #D4AF37;
+    color: #000;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .museum-grid { flex-direction: column; gap: 20px; }
+    .center-frame { transform: scale(1); }
+    .gold-title { font-size: 2rem; }
 }
