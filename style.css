@@ -452,6 +452,55 @@ header {
     background: white;
 }
 
+/* --- CRITICAL MOBILE FIXES (Paste at bottom of style.css) --- */
+
+/* 1. Fix the White Border / Side Scroll */
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden !important; /* Stops the side scrolling */
+    position: relative;
+}
+
+/* 2. Fix the Menu Button */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block !important; /* Force button to show */
+        font-size: 1.8rem;
+        cursor: pointer;
+        z-index: 100002; /* Sit on top of everything */
+        color: #1a1a1a; /* Make sure it's dark and visible */
+    }
+
+    /* 3. Fix the Dropdown Menu */
+    .nav-links {
+        position: fixed; /* Stick to screen, don't scroll away */
+        top: 60px; /* Below the header */
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        gap: 25px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        
+        /* HIDING STATE */
+        display: none; 
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+        z-index: 100001;
+    }
+
+    /* 4. SHOWING STATE (When JS adds 'active') */
+    .nav-links.active {
+        display: flex !important;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 
 
