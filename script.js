@@ -21,9 +21,15 @@ function closePreloader() {
     setTimeout(() => { preloader.style.display = 'none'; }, 500);
 }
 
-// --- MOBILE MENU TOGGLE ---
+// --- MOBILE MENU TOGGLE (Safe Version) ---
 function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active');
+    const nav = document.querySelector('.nav-links');
+    if (nav) {
+        nav.classList.toggle('active');
+        console.log("Menu clicked. Active class toggled.");
+    } else {
+        console.error("Error: .nav-links element not found!");
+    }
 }
 
 // --- HERO SLIDESHOW LOGIC ---
@@ -49,4 +55,5 @@ function showSlides() {
 
 // Start slideshow
 showSlides();
+
 
