@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ribbon Motion Test</title>
+    <title>Pakurrrrrrr Test</title>
     <link rel="stylesheet" href="gallery.css"> 
     
     <style>
@@ -18,12 +18,11 @@
         }
         .sphere-container { position: relative; transform-style: preserve-3d; }
 
-        /* --- IMAGES (Your Standard 40) --- */
+        /* --- IMAGES (Standard) --- */
         .gallery-item {
             position: absolute; top: 0; left: 0;
             transform-style: preserve-3d; backface-visibility: hidden;
-            /* Placeholder styling */
-            background: #222; border: 1px solid #444;
+            background: #222; 
         }
         .gallery-item img {
             width: 100%; height: 100%; object-fit: cover;
@@ -31,48 +30,41 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.9);
         }
 
-        /* --- THE NEW RIBBONS (The Extra Elements) --- */
-        .ribbon {
+        /* --- NEW: THE FUNKY TEXT ("Pakurrrrrrr") --- */
+        .funky-text {
             position: absolute; top: 0; left: 0;
-            width: 40px;   /* Wider like cloth */
-            height: 400px; /* Long and elegant */
-            opacity: 0.85;
-            backface-visibility: visible;
-            border-radius: 20px; /* Soft rounded ends */
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-            pointer-events: none; /* Let clicks pass through to images */
             
-            /* The "Wavy" Animation */
-            animation: clothWave 8s ease-in-out infinite alternate;
+            /* Typography Style */
+            font-family: 'Arial Black', 'Impact', sans-serif; /* Thick, blocky font */
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            white-space: nowrap; /* Keep it on one line */
+            
+            /* THE "POP" GRADIENT COLOR */
+            background: linear-gradient(to bottom, #ffd700 0%, #ff4d4d 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent; /* Hides the ink so gradient shows */
+            
+            /* Funky Shadows */
+            text-shadow: 4px 4px 0px rgba(255, 255, 255, 0.1); 
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+            
+            pointer-events: none; /* Let clicks pass through */
+            backface-visibility: visible;
+            
+            /* Animation: Floating */
+            animation: popFloat 4s ease-in-out infinite alternate;
         }
 
-        /* GOLD VARIANT */
-        .ribbon.gold {
-            /* Satin Gold Gradient */
-            background: linear-gradient(45deg, #b8860b, #ffd700, #b8860b, #DAA520);
-            background-size: 300% 300%;
-            animation: clothWave 7s ease-in-out infinite alternate, shimmer 5s linear infinite;
-        }
+        /* Make some text bigger/smaller for variety */
+        .funky-text.big { font-size: 4rem; z-index: 50; }
+        .funky-text.small { font-size: 1.5rem; opacity: 0.8; }
 
-        /* RED VARIANT */
-        .ribbon.red {
-            /* Satin Red Gradient */
-            background: linear-gradient(45deg, #500000, #b30000, #ff0000, #800000);
-            background-size: 300% 300%;
-            animation: clothWave 9s ease-in-out infinite alternate-reverse, shimmer 6s linear infinite;
-        }
-
-        /* Animation 1: Physical Waving */
-        @keyframes clothWave {
-            0% { transform: translateY(0) rotateX(0deg) skewX(0deg); }
-            50% { transform: translateY(-30px) rotateX(10deg) skewX(5deg); }
-            100% { transform: translateY(0) rotateX(0deg) skewX(-5deg); }
-        }
-
-        /* Animation 2: Light Shimmer (Makes it look like satin moving) */
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        @keyframes popFloat {
+            0% { transform: translateY(0) rotateZ(-5deg); }
+            100% { transform: translateY(-20px) rotateZ(5deg); }
         }
 
     </style>
@@ -84,7 +76,7 @@
             </div>
         
         <h1 style="position:absolute; bottom:50px; left:50px; color:#D4AF37; font-family:serif; font-size:2rem; pointer-events:none;">
-            Cloth Ribbon Test
+            Pakurrrrrrr Test
         </h1>
     </div>
 
@@ -101,19 +93,19 @@
             const div = document.createElement('div');
             div.className = 'gallery-item';
             
-            // Random Sizes (Pinterest Style)
+            // Random Sizes
             const r = Math.random();
             if(r < 0.4) { div.style.width='100px'; div.style.height='150px'; }
             else if(r < 0.7) { div.style.width='150px'; div.style.height='100px'; }
             else { div.style.width='120px'; div.style.height='120px'; }
 
             const img = document.createElement('img');
-            // Placeholder logic (Use your real files in production)
+            // Using placeholder logic again
             img.src = `images/untitled${(i % 17) + 1}.webp`; 
             img.onerror = function(){ this.style.backgroundColor = '#111'; }; 
             div.appendChild(img);
 
-            // Math for Sphere Position
+            // Math
             const phi = Math.acos(-1 + (2 * i) / totalImages);
             const theta = Math.sqrt(totalImages * Math.PI) * phi;
             const x = radius * Math.cos(theta) * Math.sin(phi);
@@ -124,31 +116,30 @@
             sphereContainer.appendChild(div);
         }
 
-        // --- STEP 2: ADD THE EXTRA RIBBONS ---
-        const totalRibbons = 12; // 6 Gold, 6 Red
+        // --- STEP 2: ADD "PAKURRRRRRR" TEXT ---
+        const totalText = 8; // Number of floating words
 
-        for (let i = 0; i < totalRibbons; i++) {
+        for (let i = 0; i < totalText; i++) {
             const div = document.createElement('div');
+            div.className = 'funky-text';
+            div.innerText = "Pakurrrrrrr";
             
-            // Alternate between Gold and Red
-            if (i % 2 === 0) {
-                div.className = 'ribbon gold';
-            } else {
-                div.className = 'ribbon red';
-            }
+            // Randomly make some BIG and some SMALL
+            if (i % 3 === 0) div.classList.add('big');
+            else if (i % 2 === 0) div.classList.add('small');
 
-            // Math for Sphere Position (Different seed so they don't overlap images perfectly)
-            // We multiply index by a prime number (e.g., 7) to scatter them randomly
-            const phi = Math.acos(-1 + (2 * i) / totalRibbons);
-            const theta = Math.sqrt(totalRibbons * Math.PI * 3) * phi; // *3 makes them scatter wide
+            // Math (Scattered randomly)
+            const phi = Math.acos(-1 + (2 * i) / totalText);
+            const theta = Math.sqrt(totalText * Math.PI * 4) * phi; 
             
-            // Push them slightly further out (radius + 50) so they float BEHIND or FRONT of images
-            const r = radius + 20; 
+            // Push them out slightly wider than images (radius + 80)
+            const r = radius + 80; 
             const x = r * Math.cos(theta) * Math.sin(phi);
             const y = r * Math.sin(theta) * Math.sin(phi);
             const z = r * Math.cos(phi);
 
-            // Add preserve-3d to keep the ribbon orientation logic
+            // Note: We use 'translate3d' but we DO NOT rotate the text fully
+            // This keeps the text somewhat readable while it spins
             div.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${theta}rad) rotateX(${phi}rad)`;
             
             sphereContainer.appendChild(div);
