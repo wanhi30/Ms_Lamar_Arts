@@ -43,7 +43,7 @@
         
         .gallery-item img {
             width: auto; height: 100%; object-fit: contain;
-            border: 2px solid var(212, 175, 55, 0.3);
+            border: 5px solid var(212, 175, 55, 0.3);
             box-shadow: 0 0 20px rgba(0,0,0,0.9);
             display: block; pointer-events: none;
             transition: transform 0.4s ease, border-color 0.4s, box-shadow 0.4s, filter 0.4s;
@@ -64,6 +64,12 @@
             position: absolute; bottom: 60px; left: 60px; 
             text-align: left; pointer-events: none; z-index: 10;
             text-shadow: 0 0 30px black;
+            background: rgba(0, 0, 0, 0.6); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 20px 30px;
+            border-left: 3px solid var(--gold);
+            border-radius: 4px;
         }
         .ht-top { font-family: 'Cormorant Garamond', serif; color: #C0C0C0; font-size: 1.1rem; letter-spacing: 2px; font-style: italic; }
         .ht-main {
@@ -414,6 +420,7 @@
     </script>
 </body>
 </html>
+
 
 
 
