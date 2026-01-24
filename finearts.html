@@ -135,15 +135,15 @@
         /* === SECTION 7: OHIWAN LAMAR (Side Swipe) === */
         .ohiwan-section { padding: 80px 0; background: #050505; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
         .ohiwan-scroll-container {
-            display: flex; overflow-x: auto; gap: 30px; padding: 0 5%;
+            display: flex; overflow-x: auto; gap: 70px; padding: 0 5%;
             scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
         }
         
         .ohiwan-card {
-            flex: 0 0 auto; width: auto; height: 260px; scroll-snap-align: center;
+            flex: 0 0 auto; width: 400; height: 260px; scroll-snap-align: center;
             border: 1px solid #333; position: relative; transition: 0.3s;
         }
-        .ohiwan-card img { width: autopx; height: 260pxpx; object-fit: cover; display: block; filter: sepia(30%); }
+        .ohiwan-card img { width: auto; height: 260px; object-fit: cover; display: block; filter: sepia(30%); }
         .ohiwan-card:hover { transform: scale(1.02); border-color: var(--gold); }
         .ohiwan-card:hover img { filter: sepia(0%); }
 
@@ -239,8 +239,7 @@
     </div>
 
     <section class="curator-mini">
-        <p>"A curated collection of printmaking, painting, and sculpture by Meghalaya artists — Ohiwan Lamar, Wanhi i Challam, Sanikawan Challam and more.</p>
-        </p>Drawing from the folklore and landscapes of the Meghalaya hills, these works bridge ancient tradition and the contemporary world to reflect the vivid identity of Meghalaya and Northeast India."</p>
+        <p>"A curated collection of printmaking, painting, and sculpture by Meghalaya artists — Ohiwan Lamar, Wanhi i Challam, Sanikawan Challam and more. Drawing from the folklore and landscapes of the Meghalaya hills, these works bridge ancient tradition and the contemporary world to reflect the vivid identity of Meghalaya and Northeast India."</p>
     </section>
 
     <section class="spotlight-section">
@@ -278,6 +277,9 @@
         </div>
         <div class="archive-grid" id="grid-collections">
             </div>
+    <div class="expand-zone">
+        <button class="expand-btn" onclick="toggleGrid('grid-collections', this)">View Full Collection</button>
+    </div>
     </section>
 
     <section class="archive-section" style="background: #050505;">
@@ -287,6 +289,10 @@
         </div>
         <div class="archive-grid" id="grid-portraits">
             </div>
+    <div class="expand-zone">
+        <button class="expand-btn" onclick="toggleGrid('grid-collections', this)">View Full Collection</button>
+    </div>
+        
     </section>
 
     <section class="archive-section">
@@ -296,6 +302,9 @@
         </div>
         <div class="archive-grid" id="grid-landscapes">
             </div>
+    <div class="expand-zone">
+        <button class="expand-btn" onclick="toggleGrid('grid-collections', this)">View Full Collection</button>
+    </div>
     </section>
 
     <section class="ohiwan-section">
@@ -306,7 +315,19 @@
         <div class="ohiwan-scroll-container" id="swipe-ohiwan">
             </div>
     </section>
+                
+<section class="community-section">
+    <div class="community-card">
+        <h2 class="comm-title">Empowering Artists</h2>
+        <p class="comm-text">
+            Lamar Arts is committed to uplifting the artistic community. We actively support young and aspiring artists looking to build their careers.<br><br>
+            <strong>Collaborate & Network:</strong> We invite proposals for art projects and collaborative ventures.
+        </p>
+        <a href="mailto:lamararts123@gmail.com" class="comm-cta">Get in Touch: lamararts123@gmail.com</a>
+    </div>
+</section>
 
+                
     <footer class="fine-arts-footer">
         <ul class="footer-menu">
             <li><a href="index.html">Home</a></li>
@@ -348,6 +369,13 @@
                 zoomOverlay.classList.add('active');
             };
             return div;
+        }
+
+        // --- EXPAND FUNCTION ---
+        function toggleGrid(gridId, button) {
+        const grid = document.getElementById(gridId);
+        grid.classList.add('expanded'); // Removes the height limit
+        button.style.display = 'none';  // Hides the button
         }
 
         // --- 1. FILL THE GRIDS AUTOMATICALLY ---
@@ -455,6 +483,7 @@
     </script>
 </body>
 </html>
+
 
 
 
