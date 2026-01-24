@@ -402,6 +402,55 @@ a.card:hover .card-overlay {
 
 .card-sticker { background-image: url('images/card_sticker.jpg'); }
 
+/* --- PASTE AT THE VERY BOTTOM OF style.css --- */
+
+/* 1. Force the Menu Button to be visible and clickable on Mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block !important;
+        font-size: 1.8rem;
+        cursor: pointer;
+        z-index: 100002; /* Top priority */
+        color: var(--dark); /* Ensure it's visible against white */
+    }
+
+    /* Fix the menu dropdown */
+    .nav-links {
+        position: fixed;
+        top: 60px; /* Below the header */
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        gap: 30px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 100001;
+        /* Ensure it is hidden until clicked */
+        display: none; 
+    }
+
+    /* This class is added by script.js when you click */
+    .nav-links.active {
+        display: flex !important;
+    }
+}
+
+/* 2. Global Overflow Fix (Stops side scrolling on all pages) */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden !important;
+    position: relative;
+}
+
+/* 3. Ensure Header is always on top */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100000 !important;
+    background: white;
+}
 
 
 
