@@ -65,17 +65,19 @@
         .hero-title-corner {
             position: absolute; bottom: 60px; left: 60px; 
             text-align: left; pointer-events: none; z-index: 10;
-            text-shadow: 0 0 30px black;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.8));
         }
-        .ht-top { font-family: 'Cormorant Garamond', serif; color: #C0C0C0; font-size: 1.1rem; letter-spacing: 2px; font-style: italic; }
+        .ht-top { font-family: 'Cormorant Garamond', serif; color: #C0C0C0; font-size: 1.1rem; letter-spacing: 2px; font-style: italic; text-shadow: 0 2px 4px rgba(0,0,0,0.9); }
         .ht-main {
             font-family: 'Cinzel Decorative', serif; font-size: 3.5rem;
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728);
             -webkit-background-clip: text; color: transparent;
             margin: 5px 0; line-height: 1;
-            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+            filter: drop-shadow(0 2px 0px rgba(0,0,0,1)) drop-shadow(0 0 20px rgba(0,0,0,0.8));
         }
-        .ht-sub { font-family: 'Inter', sans-serif; color: #C0C0C0; font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; }
+        .ht-sub { font-family: 'Inter', sans-serif; color: #C0C0C0; font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.4); /* Optional: semi-transparent box behind just this line */
+            padding: 2px 5px; /* Padding for the box */ }
 
         .drag-hint {
             position: absolute; bottom: 20px; width: 100%; text-align: center;
@@ -507,6 +509,7 @@ function toggleGrid(gridId, btn) {
     </script>
 </body>
 </html>
+
 
 
 
