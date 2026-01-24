@@ -37,8 +37,11 @@
             position: absolute; top: 0; left: 0;
             transform-origin: center center;
             transform-style: preserve-3d;
-            cursor: pointer; backface-visibility: hidden;
-            transition: z-index 0s; 
+            backface-visibility: hidden;
+            /* Emergency Border: If image breaks, you see a gold box */
+            border: 2px solid var(--gold); 
+            background: rgba(20, 20, 20, 0.5);
+            width: 120px; height: 120px
         }
         
         .gallery-item img {
@@ -411,6 +414,7 @@
     </script>
 </body>
 </html>
+
 
 
 
