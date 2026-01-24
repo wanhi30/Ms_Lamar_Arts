@@ -3,164 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pakurrrrrrr Test</title>
-    <link rel="stylesheet" href="gallery.css"> 
+    <title>Contact Us | M/s LAMAR ART's</title>
     
-    <style>
-        /* --- DARK BACKGROUND --- */
-        body { margin: 0; background: #050505; overflow: hidden; height: 100vh; }
-        
-        #sphere-hero {
-            position: relative; width: 100%; height: 100%;
-            display: flex; align-items: center; justify-content: center;
-            perspective: 1200px;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 90%);
-        }
-        .sphere-container { position: relative; transform-style: preserve-3d; }
-
-        /* --- IMAGES (Standard) --- */
-        .gallery-item {
-            position: absolute; top: 0; left: 0;
-            transform-style: preserve-3d; backface-visibility: hidden;
-            background: #222; 
-        }
-        .gallery-item img {
-            width: 100%; height: 100%; object-fit: cover;
-            border: 2px solid #D4AF37; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
-        }
-
-        /* --- NEW: THE FUNKY TEXT ("Pakurrrrrrr") --- */
-        .funky-text {
-            position: absolute; top: 0; left: 0;
-            
-            /* Typography Style */
-            font-family: 'Arial Black', 'Impact', sans-serif; /* Thick, blocky font */
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            white-space: nowrap; /* Keep it on one line */
-            
-            /* THE "POP" GRADIENT COLOR */
-            background: linear-gradient(to bottom, #ffd700 0%, #ff4d4d 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent; /* Hides the ink so gradient shows */
-            
-            /* Funky Shadows */
-            text-shadow: 4px 4px 0px rgba(255, 255, 255, 0.1); 
-            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
-            
-            pointer-events: none; /* Let clicks pass through */
-            backface-visibility: visible;
-            
-            /* Animation: Floating */
-            animation: popFloat 4s ease-in-out infinite alternate;
-        }
-
-        /* Make some text bigger/smaller for variety */
-        .funky-text.big { font-size: 4rem; z-index: 50; }
-        .funky-text.small { font-size: 1.5rem; opacity: 0.8; }
-
-        @keyframes popFloat {
-            0% { transform: translateY(0) rotateZ(-5deg); }
-            100% { transform: translateY(-20px) rotateZ(5deg); }
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div id="sphere-hero">
-        <div class="sphere-container" id="sphere">
-            </div>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="Lamar Arts Logo" class="logo-icon">
+                <span class="logo-text">M/s LAMAR ART's</span>
+            </a>
+            <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1>Let's Start A Project</h1>
+            <p>Ready to print? Have a question? We are here to help.</p>
+        </div>
+    </section>
+
+    <div class="contact-wrapper">
         
-        <h1 style="position:absolute; bottom:50px; left:50px; color:#D4AF37; font-family:serif; font-size:2rem; pointer-events:none;">
-            Pakurrrrrrr Test
-        </h1>
+        <div class="contact-info">
+            <h2 class="section-heading">Visit Our Stores</h2>
+            <p class="sub-heading">Serving Jowai from two convenient locations.</p>
+
+            <div class="location-card">
+                <div class="icon-box"><i class="fas fa-gas-pump"></i></div>
+                <div class="loc-details">
+                    <h3>Newhill Branch (Main)</h3>
+                    <p>Loomsooiung Jowai, West Jaintia Hills, Meghalaya - 793150</p>
+                    <span class="landmark"><i class="fas fa-map-pin"></i> Near Petrol Pump</span>
+                    <a href="https://goo.gl/maps/YOUR_MAP_LINK_HERE" target="_blank" class="direction-link">Get Directions &rarr;</a>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="icon-box"><i class="fas fa-building"></i></div>
+                <div class="loc-details">
+                    <h3>Iawmusiang Branch</h3>
+                    <p>Iawmusiang Jowai, West Jaintia Hills, Meghalaya - 793150</p>
+                    <span class="landmark"><i class="fas fa-map-pin"></i> Opp. Iaphi Complex Building</span>
+                    <a href="https://goo.gl/maps/YOUR_MAP_LINK_HERE" target="_blank" class="direction-link">Get Directions &rarr;</a>
+                </div>
+            </div>
+
+            <div class="direct-channels">
+                <div class="channel">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 98623 30569</span>
+                </div>
+                <div class="channel">
+                    <i class="fas fa-envelope"></i>
+                    <span>lamararts123@gmail.com</span>
+                </div>
+                <div class="social-row">
+                    <a href="https://www.facebook.com/profile.php?id=61570825532138" class="soc-btn fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/__lamararts__" class="soc-btn insta"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <h2 class="section-heading">Quick Inquiry</h2>
+            <p class="sub-heading">Send us a message and we'll get back to you.</p>
+
+            <form id="whatsappForm" onsubmit="sendToWhatsapp(event)">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+91..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Interested In</label>
+                    <select id="service">
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Flex/Banner">Flex & Banners</option>
+                        <option value="Signboard">Signboard/Glowsign</option>
+                        <option value="Engraving">Stone Engraving</option>
+                        <option value="Stamps">Rubber Stamps</option>
+                        <option value="Merchandise">T-Shirts/Gifts</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="message" rows="4" placeholder="Tell us about your requirements..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+            </form>
+        </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.326261274643!2d92.196!3d25.44!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI2JzI0LjAiTiA5MsKwMTEnNDUuNiJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4><i class="fas fa-map-marker-alt"></i> Visit Us</h4>
+                <div class="address-box">M/s Lamar Arts Newhill, Jowai</div>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>9862330569 | lamararts123@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">© 2026 M/s Lamar Art's.</div>
+    </footer>
+
+    <script src="script.js"></script>
     <script>
-        const sphereContainer = document.getElementById('sphere');
-        const radius = 550; 
-        
-        // --- STEP 1: ADD YOUR 40 IMAGES ---
-        const totalImages = 40;
-        
-        for (let i = 1; i <= totalImages; i++) {
-            const div = document.createElement('div');
-            div.className = 'gallery-item';
+        // Simple Script to send form data to WhatsApp
+        function sendToWhatsapp(e) {
+            e.preventDefault();
             
-            // Random Sizes
-            const r = Math.random();
-            if(r < 0.4) { div.style.width='100px'; div.style.height='150px'; }
-            else if(r < 0.7) { div.style.width='150px'; div.style.height='100px'; }
-            else { div.style.width='120px'; div.style.height='120px'; }
-
-            const img = document.createElement('img');
-            // Using placeholder logic again
-            img.src = `images/untitled${(i % 17) + 1}.webp`; 
-            img.onerror = function(){ this.style.backgroundColor = '#111'; }; 
-            div.appendChild(img);
-
-            // Math
-            const phi = Math.acos(-1 + (2 * i) / totalImages);
-            const theta = Math.sqrt(totalImages * Math.PI) * phi;
-            const x = radius * Math.cos(theta) * Math.sin(phi);
-            const y = radius * Math.sin(theta) * Math.sin(phi);
-            const z = radius * Math.cos(phi);
-
-            div.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${theta}rad) rotateX(${phi}rad)`;
-            sphereContainer.appendChild(div);
+            let name = document.getElementById('name').value;
+            let service = document.getElementById('service').value;
+            let message = document.getElementById('message').value;
+            
+            let url = `https://wa.me/919862330569?text=Hi%20Lamar%20Arts,%20my%20name%20is%20${name}.%20I%20am%20interested%20in%20${service}.%20${message}`;
+            
+            window.open(url, '_blank');
         }
-
-        // --- STEP 2: ADD "PAKURRRRRRR" TEXT ---
-        const totalText = 8; // Number of floating words
-
-        for (let i = 0; i < totalText; i++) {
-            const div = document.createElement('div');
-            div.className = 'funky-text';
-            div.innerText = "Pakurrrrrrr";
-            
-            // Randomly make some BIG and some SMALL
-            if (i % 3 === 0) div.classList.add('big');
-            else if (i % 2 === 0) div.classList.add('small');
-
-            // Math (Scattered randomly)
-            const phi = Math.acos(-1 + (2 * i) / totalText);
-            const theta = Math.sqrt(totalText * Math.PI * 4) * phi; 
-            
-            // Push them out slightly wider than images (radius + 80)
-            const r = radius + 80; 
-            const x = r * Math.cos(theta) * Math.sin(phi);
-            const y = r * Math.sin(theta) * Math.sin(phi);
-            const z = r * Math.cos(phi);
-
-            // Note: We use 'translate3d' but we DO NOT rotate the text fully
-            // This keeps the text somewhat readable while it spins
-            div.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${theta}rad) rotateX(${phi}rad)`;
-            
-            sphereContainer.appendChild(div);
-        }
-
-        // --- ANIMATION ---
-        let rotX = 0, rotY = 0, isDragging = false, startX, startY;
-        const hero = document.getElementById('sphere-hero');
-
-        hero.addEventListener('mousedown', (e) => { isDragging=true; startX=e.clientX; startY=e.clientY; });
-        window.addEventListener('mouseup', () => { isDragging=false; });
-        window.addEventListener('mousemove', (e) => {
-            if(!isDragging) return;
-            const dx = e.clientX - startX; const dy = e.clientY - startY;
-            rotY += dx * 0.15; rotX -= dy * 0.15;
-            gsap.to(sphereContainer, { rotationY: rotY, rotationX: rotX, duration: 0.8 });
-            startX = e.clientX; startY = e.clientY;
-        });
-
-        gsap.to(sphereContainer, { rotationY: "+=360", rotationX: "-=360", duration: 120, repeat: -1, ease: "none" });
-
     </script>
 </body>
 </html>
