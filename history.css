@@ -27,6 +27,44 @@ body {
     position: relative;
 }
 
+/* --- MOBILE RESPONSIVENESS FIXES --- */
+@media (max-width: 768px) {
+    
+    /* 1. Shrink the Main Hero Title ("The Ink & The Stone") */
+    .hero-overlay h1 {
+        font-size: 2rem; /* Reduced from 3.5rem */
+        line-height: 1.3;
+    }
+
+    /* 2. Shrink the "Our Story" tag */
+    .chapter-tag {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    /* 3. Adjust the sub-text */
+    .hero-overlay .hero-sub {
+        font-size: 1rem;
+    }
+
+    /* 4. Make the Quote fit better */
+    .intro-quote {
+        font-size: 1.2rem; /* Smaller quote text */
+        line-height: 1.5;
+    }
+
+    /* 5. Adjust Chapter Headings (e.g., "The Origin") */
+    .chapter h2 {
+        font-size: 1.8rem; /* Smaller chapter titles */
+    }
+
+    /* 6. Ensure the Hero height adjusts to fit content */
+    .history-hero {
+        height: auto;
+        min-height: 60vh;
+        padding: 60px 0;
+    }
+}
 .history-hero::before {
     content: '';
     position: absolute;
@@ -551,3 +589,4 @@ body {
     .center-frame { transform: scale(1); }
     .gold-title { font-size: 2rem; }
 }
+
